@@ -1,0 +1,30 @@
+.navbar-default {
+	border-width: 0;
+	font-size: 1.8rem;
+}
+
+.navbar-nav {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.dropdown {
+	&:hover {
+		.dropdown-menu {
+			@media (min-width: 768px) {
+				display: block;
+			}
+		}
+	}
+}
+
+.dropdown-menu {
+	font-size: 1.8rem;
+	padding: 0;
+	border: 0 none;
+	> li {
+		> a {
+			padding: 8px 20px;
+		}
+	}
+}

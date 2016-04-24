@@ -1,0 +1,71 @@
+body {
+	font-family: 'Alegreya', Cambria, Georgia, "Times New Roman", Times, serif;
+	font-size: 1.6rem;
+}
+
+.wrap {
+	background-color: $content-bg;
+	font-family: 'Alegreya Sans', Georgia, "Times New Roman", Times, serif;
+
+}
+.page-header {
+	h1 {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		border: 1px solid $body-bg;
+		text-align: center;
+		color: $heading-color;
+		padding: 0.4rem;
+		background-color: $heading-bg;
+		font-family: 'Alegreya', Cambria, Georgia, "Times New Roman", Times, serif;
+	}
+}
+
+
+.page {
+	h2 {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		border: 1px solid $body-bg;
+		text-align: center;
+		color: $heading-color;
+		padding: 0.4rem;
+		background-color: $heading-bg;
+		font-family: 'Alegreya', Cambria, Georgia, "Times New Roman", Times, serif;
+	}
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h2 {
+	font-size: 1.9rem;
+}
+
+h3 {
+	font-size: 1.8rem;
+}
+
+h4 {
+	font-size: 1.7rem;
+}
+
+a {
+	@extend .transition;
+	&:hover, &:active, &:focus {
+		outline: 0;
+	}
+}
+
+.menu {
+	a {
+		display: block;
+	}
+	li {
+		list-style: none;
+	}
+	.sub-menu {
+		padding-left: 2rem;
+	}
+}
