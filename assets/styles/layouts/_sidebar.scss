@@ -1,6 +1,9 @@
 .sidebar {
 	padding-top: 2rem;
 	padding-bottom: 2rem;
+	h2 {
+		margin-top: 0;
+	}
 	.widget {
 		padding-bottom: 2rem;
 	}
@@ -19,6 +22,10 @@
 			color: $heading-bg;
 			backface-visibility: hidden;
 			transform: translateZ(0);
+			background-image: url("../images/logo.svg");
+			background-repeat: no-repeat;
+			background-position: -100% 50%;
+			background-size: auto 20px;
 
 			&:before {
 				position: absolute;
@@ -34,6 +41,7 @@
 			&:hover, &:active, &:focus {
 				color: #fff;
 				color: $body-bg;
+				//background-position: 2.5rem 50%;
 
 				&:before {
 					right: 2rem;
@@ -45,9 +53,9 @@
 			a {
 				color: #fff;
 				color: $body-bg;
-
-				&:before {
-					right: 2rem;
+				background-position: 2rem 50%;
+				&:hover {
+					background-image: none;
 				}
 			}
 		}

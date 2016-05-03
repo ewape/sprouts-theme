@@ -11,7 +11,9 @@
     "twentytwenty": "*",
     "magnific-popup": "^1.1.0",
     "font-awesome": "fontawesome#^4.5.0",
-    "hover": "Hover#^2.0.2"
+    "hover": "Hover#^2.0.2",
+    "wow": "^1.1.2",
+    "animate.css": "^3.5.1"
   },
   "overrides": {
     "bootstrap-sass": {

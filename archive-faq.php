@@ -1,16 +1,14 @@
 <?php get_template_part('templates/page', 'header'); ?>
+<p>Zbiór często zadawanych pytań dotyczących hodowli kiełków.</p>
 <?php while (have_posts()) : the_post(); ?>
   <article <?php post_class(); ?>>
     <div class="entry-content">
-    	<h3 class="entry-title acordion-header">
-            <?php the_title(); ?>
+    	<h3 class="entry-title accordion-header">
+            <?php the_title(); ?> <i class="fa fa-caret-right"></i>
         </h3>
-        <div class="acordion-content">
+        <div class="accordion-content">
             <?php the_content(); ?>
         </div>
     </div>
-    <footer>
-      <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
-    </footer>
   </article>
 <?php endwhile; ?>

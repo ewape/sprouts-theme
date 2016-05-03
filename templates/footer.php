@@ -2,9 +2,8 @@
   <div class="container">
   	<div class="row">
      <?php dynamic_sidebar('sidebar-footer'); ?>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-       <div id="fb-root"></div>
- </div>
+    </div>
+  </div>
 </footer>
 <footer class="footer-bottom">
   <div class="container">
@@ -23,3 +22,5 @@
     </div>
   </div>
 </footer>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+

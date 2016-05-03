@@ -1,4 +1,3 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6,14 +5,17 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "X-Generator: Poedit 1.8.7\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: pl_PL\n"
 
 #: 404.php:4
 msgid "Sorry, but the page you were trying to view does not exist."
-msgstr ""
+msgstr "Przepraszamy, strona którą próbujesz otworzyć nie istnieje."
 
 #: base.php:14
 msgid ""
@@ -27,11 +29,11 @@ msgstr ""
 
 #: index.php:5 search.php:5
 msgid "Sorry, no results were found."
-msgstr ""
+msgstr "Brak wyników wyszukiwania."
 
 #: lib/extras.php:31
 msgid "Continued"
-msgstr ""
+msgstr "więcej"
 
 #: lib/setup.php:30
 msgid "Primary Navigation"
@@ -43,19 +45,19 @@ msgstr ""
 
 #: lib/setup.php:66
 msgid "Footer"
-msgstr ""
+msgstr "Stopka"
 
 #: lib/titles.php:13
 msgid "Latest Posts"
-msgstr ""
+msgstr "Najnowsze wpisy"
 
 #: lib/titles.php:18
 msgid "Search Results for %s"
-msgstr ""
+msgstr "Wyniki wyszukiwania %s"
 
 #: lib/titles.php:20
 msgid "Not Found"
-msgstr ""
+msgstr "Nie odnaleziono"
 
 #: templates/comments.php:9
 msgctxt "comments title"
@@ -63,26 +65,27 @@ msgid "One response to &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s responses to &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 #: templates/comments.php:19
 msgid "&larr; Older comments"
-msgstr ""
+msgstr "&larr; Starsze komentarze"
 
 #: templates/comments.php:22
 msgid "Newer comments &rarr;"
-msgstr ""
+msgstr "Nowsze komentarze  &rarr;"
 
 #: templates/comments.php:31
 msgid "Comments are closed."
-msgstr ""
+msgstr "Komentarze są zamknięte."
 
 #: templates/content-page.php:2 templates/content-single.php:11
 msgid "Pages:"
-msgstr ""
+msgstr "Strony:"
 
 #: templates/entry-meta.php:2
 msgid "By"
-msgstr ""
+msgstr "Autor:"
 
 #. Theme Name of the plugin/theme
 msgid "Sage Starter Theme"

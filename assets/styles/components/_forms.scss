@@ -8,12 +8,21 @@
 }
 .search-form .search-field {
   @extend .form-control;
+  border-color: $body-bg;
+  background-color: $heading-bg;
 }
 .search-form .search-submit {
   @extend .btn;
-  @extend .btn-default;
+  @extend .btn-accent-dark;
 }
 
 .btn {
 	@extend .transition;
 }
+
+.search-form {
+	.search-field, .search-submit {
+		height: 32px;
+	}
+}
+

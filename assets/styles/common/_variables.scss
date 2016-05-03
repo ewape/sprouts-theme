@@ -10,10 +10,11 @@ $sidebar-sm-columns:    4;
 
 $body-bg: #cc9e54;
 $body-color: #52442E;
+
 $content-bg: #fcdba4;
 
 $menu-bg: #a9b45c;
-$menu-color: #F7FFEA;
+$menu-color: #f7ffea;
 $menu-active-color: #f9fbc3;
 
 $menu-side-bg: #ffffcc;
@@ -23,13 +24,16 @@ $heading-color: #8f6a2c;
 
 $footer-bg: #52442E;
 
-$btn-accent: #ffae1a;
+$accent-light: #ffae1a;
 
+$accent-dark: #FF5722;
+
+$logo-fill: #CBEC98;
 //test
 
-$menu-bg: #77bd3e;// #61A949;
+$menu-bg: #6AB42F;// #77bd3e;// #61A949;
 $content-bg: #FFF1DA;
-$body-bg: #fcdba4; //darken($content-bg, 35%);
+//$body-bg: #fcdba4; //darken($content-bg, 35%);
 $heading-bg: lighten($content-bg, 5%);
 
 
@@ -94,6 +98,10 @@ $btn-default-bg:                 $menu-bg !default;
 $btn-default-border:             darken($menu-bg, 5%) !default;
 
 $input-border: $menu-bg;
+
+$alert-warning-bg: $heading-bg;
+$alert-warning-border: $accent-dark;
+$alert-warning-text: $accent-dark;
 
 $page-header-border-color: transparent;
 

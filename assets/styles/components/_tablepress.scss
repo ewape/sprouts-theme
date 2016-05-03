@@ -1,0 +1,45 @@
+.tablepress {
+	tfoot, thead {
+	 	th {
+	 		background-color: $body-bg;
+	 		color: #fff;
+	 		font-weight: 300;
+	 	}
+	}
+
+	tbody {
+		td {
+			border-color: $body-bg;
+		}
+	}
+
+	.sorting_desc, .sorting_asc, .sorting:hover {
+		background-color: $footer-bg;
+	}
+
+	td, th {
+		padding: 3px 8px;
+	}
+
+	.odd {
+		td {
+			background-color: transparent;
+		}
+	}
+
+	.even {
+		td {
+			background-color: $heading-bg;
+		}
+	}
+
+	.row-hover {
+		tr {
+			&:hover {
+				td {
+					background-color: rgba(#fff, 0.7);
+				}
+			}
+		}
+	}
+}

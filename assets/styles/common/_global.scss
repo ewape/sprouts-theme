@@ -4,6 +4,8 @@ body {
 	padding-top: 38px;
 	color: $body-color;
 	font-weight: 300;
+	background-color: $body-bg;
+	text-rendering: optimizeLegibility;
 }
 
 .wrap {
@@ -19,6 +21,14 @@ body {
 	padding-bottom: 2rem;
 	h2 {
 		margin-top: 3rem;
+	}
+	a:not(.btn) {
+		font-weight: 400;
+		text-decoration: underline;
+
+		&:hover {
+			color: $accent-dark;
+		}
 	}
 }
 
@@ -36,7 +46,7 @@ body {
 }
 
 
-.page, .single-kielki {
+.page-template-default, .single-kielki, .sidebar {
 	h2 {
 		margin-bottom: 1rem;
 		border: 1px solid $body-bg;
@@ -45,6 +55,10 @@ body {
 		padding: 0.4rem;
 		background-color: $heading-bg;
 	}
+}
+
+h1, h2, h3, h4, h5 {
+	clear: both;
 }
 
 h1 {
@@ -70,6 +84,12 @@ a {
 	}
 }
 
+hr {
+	clear: both;
+	border-top: 1px dashed $body-bg;
+	margin-bottom: 1rem;
+}
+
 .menu {
 	a {
 		display: block;
@@ -80,4 +100,8 @@ a {
 	.sub-menu {
 		padding-left: 2rem;
 	}
+}
+
+.wow {
+   visibility: hidden;
 }

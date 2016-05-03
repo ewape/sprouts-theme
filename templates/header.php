@@ -1,5 +1,6 @@
 <header class="banner " role="banner">
  <div class="navbar navbar-default container">
+  <div>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only"><?= __('Toggle navigation', 'sage'); ?></span>
@@ -26,5 +27,6 @@
       endif;
       ?>
     </nav>
+    </div>
   </div>
 </header>

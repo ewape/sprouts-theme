@@ -83,6 +83,9 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
                 <a target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
                     <?php the_title(); ?>
                 </a>
+                <?php if (books_cat($post->ID, 'Gratis')): ?>
+                    <span class="gratis-label">Gratis!</span>
+                <?php endif; ?>
             </h2>
             <h3 class="author">
                 <?php bookstore_post_author($post->ID) ?>
@@ -91,7 +94,7 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
 
             <?php if (bookstore_free_url($post->ID)): ?>
 
-                <a class="btn btn-free-url hvr-icon-pulse" target="_blank" href="<?php echo bookstore_free_url($post->ID) ?>" title="">
+                <a class="btn btn-accent-light hvr-icon-pulse" target="_blank" href="<?php echo bookstore_free_url($post->ID) ?>" title="">
 
                     <?php if (books_cat($post->ID, 'Gratis')): ?>
                         Pobierz darmowy ebook

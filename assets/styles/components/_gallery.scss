@@ -38,11 +38,14 @@
 
 .gallery-caption {
     position: absolute;
-    bottom: 0;
-    right: 10px;
-    left: 10px;
-    background-color: rgba($menu-color, 0.8);
+    bottom: 2px;
+    right: 12px;
+    left: 12px;
+    background-color: rgba($menu-bg, 0.8);
     color: #fff;
+    font-size: 1.4rem;
+    line-height: 1;
+    opacity: 0;
     @extend .transition;
 }
 
@@ -137,6 +140,10 @@
 		min-width: 33.3333333333%;
 	}
 
+    @media (max-width: 767px) {
+        min-width: 25%;
+    }
+
 	@media (max-width: 600px) {
 		min-width: 50%;
 	}
@@ -156,8 +163,7 @@
 			}
 		}
 		.gallery-caption {
-			top: 100%;
-			bottom: auto;
+            opacity: 1;
 		}
 	}
 
@@ -166,4 +172,11 @@
 		height: auto;
 
 	}
+}
+
+.thumb {
+    &:hover {
+        opacity: 0.8;
+        @extend .transition;
+    }
 }

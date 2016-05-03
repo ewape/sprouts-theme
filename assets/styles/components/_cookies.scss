@@ -1,0 +1,25 @@
+#cookies-message-container {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: rgba(darken($footer-bg, 15%), 0.95);
+	color: #fff;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+
+	.btn {
+		float: right;
+		clear: both;
+	}
+}
+
+#cookies-message {
+	font-size: 1.4rem;
+}
+
+.cookies-link {
+	a {
+		color: $body-bg;
+	}
+}

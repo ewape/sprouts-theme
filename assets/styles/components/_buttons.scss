@@ -1,31 +1,90 @@
 .like-buttons {
 	text-align: right;
-	margin-top: 2rem;
+	clear: both;
+	margin: 2rem 0;
 }
 
-.btn-free-url {
-	background-color: $btn-accent;
+.btn {
 	color: #fff;
-	border-color: darken($btn-accent, 10%);
-	&:hover, &:active, &:focus {
-		background-color: darken($btn-accent, 10%);
-		border-color: darken($btn-accent, 20%);
-	}
-}
+	text-decoration: none;
+	-webkit-backface-visibility: hidden;
+	background-position: 0;
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.3);
+	@extend .transition;
 
-.more-link, .btn-free-url {
-	.fa {
-		@extend .transition;
-	}
-	&:hover {
+	&:hover, &:active, &:focus {
+		color: #fff;
 		.fa {
 			transform: scale(1.2);
 		}
 	}
+
+	.fa {
+		@extend .transition;
+	}
+}
+
+@mixin button($color) {
+	background-color: $color;
+	border-color: darken($color, 8%);
+	background: linear-gradient($color, $color);
+	text-shadow: 0 1px 1px darken($color, 10%);
+
+	&:hover, &:active, &:focus {
+		background-color: darken($color, 10%);
+		border-color: darken($color, 15%);
+		background: linear-gradient($color, darken($color, 9%));
+	}
+}
+
+.btn-default {
+	@include button($menu-bg);
+	/*
+	background-color: $menu-bg;
+	border-color: darken($menu-bg, 10%);
+	background: linear-gradient($menu-bg, $menu-bg);
+	text-shadow: 0 1px 1px darken($menu-bg, 10%);
+	&:hover, &:active, &:focus {
+		background-color: darken($menu-bg, 10%);
+		border-color: darken($menu-bg, 15%);
+		background: linear-gradient($menu-bg, darken($menu-bg, 5%));
+	}
+	*/
+}
+
+.btn-accent-light {
+	@include button($accent-light);
+	/*
+	background-color: $accent-light;
+	border-color: darken($accent-light, 10%);
+	background: linear-gradient($accent-light, $accent-light);
+	text-shadow: 0 1px 1px darken($accent-light, 10%);
+	&:hover, &:active, &:focus {
+		background-color: darken($accent-light, 10%);
+		border-color: darken($accent-light, 15%);
+		background: linear-gradient($accent-light, darken($accent-light, 10%));
+	}
+	*/
+}
+
+.btn-accent-dark {
+	@include button($accent-dark);
+	/*
+	background-color: $accent-dark;
+	border-color: darken($accent-dark, 10%);
+	background: linear-gradient($accent-dark, $accent-dark);
+	text-shadow: 0 1px 1px darken($accent-dark, 10%);
+	&:hover, &:active, &:focus {
+		background-color: darken($accent-dark, 10%);
+		border-color: darken($accent-dark, 15%);
+		background: linear-gradient($accent-dark, darken($accent-dark, 10%));
+	}
+	*/
 }
 
 .more-link {
 	padding-right: 1.5rem;
+	@extend .btn-default;
 	&.hvr-icon-pulse {
 		&:before {
 			content: '\f105';
@@ -34,13 +93,24 @@
 	}
 }
 
-.btn-free-url {
-	padding-left: 3rem;
-	&.hvr-icon-pulse {
-		&:before {
-			content: '\f019';
-			left: 1rem;
-			right: auto;
-		}
+.nav-links {
+	overflow: hidden;
+    clear: both;
+    padding: 1rem 0;
+}
+
+.nav-previous, .nav-next {
+	a {
+		@extend .btn-accent-light, .btn;
 	}
+}
+
+.nav-next {
+	float: left;
+	clear: left;
+}
+
+.nav-previous {
+	float: right;
+	clear: right;
 }

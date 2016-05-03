@@ -1,94 +1,16 @@
-.post-type-archive-ksiazki {
-	.page-header {
-		margin-bottom: 0;
-		+ article {
-			padding-top: 0;
-		}
-	}
-	.entry-content {
-		margin-bottom: 1rem;
-		padding-bottom: 1rem;
-		overflow: hidden;
-	}
-
-	article {
-		padding-top: 2rem;
-		&:not(:last-of-type) {
-			border-bottom: 1px dashed $body-bg;
-		}
-	}
-
-	.entry-title {
-		margin-top: 0;
-		a {
-			color: $body-color;
-		}
-	}
-
-	.book_thumb {
-		float: left;
-		width: 220px;
-		margin-right: 2rem;
-		margin-bottom: 1rem;
-		@media (max-width: 1200px) {
-			width: 160px;
-		}
-		img {
-			max-width: 100%;
-			height: auto;
-		}
-	}
-
-	.description {
-		text-align: justify;
-		font-size: 1.5rem;
-		@media (min-width: 768px) {
-			overflow: hidden;
-		}
-	}
-
+.archive, .search {
 	.more-link {
 		float: right;
-		clear: both;
+	    clear: both;
 	}
 
-}
-
-.twentytwenty-overlay {
-	display: none;
-}
-
-.twentytwenty-container {
-	img {
-		width: 100%;
-		height: auto;
+	.main {
+		.btn {
+			margin-top: 1rem;
+		}
 	}
-}
 
-.author {
-	font-style: italic;
-	margin-top: 0;
-	font-size: 1.4rem;
-}
-
-.single-kielki {
-	.page-header {
-		margin-bottom: 0;
-	}
-}
-
-.img-compare {
-	margin-bottom: 2rem;
-}
-
-.kielki-wskazowki {
-	margin-top: 2rem;
-}
-
-.kielki-wartosci {
-	strong {
-		text-decoration: underline;
-		display: block;
-		margin-top: 2rem;
+	.hentry {
+		overflow: hidden;
 	}
 }

@@ -1,0 +1,40 @@
+.accordion-header {
+	cursor: pointer;
+	background-color: $heading-bg;
+	padding: 5px 10px;
+    border: 1px solid $body-bg;
+    font-size: 1.6rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+	.fa {
+		float: right;
+		color: $body-bg;
+		margin-right: 5px;
+    	font-size: 2.5rem;
+    	transform-origin: 50%;
+    	line-height: 20px;
+    	@extend .transition;
+	}
+
+	&:hover {
+		color: $accent-dark;
+		.fa {
+			color: $accent-dark;
+			transform: rotate(90deg);
+		}
+	}
+}
+
+.accordion-content {
+	padding: 1rem 1.2rem;
+}
+
+.accordion-open {
+	.accordion-header  {
+		.fa {
+			color: $accent-dark;
+			transform: rotate(90deg);
+		}
+	}
+}

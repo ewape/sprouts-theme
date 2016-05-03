@@ -12,124 +12,202 @@
 
 (function($) {
 
-  // Use this variable to set up the common and page specific functions. If you
-  // rename this variable, you will also need to rename the namespace below.
-  var Sage = {
-    // All pages
-    'common': {
-      init: function() {
-        // JavaScript to be fired on all pages
-      },
-      finalize: function() {
-        // JavaScript to be fired on all pages, after page specific JS is fired
-      }
-    },
-    // Home page
-    'home': {
-      init: function() {
-        // JavaScript to be fired on the home page
-      },
-      finalize: function() {
-        // JavaScript to be fired on the home page, after the init JS
-      }
-    },
-    // About us page, note the change from about-us to about_us.
-    'about_us': {
-      init: function() {
-        // JavaScript to be fired on the about us page
-      }
-    }
-  };
-
-  // The routing fires all common scripts, followed by the page specific scripts.
-  // Add additional events for more control over timing e.g. a finalize event
-  var UTIL = {
-    fire: function(func, funcname, args) {
-      var fire;
-      var namespace = Sage;
-      funcname = (funcname === undefined) ? 'init' : funcname;
-      fire = func !== '';
-      fire = fire && namespace[func];
-      fire = fire && typeof namespace[func][funcname] === 'function';
-
-      if (fire) {
-        namespace[func][funcname](args);
-      }
-    },
-    loadEvents: function() {
-      // Fire common init JS
-      UTIL.fire('common');
-
-      // Fire page-specific init JS, and then finalize JS
-      $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function(i, classnm) {
-        UTIL.fire(classnm);
-        UTIL.fire(classnm, 'finalize');
-      });
-      UTIL.magnificPopup();
-      UTIL.scrollTop();
-
-      // Fire common finalize JS
-      UTIL.fire('common', 'finalize');
-    },
-    linkScroll: function() {
-      $('.linkscroll a').click(function() {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-               if (target.length) {
-                 $('html, body').animate({
-                     scrollTop: target.offset().top
-                }, 1000);
-                return false;
+    // Use this variable to set up the common and page specific functions. If you
+    // rename this variable, you will also need to rename the namespace below.
+    var Sage = {
+        // All pages
+        'common': {
+            init: function() {
+                // JavaScript to be fired on all pages
+            },
+            finalize: function() {
+                // JavaScript to be fired on all pages, after page specific JS is fired
             }
-      });
-    },
-    scrollTop: function() {
-      $('.scroll-top').click(function() {
-        $('body,html').animate({
-          scrollTop : 0
-        }, 600);
-        return false;
-      });
-    },
-    magnificPopup: function() {
-      $('.gallery-icon a, .thumb').magnificPopup({
-        type: 'image',
-        tLoading: 'Pobieranie zdjęcia #%curr%...',
-        mainClass: 'mfp-img-mobile',
-        gallery: {
-          enabled: true,
-          navigateByImgClick: true,
-          tPrev: 'Poprzednie zdjęcie (przycisk w lewo na klawiaturze)',
-          tNext: 'Następne zdjęcie (przycisk w prawo na klawiaturze)',
-          tCounter: '%curr% z %total%',
-          preload: [0,1] // Will preload 0 - before current, and 1 after the current image
         },
-        image: {
-          tError: 'Nie udało się pobrać zdjęcia #%curr%.<a href="%url%">The image</a>',
-          titleSrc: function(item) {
-            return item.el.attr('alt');
-          }
+        // Home page
+        'home': {
+            init: function() {
+                // JavaScript to be fired on the home page
+            },
+            finalize: function() {
+                // JavaScript to be fired on the home page, after the init JS
+            }
         },
-      });
+        // About us page, note the change from about-us to about_us.
+        'about_us': {
+            init: function() {
+                // JavaScript to be fired on the about us page
+            }
+        },
+        'post_type_archive_faq': {
+            init: function() {
+                var panels = $('.type-faq');
+            panels.each(function(i, panel) {
+                $(panel).find('.accordion-content').hide();
+                $(panel).find('.accordion-header').click(function() {
+                    $(this).parents('.type-faq').toggleClass('accordion-open');
+                    $(this).next('.accordion-content').slideToggle(300);
+                });
+            });
+            }
+        }
+    };
+
+    // The routing fires all common scripts, followed by the page specific scripts.
+    // Add additional events for more control over timing e.g. a finalize event
+    var UTIL = {
+        fire: function(func, funcname, args) {
+            var fire;
+            var namespace = Sage;
+            funcname = (funcname === undefined) ? 'init' : funcname;
+            fire = func !== '';
+            fire = fire && namespace[func];
+            fire = fire && typeof namespace[func][funcname] === 'function';
+
+            if (fire) {
+                namespace[func][funcname](args);
+            }
+        },
+        loadEvents: function() {
+            // Fire common init JS
+            UTIL.fire('common');
+
+            // Fire page-specific init JS, and then finalize JS
+            $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function(i, classnm) {
+                UTIL.fire(classnm);
+                UTIL.fire(classnm, 'finalize');
+            });
+            UTIL.magnificPopup();
+            UTIL.scrollTop();
+
+            // Fire common finalize JS
+            UTIL.fire('common', 'finalize');
+        },
+        linkScroll: function() {
+            $('.linkscroll a').click(function() {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            });
+        },
+        wow: function() {
+            new WOW().init();
+        },
+        scrollTop: function() {
+            $('.scroll-top').click(function() {
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+        },
+        magnificPopup: function() {
+            $('.gallery-icon a, .thumb').magnificPopup({
+                type: 'image',
+                tLoading: 'Pobieranie zdjęcia #%curr%...',
+                mainClass: 'mfp-img-mobile',
+
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    tPrev: 'Poprzednie zdjęcie (przycisk w lewo na klawiaturze)',
+                    tNext: 'Następne zdjęcie (przycisk w prawo na klawiaturze)',
+                    tCounter: '%curr% z %total%',
+                    preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+                },
+                image: {
+                    tError: 'Nie udało się pobrać zdjęcia #%curr%.<a href="%url%">The image</a>',
+                    titleSrc: function(item) {
+                        return item.el[0].childNodes[0].alt;
+                    }
+                },
+            });
+        }
+
+    };
+
+    // Load Events
+    $(document).ready(UTIL.loadEvents);
+    $('.dropdown-toggle').dropdown();
+
+    $(window).load(function() {
+        $(".twentytwenty-container").twentytwenty();
+    });
+
+    UTIL.wow();
+
+    $(window).bind("load", function() {
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.6&appId=955624011163030";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+    });
+
+    function WHCreateCookie(name, value, days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        var expires = "; expires=" + date.toGMTString();
+        document.cookie = name + "=" + value + expires + "; path=/";
     }
 
-  };
+    function WHReadCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) === ' ') {
+                c = c.substring(1, c.length);
+            }
+            if (c.indexOf(nameEQ) === 0) {
+                return c.substring(nameEQ.length, c.length);
+            }
+        }
+        return null;
+    }
 
-  // Load Events
-  $(document).ready(UTIL.loadEvents);
-  $('.dropdown-toggle').dropdown();
-   $(window).load(function(){
-    $(".twentytwenty-container").twentytwenty();
-  });
+    function WHCheckCookies() {
+        if (WHReadCookie('cookies_accepted') !== 'T') {
+            var message_container = document.createElement('div');
+            message_container.id = 'cookies-message-container';
+            var html_code = '<div id="cookies-message" class="container-fluid"><p class="cookies-message-text">W ramach naszej witryny stosujemy pliki cookie w celu świadczenia Państwu usług na najwyższym poziomie, w tym w sposób dostosowany do indywidualnych potrzeb. Korzystanie z witryny bez zmiany ustawień dotyczących cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany ustawień dotyczących cookies. <a class="cookies-link" href="' + location.protocol + '//' + location.host + '/polityka-cookies/">Polityka cookies</a></p><a href="#" id="accept-cookies-checkbox" class="btn btn-default" name="accept-cookies"><span>Rozumiem</span></a></div>';
 
-   $(window).bind("load", function() {
-       (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.6&appId=955624011163030";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+            message_container.innerHTML = html_code;
+            document.body.appendChild(message_container);
+            $('body').css('margin-bottom', $('#cookies-message-container').height());
+        }
+    }
+
+    function WHCloseCookiesWindow() {
+        WHCreateCookie('cookies_accepted', 'T', 365);
+        $('#cookies-message-container').fadeOut();
+        document.getElementById('cookies-message-container').removeChild(document.getElementById('cookies-message'));
+    }
+
+    $('body').on('click', '#accept-cookies-checkbox', function() {
+        WHCreateCookie('cookies_accepted', 'T', 365);
+        $('#cookies-message-container').fadeOut();
+    });
+
+    $('body').on('click', '.cookies-message-text', function() {
+        WHCreateCookie('cookies_accepted', 'T', 365);
+        $('#cookies-message-container').fadeOut();
+    });
+
+    $(document).ready(function() {
+        WHCheckCookies();
     });
 
 

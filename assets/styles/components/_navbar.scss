@@ -11,13 +11,9 @@
 		display: block;
 	}
 
-	.logo-path {
-		//@extend .transition;
-	}
-
 	&:hover {
 		.logo-path {
-			//fill: darken($menu-bg, 15%);
+			fill: $menu-color;
 		}
 	}
 }
@@ -31,6 +27,7 @@
 		position: relative;
 		backface-visibility: hidden;
 		transform: translateZ(0);
+		text-shadow: 0 1px 1px darken($menu-bg, 10%);
 
 		&:hover {
 			&:before {

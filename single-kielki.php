@@ -40,6 +40,8 @@
         <span><?php echo get_post_meta( $post->ID, 'Inne', 1 ); ?></span>
       </div>
   </div>
-  <?php get_template_part('templates/ads/ads_0831177546'); ?>
+  <div class="ads ad-horizontal">
+     <?php get_template_part('templates/ads/ads_6305658572'); ?>
+  </div>
 </article>
 <?php endwhile; ?>
