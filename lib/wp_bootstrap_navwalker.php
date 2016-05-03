@@ -112,10 +112,12 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			if ( ! empty( $item->attr_title ) )
 				$item_output .= '<a'. $attributes .'><span class="glyphicon ' . esc_attr( $item->attr_title ) . '"></span>&nbsp;';
 			else
-				$item_output .= '<a'. $attributes .'><span class="hvr-bob">';
+				//$item_output .= '<a'. $attributes .'><span class="hvr-float">';
+				$item_output .= '<a'. $attributes .'>';
 
 			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-			$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></span></a>' : '</span></a>';
+			//$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></span></a>' : '</span></a>';
+			$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
 			$item_output .= $args->after;
 
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );

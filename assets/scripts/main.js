@@ -66,6 +66,7 @@
         UTIL.fire(classnm, 'finalize');
       });
       UTIL.magnificPopup();
+      UTIL.scrollTop();
 
       // Fire common finalize JS
       UTIL.fire('common', 'finalize');
@@ -80,6 +81,14 @@
                 }, 1000);
                 return false;
             }
+      });
+    },
+    scrollTop: function() {
+      $('.scroll-top').click(function() {
+        $('body,html').animate({
+          scrollTop : 0
+        }, 600);
+        return false;
       });
     },
     magnificPopup: function() {
@@ -102,7 +111,8 @@
           }
         },
       });
-    },
+    }
+
   };
 
   // Load Events
@@ -111,6 +121,16 @@
    $(window).load(function(){
     $(".twentytwenty-container").twentytwenty();
   });
+
+   $(window).bind("load", function() {
+       (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.6&appId=955624011163030";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    });
 
 
 })(jQuery); // Fully reference jQuery after this point.

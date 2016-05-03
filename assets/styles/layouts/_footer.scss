@@ -1,19 +1,30 @@
 footer {
+	background-color: $footer-bg;
+
 	.container {
-		background-color: $footer-bg;
 		color: #fff;
 		padding-top: 1rem;
 		padding-bottom: 1rem;
-
-		a {
-			color: #fff;
-		}
 	}
+
+	section {
+		margin-bottom: 2rem;
+	}
+
+	a {
+		color: #fff;
+	}
+
+	h3 {
+		text-transform: uppercase;
+		font-size: 1.6rem;
+		color: $body-bg;
+	}
+
 	.menu {
-		background-color: rgba(255,255,255,0.08);
 		padding: 1rem 1.5rem;
 		line-height: 1.8;
-		border-radius: 4px;
+
 		a {
 			color: $heading-bg;
 			text-decoration: none;
@@ -35,8 +46,33 @@ footer {
 			}
 		}
 	}
-	h3 {
-		text-transform: uppercase;
-		font-size: 1.6rem;
+}
+
+.footer-widget > div {
+	background-color: rgba(255,255,255,0.08);
+	box-shadow: 4px 4px rgba(darken($footer-bg, 8%), 0.7);
+	border: 1px solid darken($footer-bg, 5%);
+}
+
+.copyright {
+	color: $body-bg;
+	a {
+		color: $heading-bg;
+	}
+}
+
+.footer-bottom {
+	background-color: darken($footer-bg, 8%);
+}
+
+.footer-navlinks {
+	text-align: right;
+	a {
+		color: $heading-bg;
+		margin-left: 2rem;
+		text-decoration: none;
+		&:hover {
+			color: $body-bg;
+		}
 	}
 }

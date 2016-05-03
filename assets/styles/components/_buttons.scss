@@ -1,0 +1,46 @@
+.like-buttons {
+	text-align: right;
+	margin-top: 2rem;
+}
+
+.btn-free-url {
+	background-color: $btn-accent;
+	color: #fff;
+	border-color: darken($btn-accent, 10%);
+	&:hover, &:active, &:focus {
+		background-color: darken($btn-accent, 10%);
+		border-color: darken($btn-accent, 20%);
+	}
+}
+
+.more-link, .btn-free-url {
+	.fa {
+		@extend .transition;
+	}
+	&:hover {
+		.fa {
+			transform: scale(1.2);
+		}
+	}
+}
+
+.more-link {
+	padding-right: 1.5rem;
+	&.hvr-icon-pulse {
+		&:before {
+			content: '\f105';
+			right: 1rem;
+		}
+	}
+}
+
+.btn-free-url {
+	padding-left: 3rem;
+	&.hvr-icon-pulse {
+		&:before {
+			content: '\f019';
+			left: 1rem;
+			right: auto;
+		}
+	}
+}

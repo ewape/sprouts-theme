@@ -68,10 +68,27 @@
 .author {
 	font-style: italic;
 	margin-top: 0;
+	font-size: 1.4rem;
 }
 
 .single-kielki {
 	.page-header {
 		margin-bottom: 0;
+	}
+}
+
+.img-compare {
+	margin-bottom: 2rem;
+}
+
+.kielki-wskazowki {
+	margin-top: 2rem;
+}
+
+.kielki-wartosci {
+	strong {
+		text-decoration: underline;
+		display: block;
+		margin-top: 2rem;
 	}
 }

@@ -18,17 +18,26 @@ use Roots\Sage\Wrapper;
       do_action('get_header');
       get_template_part('templates/header');
     ?>
-    <div class="wrap container" role="document">
-      <div class="content row">
+    <div class="wrap" role="document">
+      <div class="container">
+         <div class="content row">
         <main class="main">
           <?php include Wrapper\template_path(); ?>
+          <div class="like-buttons">
+            <div class="fb-like" data-href="https://www.facebook.com/kielkiinfo-310655538217/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+          </div>
+
         </main><!-- /.main -->
         <?php if (Setup\display_sidebar()) : ?>
           <aside class="sidebar hidden-xs">
             <?php include Wrapper\sidebar_path(); ?>
           </aside><!-- /.sidebar -->
         <?php endif; ?>
+
       </div><!-- /.content -->
+
+      </div>
+
     </div><!-- /.wrap -->
     <?php
       do_action('get_footer');

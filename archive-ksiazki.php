@@ -1,9 +1,23 @@
 <?php get_template_part('templates/page', 'header'); ?>
 <?php
-$args = array( 'post_type' => 'ksiazki', 'posts_per_page' => -1);
-$loop = new WP_Query( $args );
-while ( $loop->have_posts() ) : $loop->the_post();
-if (!books_cat($post->ID, 'Ebook')):
+
+$bookargs = ( array(
+    'post_type' =>'ksiazki',
+    'posts_per_page' => -1,
+    'tax_query' => array(
+        array(
+            'taxonomy'  => 'books',
+            'field'     => 'slug',
+            'terms'     => array( 'ebook', 'niedostepne' ),
+            'operator'  => 'NOT IN',
+        ),
+    )
+) );
+
+$bookloop = new WP_Query( $bookargs );
+
+while ( $bookloop->have_posts() ) : $bookloop->the_post();
+
 ?>
   <article <?php post_class(); ?>>
     <div class="entry-content lightbox">
@@ -12,31 +26,52 @@ if (!books_cat($post->ID, 'Ebook')):
     	</a>
     	<div class="description">
     		<h2 class="entry-title">
-                <a target="_blank" href="<?php bookstore_post_url($post->ID) ?>" title="">
+                <a target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
                     <?php the_title(); ?>
                 </a>
             </h2>
+
     		<h3 class="author">
                 <?php bookstore_post_author($post->ID) ?>
             </h3>
+
     		<?php the_content(); ?>
-    		<a class="more-link btn btn-default" target="_blank" href="<?php bookstore_post_url($post->ID) ?>" title="">więcej</a>
+
+            <?php if (bookstore_url($post->ID)): ?>
+    		  <a class="more-link btn btn-default hvr-icon-pulse" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
+                więcej &nbsp;
+            </a>
+            <?php endif; ?>
     	</div>
     </div>
-    <footer>
-      <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
-    </footer>
   </article>
-<?php endif; endwhile; ?>
-<?php wp_reset_query(); ?>
+
+<?php
+endwhile;
+wp_reset_query();
+?>
+
 <div class="page-header">
   <h1>Ebooki</h1>
 </div>
 
-<?php $loop2 = new WP_Query( $args ); ?>
-<?php while ( $loop2->have_posts() ) : $loop2->the_post();
+<?php
 
-if (books_cat($post->ID, 'Ebook')): ?>
+$ebookargs = ( array(
+    'post_type' =>'ksiazki',
+    'posts_per_page' => -1,
+    'tax_query' => array(
+        array(
+            'taxonomy'  => 'books',
+            'field'     => 'slug',
+            'terms'     => array( 'ebook' ),
+            'operator'  => 'IN',
+        ),
+    )
+) );
+
+$ebookloop = new WP_Query( $ebookargs ); ?>
+<?php while ( $ebookloop->have_posts() ) : $ebookloop->the_post(); ?>
 
 <article <?php post_class(); ?>>
     <div class="entry-content lightbox">
@@ -45,7 +80,7 @@ if (books_cat($post->ID, 'Ebook')): ?>
         </a>
         <div class="description">
             <h2 class="entry-title">
-                <a target="_blank" href="<?php bookstore_post_url($post->ID) ?>" title="">
+                <a target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
                     <?php the_title(); ?>
                 </a>
             </h2>
@@ -53,9 +88,27 @@ if (books_cat($post->ID, 'Ebook')): ?>
                 <?php bookstore_post_author($post->ID) ?>
             </h3>
             <?php the_content(); ?>
-            <a class="more-link btn btn-default" target="_blank" href="<?php bookstore_post_url($post->ID) ?>" title="">więcej</a>
+
+            <?php if (bookstore_free_url($post->ID)): ?>
+
+                <a class="btn btn-free-url hvr-icon-pulse" target="_blank" href="<?php echo bookstore_free_url($post->ID) ?>" title="">
+
+                    <?php if (books_cat($post->ID, 'Gratis')): ?>
+                        Pobierz darmowy ebook
+                    <?php else: ?>
+                        Pobierz darmowy fragment
+                    <?php endif; ?>
+                </a>
+
+            <?php endif; ?>
+
+            <?php if (bookstore_url($post->ID)): ?>
+              <a class="more-link btn btn-default hvr-icon-pulse" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
+                więcej &nbsp;
+            </a>
+            <?php endif; ?>
         </div>
     </div>
   </article>
 
-<?php endif; endwhile; ?>
+<?php endwhile; ?>

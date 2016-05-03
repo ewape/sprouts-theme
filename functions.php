@@ -34,8 +34,23 @@ function bookstore_post_author( $post_id ) {
     echo get_post_meta($post_id, 'author', true);
 }
 
-function bookstore_post_url( $post_id ) {
-    echo get_post_meta($post_id, 'url', true);
+function bookstore_url( $post_id ) {
+    if (get_post_meta($post_id, 'url', true)) {
+     return get_post_meta($post_id, 'url', true);
+    }
+    else {
+      return false;
+    }
+}
+
+function bookstore_free_url( $post_id ) {
+  if (get_post_meta($post_id, 'url_free', true)) {
+     return get_post_meta($post_id, 'url_free', true);
+  }
+  else {
+    return false;
+  }
+
 }
 
 function post_img_url($post_id, $size) {
