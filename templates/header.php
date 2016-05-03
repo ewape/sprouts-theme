@@ -1,7 +1,4 @@
 <header class="banner " role="banner">
-  <div>
-
-  </div>
  <div class="navbar navbar-default container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -10,7 +7,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/logo.svg" /></a>
+      <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>">
+        <?php get_template_part('templates/logo'); ?>
+      </a>
     </div>
     <nav class="collapse navbar-nav navbar-collapse" role="navigation">
       <?php
