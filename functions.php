@@ -79,3 +79,11 @@ function books_cat($post_id, $cat_to_check) {
   return false;
 }
 
+function getCustomWidget($widgets) {
+  if (count($widgets > 0)) {
+  foreach ($widgets as $widget) {
+    get_template_part('templates/widget-'. $widget);
+  }
+}
+}
+

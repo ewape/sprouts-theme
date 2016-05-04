@@ -85,10 +85,24 @@
 .more-link {
 	padding-right: 1.5rem;
 	@extend .btn-default;
-	&.hvr-icon-pulse {
+}
+
+.hvr-icon-pulse {
+
+	&.arrow {
+		padding-right: 2rem;
 		&:before {
 			content: '\f105';
 			right: 1rem;
+		}
+	}
+
+	&.download {
+		padding-left: 3rem;
+		&:before {
+			content: '\f019';
+			left: 1rem;
+			right: auto;
 		}
 	}
 }

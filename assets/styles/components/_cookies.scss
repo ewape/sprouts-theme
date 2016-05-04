@@ -19,7 +19,24 @@
 }
 
 .cookies-link {
-	a {
-		color: $body-bg;
+	color: $body-bg;
+}
+
+.cookies-message-text {
+	margin-bottom: 0;
+}
+
+@media (min-width: 600px) {
+	#cookies-message-container {
+		.btn {
+			position: absolute;
+    		right: 1.5rem;
+    		top: 1.5rem;
+
+		}
+	}
+
+	.cookies-message-text {
+		margin-right: 100px;
 	}
 }

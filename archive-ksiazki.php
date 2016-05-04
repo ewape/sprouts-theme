@@ -21,7 +21,7 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
 ?>
   <article <?php post_class(); ?>>
     <div class="entry-content lightbox">
-    	<a href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="book_thumb thumb">
+    	<a href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="book-thumb thumb">
     		<?php the_post_thumbnail( 'ebook' ); ?>
     	</a>
     	<div class="description">
@@ -38,7 +38,7 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
     		<?php the_content(); ?>
 
             <?php if (bookstore_url($post->ID)): ?>
-    		  <a class="more-link btn btn-default hvr-icon-pulse" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
+    		  <a class="more-link btn btn-default hvr-icon-pulse arrow" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
                 więcej &nbsp;
             </a>
             <?php endif; ?>
@@ -94,7 +94,7 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
 
             <?php if (bookstore_free_url($post->ID)): ?>
 
-                <a class="btn btn-accent-light hvr-icon-pulse" target="_blank" href="<?php echo bookstore_free_url($post->ID) ?>" title="">
+                <a class="btn btn-accent-light hvr-icon-pulse download" target="_blank" href="<?php echo bookstore_free_url($post->ID) ?>" title="">
 
                     <?php if (books_cat($post->ID, 'Gratis')): ?>
                         Pobierz darmowy ebook
@@ -106,7 +106,7 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
             <?php endif; ?>
 
             <?php if (bookstore_url($post->ID)): ?>
-              <a class="more-link btn btn-default hvr-icon-pulse" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
+              <a class="more-link btn btn-default hvr-icon-pulse arrow" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
                 więcej &nbsp;
             </a>
             <?php endif; ?>

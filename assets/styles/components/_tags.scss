@@ -1,0 +1,8 @@
+.tagcloud {
+	text-align: center;
+	a {
+		margin: 4px;
+    	@extend .btn;
+		@include button($accent-light);
+	}
+}

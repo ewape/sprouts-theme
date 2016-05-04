@@ -182,7 +182,7 @@
         if (WHReadCookie('cookies_accepted') !== 'T') {
             var message_container = document.createElement('div');
             message_container.id = 'cookies-message-container';
-            var html_code = '<div id="cookies-message" class="container-fluid"><p class="cookies-message-text">W ramach naszej witryny stosujemy pliki cookie w celu świadczenia Państwu usług na najwyższym poziomie, w tym w sposób dostosowany do indywidualnych potrzeb. Korzystanie z witryny bez zmiany ustawień dotyczących cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany ustawień dotyczących cookies. <a class="cookies-link" href="' + location.protocol + '//' + location.host + '/polityka-cookies/">Polityka cookies</a></p><a href="#" id="accept-cookies-checkbox" class="btn btn-default" name="accept-cookies"><span>Rozumiem</span></a></div>';
+            var html_code = '<div id="cookies-message" class="container-fluid"><p class="cookies-message-text">Strona korzysta z plików cookies zgodnie z <a class="cookies-link" href="' + location.protocol + '//' + location.host + '/polityka-cookies/">Polityką cookies</a>. Korzystanie z witryny bez zmiany ustawień dotyczących cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany ustawień dotyczących cookies. </p><a href="#" id="accept-cookies-checkbox" class="btn btn-default" name="accept-cookies"><span>Rozumiem</span></a></div>';
 
             message_container.innerHTML = html_code;
             document.body.appendChild(message_container);

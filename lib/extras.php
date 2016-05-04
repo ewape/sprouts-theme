@@ -33,6 +33,11 @@ function excerpt_more() {
 
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
+
+add_action( 'init', __NAMESPACE__ . '\\kielki_tags', 5 );
+
+register_taxonomy_for_object_type( 'kielki-tags', 'kielki' );
+
 function create_posttype_kielki() {
 
   register_post_type( 'kielki',
@@ -61,7 +66,6 @@ function create_posttype_kielki() {
       'capability_type' => 'post',
       'menu_icon'   => 'dashicons-carrot',
       'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'revisions', 'page-attributes' ),
-      'taxonomies' => array('post_tag')
     )
   );
 
@@ -220,3 +224,31 @@ function ebooks_register_taxonomy() {
   register_taxonomy( 'books', array( 'ksiazki' ), $args );
 }
 add_action( 'init', __NAMESPACE__ . '\\ebooks_register_taxonomy' );
+
+
+// Register Custom Taxonomy
+function kielki_tags() {
+
+ $labels = array(
+    'name'              => 'Tagi kiełków',
+    'singular_name'     => 'Tag kiełków',
+    'search_items'      => 'Szukaj tagów',
+    'all_items'         => 'Wszystkie tagi',
+    'edit_item'         => 'Edytuj tag',
+    'update_item'       => 'Aktualizuj tag',
+    'add_new_item'      => 'Dodaj tag',
+    'new_item_name'     => 'Nowy tag',
+    'menu_name'         => 'Tagi kiełków'
+  );
+
+    $args = array(
+        'hierarchical'      => false,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+      );
+  register_taxonomy( 'kielki-tags', array( 'kielki' ), $args );
+}
+
+

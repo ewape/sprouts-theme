@@ -13,12 +13,15 @@ body {
 	margin-top: 2rem;
 
 	.container {
-		background-color: $content-bg;
+		background-color: $sidebar-bg;
 	}
 }
 
 .main {
 	padding-bottom: 2rem;
+	background-color: $content-bg;
+	border-right: 1px solid $body-bg;
+
 	h2 {
 		margin-top: 3rem;
 	}

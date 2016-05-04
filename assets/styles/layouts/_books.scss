@@ -22,10 +22,11 @@
 		margin-top: 0;
 		a {
 			color: $body-color;
+			text-decoration: none;
 		}
 	}
 
-	.book_thumb {
+	.book-thumb {
 		float: left;
 		width: 220px;
 		margin-right: 2rem;
@@ -50,17 +51,6 @@
 	.more-link {
 		float: right;
 		clear: both;
-	}
-
-	.btn-accent-light {
-		padding-left: 3rem;
-		&.hvr-icon-pulse {
-			&:before {
-				content: '\f019';
-				left: 1rem;
-				right: auto;
-			}
-		}
 	}
 
 }
