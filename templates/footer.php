@@ -5,7 +5,7 @@
     </div>
   </div>
 </footer>
-<footer class="footer-bottom">
+<footer class="footer-bottom" id="bottom">
   <div class="container">
     <div class="row">
       <div class="col-xs-6 copyright">
@@ -22,5 +22,9 @@
     </div>
   </div>
 </footer>
+<div class="arrows">
+    <a class="scroll-top" href="#" title="Przewiń do góry"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
+    <a class="smoothscroll" href="#bottom" title=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+</div>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 

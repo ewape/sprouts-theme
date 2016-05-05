@@ -9,3 +9,7 @@ header {
 	//box-shadow: 0 2px 2px rgba(#000, 0.3);
 	border-bottom: 1px solid darken($menu-bg, 10%);
 }
+
+.tag-header:first-letter {
+	text-transform: uppercase;
+}

@@ -88,11 +88,36 @@ footer {
 .footer-navlinks {
 	text-align: right;
 	a {
-		color: $body-bg;
+		color: $sidebar-bg;
 		margin-left: 2rem;
 		text-decoration: none;
 		&:hover {
 			color: $accent-dark;
 		}
 	}
+}
+
+.arrows {
+	position: fixed;
+	bottom: 4rem;
+	right: 3rem;
+	font-size: 5rem;
+
+	a {
+		display: block;
+		color: $content-bg;
+		line-height: 3rem;
+		&.active, &:hover {
+			color: $accent-dark;
+		}
+	}
+
+	.fa {
+		&:before {
+			line-height: 0;
+		}
+
+	}
+
+
 }

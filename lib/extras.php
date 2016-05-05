@@ -38,6 +38,8 @@ add_action( 'init', __NAMESPACE__ . '\\kielki_tags', 5 );
 
 register_taxonomy_for_object_type( 'kielki-tags', 'kielki' );
 
+register_taxonomy_for_object_type( 'kielki-tags', 'ksiazki' );
+
 function create_posttype_kielki() {
 
   register_post_type( 'kielki',
@@ -148,7 +150,11 @@ add_filter( 'get_the_archive_title',  __NAMESPACE__ . '\\filter_archive_title');
 
 function filter_archive_title( $title ) {
 
-    if( is_archive() ) {
+    if (is_tag()) {
+      return single_tag_title();
+    }
+
+    elseif( is_archive() ) {
          $post_type = get_queried_object();
          $title = $post_type->label;
     }
@@ -248,7 +254,7 @@ function kielki_tags() {
         'show_admin_column' => true,
         'query_var'         => true,
       );
-  register_taxonomy( 'kielki-tags', array( 'kielki' ), $args );
+  register_taxonomy( 'kielki-tags', array( 'kielki', 'ksiazki' ), $args );
 }
 
 

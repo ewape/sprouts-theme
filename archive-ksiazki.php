@@ -75,7 +75,7 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
 
 <article <?php post_class(); ?>>
     <div class="entry-content lightbox">
-        <a href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="book_thumb thumb">
+        <a href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="book-thumb thumb">
             <?php the_post_thumbnail( 'ebook' ); ?>
         </a>
         <div class="description">

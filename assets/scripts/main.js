@@ -72,6 +72,8 @@
             // Fire common init JS
             UTIL.fire('common');
 
+            UTIL.docReady();
+
             // Fire page-specific init JS, and then finalize JS
             $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function(i, classnm) {
                 UTIL.fire(classnm);
@@ -82,18 +84,6 @@
 
             // Fire common finalize JS
             UTIL.fire('common', 'finalize');
-        },
-        linkScroll: function() {
-            $('.linkscroll a').click(function() {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html, body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            });
         },
         wow: function() {
             new WOW().init();
@@ -127,8 +117,65 @@
                     }
                 },
             });
-        }
+        },
 
+        scroll: 0,
+
+        previousScroll: 0,
+        scrollUp: 0,
+
+        scrollPos: function(){
+            this.scroll = $(window).scrollTop();
+        },
+
+        scrollDirection: function() {
+            if (this.scroll > this.previousScroll){
+                this.scrollUp = 0;
+            }
+            else {
+                this.scrollUp = 1;
+            }
+            this.previousScroll = this.scroll;
+        },
+
+        arrows: function() {
+            if (this.scroll >= 200) {
+                $('.arrows').fadeIn();
+                var activeArrow = $('.arrows a').eq(this.scrollUp);
+                activeArrow.addClass('active').siblings().removeClass('active');
+            }
+            else {
+                $('.arrows').fadeOut();
+            }
+        },
+
+        smoothScroll: function() {
+            $('.smoothscroll').click(function() {
+                var target = $(this.hash);
+                var offset = $('body').css('padding-top');
+                if (offset) {
+                    offset = offset.replace('px','');
+                }
+
+                target = target.length ? target : 1;
+                console.log(target.offset());
+                if (target) {
+                    $('html,body').animate({
+                        scrollTop: ( target.offset().top - offset )
+                    }, 1000);
+                    return false;
+                }
+            });
+        },
+
+        windowScroll: function() {
+            this.scrollPos();
+            this.scrollDirection();
+            this.arrows();
+        },
+        docReady: function() {
+            this.smoothScroll();
+        }
     };
 
     // Load Events
@@ -137,6 +184,10 @@
 
     $(window).load(function() {
         $(".twentytwenty-container").twentytwenty();
+    });
+
+    $(window).scroll(function() {
+        UTIL.windowScroll();
     });
 
     UTIL.wow();
@@ -209,6 +260,8 @@
     $(document).ready(function() {
         WHCheckCookies();
     });
+
+
 
 
 })(jQuery); // Fully reference jQuery after this point.

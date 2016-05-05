@@ -1,7 +1,8 @@
 <?php use Roots\Sage\Titles; ?>
-<?php // if (is_post_type_archive()): ?>
 <div class="page-header">
-  <h1><?= Titles\title(); ?></h1>
+	<?php if (is_post_type_archive()): ?>
+	<h1><?= Titles\title(); ?></h1>
+	<?php else: ?>
+	<h1 class="tag-header"><?php single_tag_title(); ?></h1>
+<?php endif; ?>
 </div>
-
-<?php // endif; ?>
