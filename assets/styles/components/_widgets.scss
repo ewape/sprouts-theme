@@ -11,40 +11,36 @@
 	margin-bottom: 3rem;
 }
 
-.widget-books {
-	.btn {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		opacity: 0;
-	}
-}
-
 .widget-img-link {
 	display: inline-block;
 	margin-bottom: 2rem;
-	img {
-		max-width: 100%;
-		height: auto;
-	}
-}
-
-.widget-thumb {
 	position: relative;
-	border: 1px solid $menu-color;
 	&:before {
 		content: '';
 		position: absolute;
-		top: 0;
-		right: 0;
-		left: 0;
-		bottom: 0;
+		top: 2px;
+		right: 2px;
+		left: 2px;
+		bottom: 2px;
 		background-color: rgba(#000, 0.65);
 		opacity: 0;
 		@extend .transition;
 	}
-
+	img {
+		max-width: 100%;
+		height: auto;
+		border: 1px solid $body-bg;
+		padding: 2px;
+		background-color: $heading-bg;
+		display: block;
+	}
+	.btn {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			opacity: 0;
+		}
 	&:hover {
 		&:before, .btn {
 			opacity: 1;

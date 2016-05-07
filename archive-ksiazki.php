@@ -29,6 +29,9 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
                 <a target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
                     <?php the_title(); ?>
                 </a>
+                <?php if (books_cat($post->ID, 'Nowość')): ?>
+                    <span class="book-label new-label">Nowość</span>
+                <?php endif; ?>
             </h2>
 
     		<h3 class="author">
@@ -83,8 +86,11 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
                 <a target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
                     <?php the_title(); ?>
                 </a>
+                <?php if (books_cat($post->ID, 'Nowość')): ?>
+                    <span class="book-label new-label">Nowość</span>
+                <?php endif; ?>
                 <?php if (books_cat($post->ID, 'Gratis')): ?>
-                    <span class="gratis-label">Gratis!</span>
+                    <span class="book-label gratis-label">Gratis!</span>
                 <?php endif; ?>
             </h2>
             <h3 class="author">

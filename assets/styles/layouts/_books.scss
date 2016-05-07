@@ -31,6 +31,7 @@
 		width: 220px;
 		margin-right: 2rem;
 		margin-bottom: 1rem;
+		margin-top: 0;
 		@media (max-width: 1200px) {
 			width: 160px;
 		}
@@ -61,7 +62,7 @@
 	font-size: 1.4rem;
 }
 
-.gratis-label {
+.book-label {
 	float: right;
 	background-color: $accent-dark;
 	color: #fff;
@@ -72,4 +73,14 @@
 	border-radius: 15px;
 	letter-spacing: 1px;
 	text-shadow: 0 1px 1px darken($accent-dark, 10%);
+}
+
+.gratis-label {
+
+}
+
+.new-label {
+	background-color: $accent-light;
+	border: 3px solid darken($accent-light, 10%);
+	text-shadow: 0 1px 1px darken($accent-light, 10%);
 }

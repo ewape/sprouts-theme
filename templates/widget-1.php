@@ -31,7 +31,7 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
 
 ?>
 
-<div>
+
 
     <a class="widget-img-link" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
 		<?php the_post_thumbnail( 'ebook' ); ?>
@@ -39,12 +39,12 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
 			więcej
 		</span>
 	</a>
-</div>
+
 
 <?php endwhile; ?>
 
 	<div class="widget-footer">
-		<a href="/ebooki" title="">Inne książki i ebooki <i class="fa fa-angle-right"></i></a>
+		<a class="btn btn-default" href="/ebooki" title="">Inne książki i ebooki <i class="fa fa-angle-right"></i></a>
 	</div>
 </div>
 </div>

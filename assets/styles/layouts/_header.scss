@@ -1,6 +1,7 @@
 header {
 	//background-color: rgba($menu-bg, 0.95);
 	background-color: rgba($menu-bg, 0.95);
+	background: linear-gradient(rgba($menu-bg, 0.95), rgba(darken($menu-bg, 5%), 0.95));
 	position: fixed;
 	top: 0;
 	right: 0;

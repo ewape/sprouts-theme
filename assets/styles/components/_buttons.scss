@@ -10,24 +10,32 @@
 	-webkit-backface-visibility: hidden;
 	background-position: 0;
 	box-shadow: inset 0 1px 0 rgba(255,255,255,.3);
+	padding-top: 5px;
+	padding-bottom: 5px;
 	@extend .transition;
 
 	&:hover, &:active, &:focus {
 		color: #fff;
 		.fa {
 			transform: scale(1.2);
+
 		}
 	}
 
 	.fa {
 		@extend .transition;
+		transform-origin: center center;
+	}
+
+	span {
+		margin-left: 1rem;
 	}
 }
 
 @mixin button($color) {
 	background-color: $color;
 	border-color: darken($color, 8%);
-	background: linear-gradient($color, $color);
+	background: linear-gradient($color, darken($color, 2%));
 	text-shadow: 0 1px 1px darken($color, 10%);
 
 	&:hover, &:active, &:focus {
@@ -39,47 +47,26 @@
 
 .btn-default {
 	@include button($menu-bg);
-	/*
-	background-color: $menu-bg;
-	border-color: darken($menu-bg, 10%);
-	background: linear-gradient($menu-bg, $menu-bg);
-	text-shadow: 0 1px 1px darken($menu-bg, 10%);
-	&:hover, &:active, &:focus {
-		background-color: darken($menu-bg, 10%);
-		border-color: darken($menu-bg, 15%);
-		background: linear-gradient($menu-bg, darken($menu-bg, 5%));
-	}
-	*/
+}
+
+.btn-transparent {
+	@include button(transparent);
 }
 
 .btn-accent-light {
 	@include button($accent-light);
-	/*
-	background-color: $accent-light;
-	border-color: darken($accent-light, 10%);
-	background: linear-gradient($accent-light, $accent-light);
-	text-shadow: 0 1px 1px darken($accent-light, 10%);
-	&:hover, &:active, &:focus {
-		background-color: darken($accent-light, 10%);
-		border-color: darken($accent-light, 15%);
-		background: linear-gradient($accent-light, darken($accent-light, 10%));
-	}
-	*/
 }
 
 .btn-accent-dark {
 	@include button($accent-dark);
-	/*
-	background-color: $accent-dark;
-	border-color: darken($accent-dark, 10%);
-	background: linear-gradient($accent-dark, $accent-dark);
-	text-shadow: 0 1px 1px darken($accent-dark, 10%);
-	&:hover, &:active, &:focus {
-		background-color: darken($accent-dark, 10%);
-		border-color: darken($accent-dark, 15%);
-		background: linear-gradient($accent-dark, darken($accent-dark, 10%));
-	}
-	*/
+}
+
+.btn-google {
+	@include button(#d73d32);
+}
+
+.btn-fb {
+	@include button(#3B5998);
 }
 
 .more-link {
@@ -105,6 +92,7 @@
 			right: auto;
 		}
 	}
+
 }
 
 .nav-links {

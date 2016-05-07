@@ -4,6 +4,7 @@
 	 		background-color: $body-bg;
 	 		color: #fff;
 	 		font-weight: 300;
+	 		@extend .transition;
 	 	}
 	}
 

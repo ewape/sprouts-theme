@@ -21,7 +21,7 @@ use Roots\Sage\Wrapper;
     <div class="wrap" role="document">
       <div class="container">
          <div class="content row">
-        <main class="main">
+        <main class="main col-sm-8 col-md-9">
           <?php include Wrapper\template_path(); ?>
           <?php if (Setup\display_like_btns()) : ?>
           <div class="like-buttons">
@@ -30,7 +30,7 @@ use Roots\Sage\Wrapper;
            <?php endif; ?>
         </main><!-- /.main -->
         <?php if (Setup\display_sidebar()) : ?>
-          <aside class="sidebar hidden-xs">
+          <aside class="sidebar hidden-xs col-sm-4 col-md-3">
             <?php include Wrapper\sidebar_path(); ?>
           </aside><!-- /.sidebar -->
         <?php endif; ?>

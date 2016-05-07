@@ -5,8 +5,14 @@
     		<h1><?php echo the_title(); ?></h1>
     	</div>
     	<div class="img-compare twentytwenty-container">
-    		<?php echo wp_get_attachment_image( get_post_meta( $post->ID, 'seed_id', 1 ), 'img-compare' ); ?>
-    		<?php echo wp_get_attachment_image( get_post_meta( $post->ID, 'sprout_id', 1 ), 'img-compare' ); ?>
+        <div class="images">
+          <?php echo wp_get_attachment_image( get_post_meta( $post->ID, 'seed_id', 1 ), 'img-compare' ); ?>
+          <?php echo wp_get_attachment_image( get_post_meta( $post->ID, 'sprout_id', 1 ), 'img-compare' ); ?>
+        </div>
+        <div class="spinner">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+        </div>
       </div>
       <?php the_content(); ?>
 

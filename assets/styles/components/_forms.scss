@@ -1,19 +1,29 @@
 // Search form
 .search-form {
   @extend .form-inline;
+  position: relative;
+  max-width: 100%;
 }
 .search-form label {
   font-weight: normal;
   @extend .form-group;
+  width: calc(100% - 60px);
+  margin-bottom: 0;
 }
 .search-form .search-field {
   @extend .form-control;
   border-color: $body-bg;
   background-color: $heading-bg;
+  width: 100%;
+
 }
 .search-form .search-submit {
   @extend .btn;
   @extend .btn-accent-dark;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0;
 }
 
 .btn {
@@ -26,3 +36,45 @@
 	}
 }
 
+
+.navbar-search-btn {
+  position: absolute;
+  right: 60px;
+  top: 0;
+  line-height: 38px;
+  color: $menu-color;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  float: right;
+  text-shadow: 0 1px 1px darken($menu-bg, 10%);
+  .fa {
+    display: block;
+    line-height: 38px;
+
+  }
+  &:hover {
+
+  }
+}
+
+.header-search {
+  @extend .col-md-3;
+  background-color: $menu-bg;
+  background: linear-gradient(rgba($menu-bg, 0.95), rgba(darken($menu-bg, 5%), 0.95));
+  position: absolute;
+  right: 0;
+  top: 39px;
+  min-width: 100%;
+  max-width: 100%;
+  border-color: darken($menu-bg, 10%);
+  border-width: 0 1px 1px;
+  border-style: solid;
+  //border-bottom: 3px solid darken($menu-bg, 10%);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  .search-form .search-field {
+    border-color: darken($menu-bg, 10%);
+  }
+}

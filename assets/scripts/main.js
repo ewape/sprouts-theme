@@ -79,8 +79,7 @@
                 UTIL.fire(classnm);
                 UTIL.fire(classnm, 'finalize');
             });
-            UTIL.magnificPopup();
-            UTIL.scrollTop();
+
 
             // Fire common finalize JS
             UTIL.fire('common', 'finalize');
@@ -120,7 +119,6 @@
         },
 
         scroll: 0,
-
         previousScroll: 0,
         scrollUp: 0,
 
@@ -157,8 +155,7 @@
                     offset = offset.replace('px','');
                 }
 
-                target = target.length ? target : 1;
-                console.log(target.offset());
+                //target = target.length ? target : 1;
                 if (target) {
                     $('html,body').animate({
                         scrollTop: ( target.offset().top - offset )
@@ -168,19 +165,76 @@
             });
         },
 
+        searchToggle: function(animateIn, animateOut) {
+            $('.header-search').addClass(animateOut);
+            $('.navbar-search-btn').click(function() {
+
+                if ( $('.header-search').hasClass(animateOut)) {
+                  $('.header-search').addClass(animateIn).removeClass(animateOut);
+                } else {
+                     $('.header-search').addClass(animateOut).removeClass(animateIn);
+                }
+
+                if ($('.header-search').hasClass('hidden')) {
+                    $('.header-search').removeClass('hidden');
+                }
+            });
+        },
+
+        imgCompareLoader: function() {
+            $('.img-compare').addClass('visible');
+            //$('.img-compare').find('.spinner').remove();
+        },
+
+        menuDropdown: function() {
+            $('.dropdown-toggle').dropdown();
+        },
+
+        fbLoad: function() {
+            setTimeout(function() {
+                (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.6&appId=955624011163030";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+            }, 500);
+        },
+
+        addEmail: function() {
+            var emailName = 'kontakt',
+                domain = 'kielki.info';
+                $('.email-me').attr('href', 'mailto:' + emailName + '@' + domain);
+        },
+
+        windowLoad: function() {
+            UTIL.fbLoad();
+            UTIL.imgCompareLoader();
+        },
+
         windowScroll: function() {
             this.scrollPos();
             this.scrollDirection();
             this.arrows();
         },
         docReady: function() {
+            this.menuDropdown();
+            this.wow();
             this.smoothScroll();
+            this.searchToggle('flipInX', 'flipOutX');
+            this.magnificPopup();
+            this.scrollTop();
+            this.addEmail();
         }
     };
 
     // Load Events
     $(document).ready(UTIL.loadEvents);
-    $('.dropdown-toggle').dropdown();
+
 
     $(window).load(function() {
         $(".twentytwenty-container").twentytwenty();
@@ -190,31 +244,16 @@
         UTIL.windowScroll();
     });
 
-    UTIL.wow();
+    $(window).bind("load", UTIL.windowLoad);
 
-    $(window).bind("load", function() {
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.6&appId=955624011163030";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-
-    });
-
-    function WHCreateCookie(name, value, days) {
+    function wHCreateCookie(name, value, days) {
         var date = new Date();
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         var expires = "; expires=" + date.toGMTString();
         document.cookie = name + "=" + value + expires + "; path=/";
     }
 
-    function WHReadCookie(name) {
+    function wHReadCookie(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
@@ -229,8 +268,8 @@
         return null;
     }
 
-    function WHCheckCookies() {
-        if (WHReadCookie('cookies_accepted') !== 'T') {
+    function wHCheckCookies() {
+        if (wHReadCookie('cookies_accepted') !== 'T') {
             var message_container = document.createElement('div');
             message_container.id = 'cookies-message-container';
             var html_code = '<div id="cookies-message" class="container-fluid"><p class="cookies-message-text">Strona korzysta z plików cookies zgodnie z <a class="cookies-link" href="' + location.protocol + '//' + location.host + '/polityka-cookies/">Polityką cookies</a>. Korzystanie z witryny bez zmiany ustawień dotyczących cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany ustawień dotyczących cookies. </p><a href="#" id="accept-cookies-checkbox" class="btn btn-default" name="accept-cookies"><span>Rozumiem</span></a></div>';
@@ -242,23 +281,23 @@
     }
 
     function WHCloseCookiesWindow() {
-        WHCreateCookie('cookies_accepted', 'T', 365);
+        wHCreateCookie('cookies_accepted', 'T', 365);
         $('#cookies-message-container').fadeOut();
         document.getElementById('cookies-message-container').removeChild(document.getElementById('cookies-message'));
     }
 
     $('body').on('click', '#accept-cookies-checkbox', function() {
-        WHCreateCookie('cookies_accepted', 'T', 365);
+        wHCreateCookie('cookies_accepted', 'T', 365);
         $('#cookies-message-container').fadeOut();
     });
 
     $('body').on('click', '.cookies-message-text', function() {
-        WHCreateCookie('cookies_accepted', 'T', 365);
+        wHCreateCookie('cookies_accepted', 'T', 365);
         $('#cookies-message-container').fadeOut();
     });
 
     $(document).ready(function() {
-        WHCheckCookies();
+        wHCheckCookies();
     });
 
 

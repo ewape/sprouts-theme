@@ -60,7 +60,7 @@
 .dropdown-menu {
 	font-size: 1.7rem;
 	padding: 0;
-	border: 0 none;
+	border: 1px solid darken($menu-bg, 10%);
 
 	> li {
 		> a {
@@ -77,5 +77,23 @@
 		+.icon-bar {
 			margin-top: 5px;
 		}
+	}
+}
+
+.navbar-search-btn {
+	line-height: 38px;
+	color: $menu-color;
+	font-size: 2rem;
+	cursor: pointer;
+    padding: 0;
+    float: right;
+    text-shadow: 0 1px 1px darken($menu-bg, 10%);
+    .fa {
+    	display: block;
+    	line-height: 38px;
+
+    }
+	&:hover {
+
 	}
 }
