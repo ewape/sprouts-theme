@@ -1,10 +1,11 @@
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- responsive top -->
 <ins class="adsbygoogle"
-     style="display:block"
+     style="display:block;width:100%;height:60px"
      data-ad-client="ca-pub-5797055437132004"
      data-ad-slot="6305658572"
-     data-ad-format="auto"></ins>
+     data-ad-format="auto">
+ </ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

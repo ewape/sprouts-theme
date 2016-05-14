@@ -15,6 +15,11 @@
 .gallery-icon {
 	@extend .transition;
 	overflow: hidden;
+
+	a {
+		display: block;
+	}
+
 	img {
 		padding: 2px;
 		background-color: #FDEDD3;
@@ -27,6 +32,9 @@
 	&:hover {
 		img {
 			border-radius: 0;
+		}
+		+ .gallery-caption {
+			opacity: 1;
 		}
 	}
 }
@@ -147,12 +155,6 @@
   width: auto;
   min-width: 50%;
   float: none;
-}
-
-&:hover {
-  .gallery-caption {
-	opacity: 1;
-}
 }
 
 img {

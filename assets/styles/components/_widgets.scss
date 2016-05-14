@@ -13,8 +13,10 @@
 
 .widget-img-link {
 	display: inline-block;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 	position: relative;
+	backface-visibility: hidden;
+	transform: translateZ(0);
 	&:before {
 		content: '';
 		position: absolute;
@@ -29,10 +31,10 @@
 	img {
 		max-width: 100%;
 		height: auto;
+		display: block;
 		border: 1px solid $body-bg;
 		padding: 2px;
 		background-color: $heading-bg;
-		display: block;
 	}
 	.btn {
 			position: absolute;
@@ -50,4 +52,10 @@
 
 .widget-partners {
 
+}
+
+.widget-books {
+	img {
+
+	}
 }

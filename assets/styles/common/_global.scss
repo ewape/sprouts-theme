@@ -19,6 +19,7 @@ body {
 
 .main {
 	padding-bottom: 2rem;
+	padding-top: 2rem;
 	background-color: $content-bg;
 	border-right: 1px solid $body-bg;
 
@@ -36,10 +37,10 @@ body {
 }
 
 .page-header {
-	margin: 2rem 0 0 0;
+	margin: 0 0 1rem 0;
 	h1 {
-		margin-top: 1rem;
-		margin-bottom: 1rem;
+		margin-top: 0;
+		margin-bottom: 0;
 		border: 1px solid $body-bg;
 		text-align: center;
 		color: $heading-color;

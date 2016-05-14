@@ -121,6 +121,12 @@
         scroll: 0,
         previousScroll: 0,
         scrollUp: 0,
+        toBottom: 0,
+
+        arrowsHeight: $('.arrows').height(),
+        arrowsBottom: parseInt($('.arrows').css('bottom'), 10),
+        footerHeight: $('.footer-bottom').height(),
+        windowHeight: window.innerHeight,
 
         scrollPos: function(){
             this.scroll = $(window).scrollTop();
@@ -128,34 +134,49 @@
 
         scrollDirection: function() {
             if (this.scroll > this.previousScroll){
-                this.scrollUp = 0;
+                this.scrollUp = 1;
             }
             else {
-                this.scrollUp = 1;
+                this.scrollUp = 0;
             }
             this.previousScroll = this.scroll;
         },
 
         arrows: function() {
-            if (this.scroll >= 200) {
-                $('.arrows').fadeIn();
-                var activeArrow = $('.arrows a').eq(this.scrollUp);
-                activeArrow.addClass('active').siblings().removeClass('active');
+
+            if (this.scroll >= this.windowHeight) {
+                //if (this.toBottom < 100 && $('.arrows').is(':visible')) {
+                   // $('.arrows').stop().fadeOut(300);
+               // }
+
+               // else {
+                    $('.arrows').fadeIn(300);
+                    var activeArrow = $('.arrows a').eq(this.scrollUp);
+                    activeArrow.addClass('active').siblings().removeClass('active');
+                //}
             }
-            else {
-                $('.arrows').fadeOut();
+
+            else if ($('.arrows').is(':visible')) {
+                $('.arrows').fadeOut(300);
             }
+
+        },
+
+        getBottom: function() {
+            var docHeight = $(document).height(),
+                arrowOffset = $('.arrows').offset().top;
+                atBottom = docHeight - arrowOffset - this.arrowsHeight;
+                this.toBottom = docHeight - arrowOffset - this.arrowsHeight - this.arrowsBottom;
         },
 
         smoothScroll: function() {
-            $('.smoothscroll').click(function() {
+            $('.smoothscroll').on('click', function() {
                 var target = $(this.hash);
                 var offset = $('body').css('padding-top');
                 if (offset) {
                     offset = offset.replace('px','');
                 }
 
-                //target = target.length ? target : 1;
                 if (target) {
                     $('html,body').animate({
                         scrollTop: ( target.offset().top - offset )
@@ -167,7 +188,7 @@
 
         searchToggle: function(animateIn, animateOut) {
             $('.header-search').addClass(animateOut);
-            $('.navbar-search-btn').click(function() {
+            $('.navbar-search-btn').on('click', function() {
 
                 if ( $('.header-search').hasClass(animateOut)) {
                   $('.header-search').addClass(animateIn).removeClass(animateOut);
@@ -183,7 +204,7 @@
 
         imgCompareLoader: function() {
             $('.img-compare').addClass('visible');
-            //$('.img-compare').find('.spinner').remove();
+            $('.img-compare').find('.spinner').fadeOut().remove();
         },
 
         menuDropdown: function() {
@@ -220,6 +241,7 @@
             this.scrollPos();
             this.scrollDirection();
             this.arrows();
+            //this.getBottom();
         },
         docReady: function() {
             this.menuDropdown();

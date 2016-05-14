@@ -12,3 +12,4 @@
     </div>
   </article>
 <?php endwhile; ?>
+<?php echo do_shortcode('[ads id=5622980160]'); ?>

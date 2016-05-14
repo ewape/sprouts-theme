@@ -14,6 +14,7 @@ footer {
 	a {
 		color: $heading-bg;
 		text-decoration: none;
+		text-shadow: 0 1px 1px darken($footer-bg, 8%);
 		&:hover {
 			text-decoration: none;
 			color: $accent-dark;
@@ -46,7 +47,7 @@ footer {
 			}
 
 			&:hover {
-				//color: $body-bg;
+				color: $heading-bg;
 				&:before {
 					margin-right: 10px;
 					color: $accent-dark;
@@ -69,23 +70,19 @@ footer {
 	}
 
 	.social-buttons {
+		text-align: right;
 		.btn {
-			//width: 49%;
-			&:last-of-type {
-				//float: right;
-			}
+			margin-left: 1rem;
 		}
 	}
-	 .contact {
-	 	.btn {
-	 		//width: 49%;
-	 	}
-	 }
 }
 
 .footer-extras {
-	> div, form {
-		margin-bottom: 2rem;
+	background-color: darken($footer-bg, 5%);
+	border-top: 3px solid darken($footer-bg, 8%);
+	border-bottom: 3px solid darken($footer-bg, 8%);
+	.search-form {
+		margin-top: 0.5rem;
 	}
 	.search-field {
 		background-color: $content-bg;
@@ -115,7 +112,9 @@ footer {
 }
 
 .footer-bottom {
-	background-color: darken($footer-bg, 8%);
+	background-color: darken($footer-bg, 5%);
+	border-top: 3px solid darken($footer-bg, 8%);
+	border-bottom: 3px solid darken($footer-bg, 8%);
 }
 
 .footer-navlinks {
@@ -132,23 +131,53 @@ footer {
 
 .arrows {
 	position: fixed;
-	bottom: 4rem;
-	right: 3rem;
-	font-size: 5rem;
-	text-shadow: 0 1px 1px darken($footer-bg, 10%);
+	bottom: 6.5rem;
+	right: 2rem;
+	width: 8rem;
+	height: 8rem;
+
 	a {
-		display: block;
-		color: $content-bg;
-		line-height: 3rem;
+
+		opacity: 0.6;
+		position: absolute;
+		top: 0;
+		right: 0;
+	    bottom: 0;
+	    left: 0;
+		transition: opacity 0.4s ease;
+		display: none;
+
+		&.active {
+			display: block;
+			.scroll-arrow {
+
+			}
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+
 		&.active, &:hover {
 			color: $accent-dark;
 		}
 	}
 
-	.fa {
-		&:before {
-			line-height: 0;
+	.scroll-top {
+		.scroll-arrow {
+			transform: rotate(180deg);
 		}
+	}
 
+}
+
+.scroll-arrow {
+	height: 100%;
+	width: 100%;
+	&:hover {
+		.scroll-arrow-path {
+			fill: $accent-dark;
+		}
 	}
 }
+

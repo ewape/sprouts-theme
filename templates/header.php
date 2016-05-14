@@ -28,12 +28,13 @@
       ?>
 
     </nav>
+
     <div class="navbar-search-btn">
        <i class="fa fa-search hvr-icon-grow"></i>
     </div>
 
     <div class="header-search animated hidden">
-      <?php  get_search_form(); ?>
+      <?php get_search_form(); ?>
    </div>
  </div>
 </div>

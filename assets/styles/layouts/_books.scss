@@ -56,31 +56,14 @@
 
 }
 
+.ksiazki {
+	.badge {
+		float: right;
+	}
+}
+
 .author {
 	font-style: italic;
 	margin-top: 0;
 	font-size: 1.4rem;
-}
-
-.book-label {
-	float: right;
-	background-color: $accent-dark;
-	color: #fff;
-	border: 3px solid darken($accent-dark, 10%);
-	text-transform: uppercase;
-	font-size: 1.4rem;
-	padding: 2px 1rem;
-	border-radius: 15px;
-	letter-spacing: 1px;
-	text-shadow: 0 1px 1px darken($accent-dark, 10%);
-}
-
-.gratis-label {
-
-}
-
-.new-label {
-	background-color: $accent-light;
-	border: 3px solid darken($accent-light, 10%);
-	text-shadow: 0 1px 1px darken($accent-light, 10%);
 }

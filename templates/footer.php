@@ -1,30 +1,22 @@
-<footer class="content-info">
-  <div class="container">
-  	<div class="row">
-     <?php dynamic_sidebar('sidebar-footer'); ?>
-   </div>
- </div>
-</footer>
-
 <footer class="footer-extras">
  <div class="container">
   <div class="row">
     <div class="col-sm-6 col-md-4">
       <?php get_search_form(); ?>
     </div>
-    <div class="col-sm-6 col-md-8 social-buttons">
-     <a class="btn btn-fb" href="https://www.facebook.com/kielkiinfo-310655538217/" target="_blank">
-      <i class="fa fa-facebook"></i>   <span>facebook</span>
-    </a>
-    <a class="btn btn-google" href="https://plus.google.com/+KielkiInfo/" target="_blank">
-      <i class="fa fa-google-plus"></i>   <span>google+</span>
-    </a>
-    <a class="btn btn-default email-me " href="#">
-      <i class="fa fa-envelope"></i> <span>kontakt</span>
-    </a>
+    <div class="col-sm-6 col-md-8">
+     <?php get_template_part('templates/social', 'buttons'); ?>
   </div>
   </div>
 </div>
+</footer>
+
+<footer class="content-info">
+  <div class="container">
+  	<div class="row">
+     <?php dynamic_sidebar('sidebar-footer'); ?>
+   </div>
+ </div>
 </footer>
 
 <footer class="footer-bottom" id="bottom">
@@ -46,7 +38,7 @@
 </footer>
 
 <div class="arrows">
-  <a class="scroll-top" href="#" title="Przewiń do góry"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
-  <a class="smoothscroll" href="#bottom" title=""><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+  <a class="scroll-top" href="#" title="Przewiń do góry"><?php get_template_part('templates/arrow'); ?></a>
+  <a class="smoothscroll active" href="#bottom" title=""><?php get_template_part('templates/arrow'); ?></a>
 </div>
 

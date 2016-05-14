@@ -30,7 +30,7 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
                     <?php the_title(); ?>
                 </a>
                 <?php if (books_cat($post->ID, 'Nowość')): ?>
-                    <span class="book-label new-label">Nowość</span>
+                    <span class="badge badge-accent-light">Nowość</span>
                 <?php endif; ?>
             </h2>
 
@@ -87,10 +87,10 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
                     <?php the_title(); ?>
                 </a>
                 <?php if (books_cat($post->ID, 'Nowość')): ?>
-                    <span class="book-label new-label">Nowość</span>
+                    <span class="badge badge-accent-light">Nowość</span>
                 <?php endif; ?>
                 <?php if (books_cat($post->ID, 'Gratis')): ?>
-                    <span class="book-label gratis-label">Gratis!</span>
+                    <span class="badge badge-accent-dark">Gratis!</span>
                 <?php endif; ?>
             </h2>
             <h3 class="author">
@@ -121,3 +121,4 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
   </article>
 
 <?php endwhile; ?>
+<?php echo do_shortcode('[ads id=0831177546]'); ?>

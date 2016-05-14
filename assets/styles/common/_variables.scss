@@ -109,4 +109,11 @@ $page-header-border-color: transparent;
 
 .sidebar .menu a {
 	@extend .hvr-wobble-horizontal;
-	}
+}
+
+.box {
+	border: 1px solid $body-bg;
+	color: $heading-color;
+	background-color: $heading-bg;
+	padding: 0.4rem;
+}

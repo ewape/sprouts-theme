@@ -1,12 +1,24 @@
 .ads {
-
+	border: 1px solid $body-bg;
+	background-color: $heading-bg;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
+.adsbygoogle {
+	margin: auto;
+	max-width: 100%;
+	max-height: 100%;
+	overflow: hidden;
+	img {
+		max-width: 100%;
+		max-height: 100%;
+		width: auto;
+		height: auto;
+	}
+}
 .ad-horizontal {
-	border: 1px solid $body-bg;
 	text-align: center;
-	color: $heading-color;
-	background-color: $heading-bg;
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
 }

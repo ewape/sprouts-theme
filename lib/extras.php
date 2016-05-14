@@ -257,4 +257,8 @@ function kielki_tags() {
   register_taxonomy( 'kielki-tags', array( 'kielki', 'ksiazki' ), $args );
 }
 
-
+//add_filter('widget_tag_cloud_args', __NAMESPACE__ . '\\set_cloud_tag_size');
+function set_cloud_tag_size($args) {
+  $args = array('smallest'    => 14, 'largest'  => 14);
+  return $args;
+}

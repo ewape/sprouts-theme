@@ -59,8 +59,8 @@ function widgets_init() {
     'id'            => 'sidebar-primary',
     'before_widget' => '<section class="widget %1$s %2$s">',
     'after_widget'  => '</section>',
-    //'before_title'  => '<h3 class="hidden">',
-    //'after_title'   => '</h3>'
+    'before_title'  => '<h3 class="box">',
+    'after_title'   => '</h3>'
   ]);
 
   register_sidebar([
@@ -91,7 +91,7 @@ function display_sidebar() {
   return apply_filters('sage/display_sidebar', $display);
 }
 
-
+// fb like buttons
 function display_like_btns() {
   static $display;
 
@@ -100,7 +100,9 @@ function display_like_btns() {
     // @link https://codex.wordpress.org/Conditional_Tags
     is_404(),
     is_search(),
-    is_archive()
+    is_archive(),
+    is_page('polityka-prywatnosci'),
+    is_page('nota-prawna')
     //is_page_template('template-custom.php'),
   ]);
 

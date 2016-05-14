@@ -46,8 +46,6 @@
         <span><?php echo get_post_meta( $post->ID, 'Inne', 1 ); ?></span>
       </div>
   </div>
-  <div class="ads ad-horizontal">
-     <?php get_template_part('templates/ads/ads_6305658572'); ?>
-  </div>
 </article>
 <?php endwhile; ?>
+<?php echo do_shortcode('[ads id=0831177546]'); ?>

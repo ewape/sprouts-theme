@@ -1,12 +1,16 @@
-.page-header {
-	margin-top: 2rem;
-}
-
 .main {
 	.thumb {
 		float: left;
 		clear: left;
 		max-width: 200px;
 		margin: 1rem 1rem 1rem 0;
+	}
+}
+
+.search-results {
+	.hentry {
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px dashed $body-bg;
 	}
 }

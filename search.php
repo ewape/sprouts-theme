@@ -10,5 +10,5 @@
 <?php while (have_posts()) : the_post(); ?>
   <?php get_template_part('templates/content', 'search'); ?>
 <?php endwhile; ?>
-
+<?php echo do_shortcode('[ads id=0831177546]'); ?>
 <?php the_posts_navigation(); ?>

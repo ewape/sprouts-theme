@@ -45,6 +45,16 @@
 	}
 }
 
+@mixin btn-round($size) {
+	width: $size;
+	height: $size;
+	border-radius: 50%;
+	text-align: center;
+	padding: 0;
+	font-size: $size/2;
+	line-height: 3.7rem;
+}
+
 .btn-default {
 	@include button($menu-bg);
 }
@@ -67,6 +77,10 @@
 
 .btn-fb {
 	@include button(#3B5998);
+}
+
+.btn-round {
+	@include btn-round(4rem);
 }
 
 .more-link {
@@ -115,4 +129,8 @@
 .nav-previous {
 	float: right;
 	clear: right;
+}
+
+.social-buttons {
+	text-align: center;
 }
