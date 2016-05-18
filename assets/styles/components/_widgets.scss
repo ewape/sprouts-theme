@@ -59,3 +59,14 @@
 
 	}
 }
+
+.widget-slider {
+	position: relative;
+	background-color: transparent;
+	border-radius: 0;
+	border: 0 none;
+	.widget-img-link {
+		margin-bottom: 0;
+		//transform: translate(-50%, -50%);
+	}
+}

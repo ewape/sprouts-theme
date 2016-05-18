@@ -31,15 +31,12 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
 
 ?>
 
-
-
     <a class="widget-img-link" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
 		<?php the_post_thumbnail( 'ebook' ); ?>
 		<span class="btn btn-accent-dark hvr-icon-pulse arrow">
 			więcej
 		</span>
 	</a>
-
 
 <?php endwhile; ?>
 

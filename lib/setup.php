@@ -96,8 +96,6 @@ function display_like_btns() {
   static $display;
 
   isset($display) || $display = !in_array(true, [
-    // The sidebar will NOT be displayed if ANY of the following return true.
-    // @link https://codex.wordpress.org/Conditional_Tags
     is_404(),
     is_search(),
     is_archive(),
@@ -120,6 +118,7 @@ function assets() {
   }
 
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+  wp_enqueue_script('google-ads', 'http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', null, false);
 
   // Czcionki
   wp_enqueue_style('Alegreya', '//fonts.googleapis.com/css?family=Alegreya:400,700,400italic,700italic&subset=latin-ext');

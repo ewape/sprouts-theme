@@ -16,16 +16,8 @@ if ($post) {
 
 if (is_archive('books')) {
 	get_template_part('templates/widget', 'partners');
+	get_template_part('templates/widget', 'books-recommended');
 }
-
-?>
-
-<div class="sidebar-links">
-	<a href="<?php echo home_url('/'); ?>nota-prawna" title="">Nota prawna</a>
-	<a href="<?php echo home_url('/'); ?>polityka-prywatnosci" title="">Polityka prywatności</a>
-</div>
-
-<?php
 
 if (is_page('hodowla-kielkow')) {
 	echo '<div class="ads">';

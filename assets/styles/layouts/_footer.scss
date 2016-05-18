@@ -1,8 +1,9 @@
 footer {
 	background-color: $footer-bg;
-
+	position: relative;
 	.container {
 		color: #fff;
+		color: rgba(#fff, 0.8);
 		padding-top: 1rem;
 		padding-bottom: 1rem;
 	}
@@ -100,8 +101,12 @@ footer {
 	border: 1px solid darken($footer-bg, 5%);
 }
 
-.copyright {
+.footer-bottom {
+	background-color: darken($footer-bg, 5%);
+	border-top: 3px solid darken($footer-bg, 8%);
+	border-bottom: 3px solid darken($footer-bg, 8%);
 	color: $heading-bg;
+	font-size: 1.4rem;
 	a {
 		color: $body-bg;
 		&:hover {
@@ -109,12 +114,6 @@ footer {
 			color: $accent-dark;
 		}
 	}
-}
-
-.footer-bottom {
-	background-color: darken($footer-bg, 5%);
-	border-top: 3px solid darken($footer-bg, 8%);
-	border-bottom: 3px solid darken($footer-bg, 8%);
 }
 
 .footer-navlinks {
@@ -131,44 +130,15 @@ footer {
 
 .arrows {
 	position: fixed;
-	bottom: 6.5rem;
+	bottom: 8.5rem;
 	right: 2rem;
-	width: 8rem;
-	height: 8rem;
-
 	a {
-
-		opacity: 0.6;
-		position: absolute;
-		top: 0;
-		right: 0;
-	    bottom: 0;
-	    left: 0;
-		transition: opacity 0.4s ease;
-		display: none;
-
-		&.active {
-			display: block;
-			.scroll-arrow {
-
-			}
-		}
-
+		color: #fff;
 		&:hover {
 			opacity: 1;
-		}
-
-		&.active, &:hover {
-			color: $accent-dark;
+			color: #fff;
 		}
 	}
-
-	.scroll-top {
-		.scroll-arrow {
-			transform: rotate(180deg);
-		}
-	}
-
 }
 
 .scroll-arrow {
@@ -179,5 +149,11 @@ footer {
 			fill: $accent-dark;
 		}
 	}
+}
+
+.btn-back {
+	position: absolute;
+    right: 7rem;
+    bottom: 1.9rem;
 }
 

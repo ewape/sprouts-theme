@@ -134,3 +134,12 @@
 .social-buttons {
 	text-align: center;
 }
+
+.button-list {
+	text-align: center;
+	margin-top: 2rem;
+	.btn {
+		display: inline-block;
+    	margin: 3px;
+	}
+}

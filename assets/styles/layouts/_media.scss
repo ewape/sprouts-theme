@@ -106,12 +106,6 @@
 		}
 	}
 
-	.footer-widget {
-		&.widget_text {
-			min-width: 100%;
-		}
-	}
-
 	footer {
 		.profile {
 			display: inline-block;
@@ -120,13 +114,14 @@
 
 		.widget_text {
 			text-align: center;
+			margin-bottom: 2rem;
 		}
 	}
-}
 
-@media (max-width: 400px) {
-	.footer-widget {
-		min-width: 100%;
+	.footer-extras-col {
+		&:first-of-type {
+			margin-bottom: 2rem;
+		}
 	}
 }
 
@@ -135,4 +130,11 @@
 		height: 206px;
 	}
 }
+
+@media (max-width: 420px) {
+	.footer-widget {
+		width: 100%;
+	}
+}
+
 

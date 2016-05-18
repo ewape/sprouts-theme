@@ -3,7 +3,8 @@
 	<h2 class="widget-title">Polecane książki</h2>
 
 <div class="widget-body">
-
+    <div class="flexslider widget-slider">
+<ul class="slides">
 <?php
 
 $bookargs = ( array(
@@ -31,17 +32,18 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
 
 ?>
 
-<div>
+<li>
     <a class="widget-img-link" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
 		<?php the_post_thumbnail( 'ebook' ); ?>
 		<span class="btn btn-accent-dark hvr-icon-pulse arrow">
 			więcej
 		</span>
 	</a>
-</div>
+</li>
 
 <?php endwhile; ?>
-
+</ul>
+</div>
 	<div class="widget-footer">
 		<a class="btn btn-default" href="/ebooki" title="">Inne książki i ebooki <i class="fa fa-angle-right"></i></a>
 	</div>

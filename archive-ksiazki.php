@@ -20,11 +20,14 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
 
 ?>
   <article <?php post_class(); ?>>
-    <div class="entry-content lightbox">
-    	<a href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="book-thumb thumb">
-    		<?php the_post_thumbnail( 'ebook' ); ?>
-    	</a>
-    	<div class="description">
+    <div class="row entry-content lightbox">
+        <div class="col-xs-4 col-sm-3">
+            <a class="book-thumb thumb" href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="">
+                <?php the_post_thumbnail( 'ebook' ); ?>
+            </a>
+        </div>
+
+    	<div class="col-xs-8 col-sm-9 description">
     		<h2 class="entry-title">
                 <a target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
                     <?php the_title(); ?>
@@ -77,11 +80,13 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
 <?php while ( $ebookloop->have_posts() ) : $ebookloop->the_post(); ?>
 
 <article <?php post_class(); ?>>
-    <div class="entry-content lightbox">
-        <a href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="book-thumb thumb">
-            <?php the_post_thumbnail( 'ebook' ); ?>
-        </a>
-        <div class="description">
+    <div class="row entry-content lightbox">
+        <div class="col-xs-4 col-sm-3">
+            <a href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="book-thumb thumb">
+                <?php the_post_thumbnail( 'ebook' ); ?>
+            </a>
+        </div>
+        <div class="col-xs-8 col-sm-9 description">
             <h2 class="entry-title">
                 <a target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
                     <?php the_title(); ?>

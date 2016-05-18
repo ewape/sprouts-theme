@@ -257,8 +257,67 @@ function kielki_tags() {
   register_taxonomy( 'kielki-tags', array( 'kielki', 'ksiazki' ), $args );
 }
 
-//add_filter('widget_tag_cloud_args', __NAMESPACE__ . '\\set_cloud_tag_size');
-function set_cloud_tag_size($args) {
-  $args = array('smallest'    => 14, 'largest'  => 14);
-  return $args;
+// Register Custom Post Type
+function create_post_type_tables() {
+
+  $labels = array(
+    'name'                  => 'tabele',
+    'singular_name'         => 'tabela',
+    'menu_name'             => 'Tabele',
+    'name_admin_bar'        => 'Tabele',
+    'archives'              => 'Archiwa tabel',
+    'parent_item_colon'     => 'Parent Item:',
+    'all_items'             => 'Wszystkie tabele',
+    'add_new_item'          => 'Dodaj tabelę',
+    'add_new'               => 'Dodaj tabelę',
+    'new_item'              => 'Nowa tabela',
+    'edit_item'             => 'Edytuj tabelę',
+    'update_item'           => 'Aktualizuj tabelę',
+    'view_item'             => 'Zobacz tabelę',
+    'search_items'          => 'Szukaj tabeli',
+    'not_found'             => 'Nie znaleziono tabeli',
+    'not_found_in_trash'    => 'Nie znaleziono tabeli w koszu',
+    'featured_image'        => 'Featured Image',
+    'set_featured_image'    => 'Set featured image',
+    'remove_featured_image' => 'Remove featured image',
+    'use_featured_image'    => 'Use as featured image',
+    'insert_into_item'      => 'Wstaw do tabeli',
+    'uploaded_to_this_item' => 'Uploaded to this item',
+    'items_list'            => 'Items list',
+    'items_list_navigation' => 'Items list navigation',
+    'filter_items_list'     => 'Filter items list',
+  );
+  $args = array(
+    'label'                 => 'tabela',
+    'description'           => 'Tabele wartości',
+    'labels'                => $labels,
+    'supports'              => array( ),
+    'taxonomies'            => array( 'category', 'post_tag' ),
+    'hierarchical'          => true,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    'menu_position'         => 5,
+    'menu_icon'   => 'dashicons-editor-table',
+    'show_in_admin_bar'     => true,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => false,
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'tabele', $args );
+
+}
+add_action('init', __NAMESPACE__ . '\\create_post_type_tables');
+
+
+add_filter('script_loader_tag', __NAMESPACE__ . '\\add_async_attribute', 10, 2);
+
+function add_async_attribute($tag, $handle) {
+    if ( 'google-ads' !== $handle ) {
+       return $tag;
+    }
+    return str_replace( ' src', ' async="async" src', $tag );
 }

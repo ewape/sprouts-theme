@@ -35,7 +35,7 @@
 				right: 100%;
 				top: 0;
 				bottom: 0;
-				background-color:  rgba(56,46,31,.7);
+				background-color: rgba(#fff, 0.1);
 				z-index: -1;
 				transition: all 0.3s ease;
 			}
@@ -104,6 +104,11 @@
 
 		}
 	}
+	.social-buttons {
+		.btn {
+			margin-left: 1rem;
+		}
+	}
 }
 
 .sidebar-links {
@@ -119,8 +124,59 @@
 	margin-bottom: 1rem;
 	padding: 1rem;
 	overflow: hidden;
-	line-height: 2rem;
+	line-height: 3rem;
 	.badge {
 		float: right;
+		line-height: 2rem;
 	}
+}
+
+.flexslider {
+	margin-bottom: 4rem;
+	&:hover {
+		.flex-direction-nav {
+			.flex-prev {
+				left: 0;
+			}
+			.flex-next {
+				right: 0;
+			}
+		}
+	}
+}
+
+.flex-control-nav {
+	bottom: -2.5rem;
+	li {
+		margin: 0 4px;
+		a {
+			border-radius: 0;
+			background-color: darken($menu-bg, 10%);
+			box-shadow: 0 none;
+
+			&.flex-active, &:hover {
+				background-color: $menu-bg;
+			}
+		}
+	}
+}
+
+.flex-direction-nav {
+	a {
+		text-shadow: none;
+		&:before {
+			font-size: 3rem;
+			color: #fff;
+			text-shadow: none;
+		}
+	}
+	.flex-next {
+		text-align: center;
+	}
+}
+
+.slides {
+	display: flex;
+  	align-items: center;
+  	//justify-content: center;
 }
