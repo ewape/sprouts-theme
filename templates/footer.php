@@ -11,11 +11,11 @@
 </div>
 </footer>
 
-<footer class="content-info">
+<footer class="footer-mid">
   <div class="container">
   	<div class="row">
      <?php dynamic_sidebar('sidebar-footer'); ?>
-      <a class="btn btn-default btn-round btn-back" href="#" title="Cofnij">
+      <a class="btn btn-default btn-round btn-back" href="#" title="Cofnij" data-toggle="tooltip" data-placement="auto">
         <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
       </a>
    </div>
@@ -30,17 +30,21 @@
       </div>
       <div class="col-xs-6 text-right">
         Projekt i wykonanie: <a href="http://horizonweb.pl" target="_blank">horizonweb.pl</a>
-    </div>
-    <div class="arrows">
-      <a class="scroll-top btn btn-default btn-round" href="#" title="Przewiń do góry"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
-    </div>
+      </div>
 
-    <div class="col-xs-12 footnotes">
-      <a href="<?php echo home_url('/'); ?>nota-prawna" title="">Nota prawna</a> &nbsp;
-      <a href="<?php echo home_url('/'); ?>polityka-prywatnosci" title="">Polityka prywatności</a>
+      <div class="col-xs-12 footnotes">
+        <a href="<?php echo home_url('/'); ?>nota-prawna" title="">Nota prawna</a> &nbsp;
+        <a href="<?php echo home_url('/'); ?>polityka-prywatnosci" title="">Polityka prywatności</a>
+      </div>
+
     </div>
   </div>
-</div>
 </footer>
+
+<div class="arrows">
+  <a class="scroll-top btn btn-default btn-round" href="#" title="Przewiń do góry" data-toggle="tooltip" data-placement="auto">
+    <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+  </a>
+</div>
 
 

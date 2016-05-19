@@ -108,6 +108,15 @@
 		}
 	}
 
+	&.external-link {
+		padding-right: 3rem;
+		&:before {
+			content: '\f08e';
+			right: 1rem;
+			line-height: 1.7;
+		}
+	}
+
 }
 
 .nav-links {

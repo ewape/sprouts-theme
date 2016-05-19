@@ -101,11 +101,20 @@ footer {
 	border: 1px solid darken($footer-bg, 5%);
 }
 
+.footer-mid {
+	border-bottom: 3px solid darken($footer-bg, 8%);
+}
+
 .footer-bottom {
 	background-color: darken($footer-bg, 5%);
-	border-top: 3px solid darken($footer-bg, 8%);
 	border-bottom: 3px solid darken($footer-bg, 8%);
 	font-size: 1.4rem;
+	position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+
 	a {
 		color: $body-bg;
 		&:hover {
@@ -131,6 +140,7 @@ footer {
 	position: fixed;
 	bottom: 8.5rem;
 	right: 2rem;
+	z-index: 5;
 	a {
 		color: #fff;
 		&:hover {

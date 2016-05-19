@@ -330,7 +330,7 @@ add_action('init', __NAMESPACE__ . '\\create_post_type_tables');
 add_filter('script_loader_tag', __NAMESPACE__ . '\\add_async_attribute', 10, 2);
 
 function add_async_attribute($tag, $handle) {
-    if ( 'google-ads' !== $handle ) {
+    if ( 'google-ads' !== $handle || 'google-plus' !== $handle ) {
        return $tag;
     }
     return str_replace( ' src', ' async="async" src', $tag );

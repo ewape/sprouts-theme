@@ -9,15 +9,19 @@ use Roots\Sage\Wrapper;
 <html <?php language_attributes(); ?>>
   <?php get_template_part('templates/head'); ?>
   <body <?php body_class(); ?>>
+
     <!--[if IE]>
       <div class="alert alert-warning">
         <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'sage'); ?>
       </div>
     <![endif]-->
+
     <?php
       do_action('get_header');
       get_template_part('templates/header');
     ?>
+
+    <div class="parallax-wrap">
     <div class="wrap" role="document">
       <div class="container">
          <div class="content">
@@ -26,6 +30,10 @@ use Roots\Sage\Wrapper;
             <?php include Wrapper\template_path(); ?>
             <?php if (Setup\display_like_btns()) : ?>
             <div class="like-buttons">
+              <script src="https://apis.google.com/js/platform.js" async defer>
+                {lang: 'pl'}
+              </script>
+              <div class="g-plusone btn" data-annotation="none"></div>
               <div class="fb-like" data-href="https://www.facebook.com/kielkiinfo-310655538217/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
             </div>
              <?php endif; ?>
@@ -42,10 +50,13 @@ use Roots\Sage\Wrapper;
       </div>
 
     </div><!-- /.wrap -->
+
     <?php
       do_action('get_footer');
       get_template_part('templates/footer');
       wp_footer();
     ?>
+
+    </div>
   </body>
 </html>

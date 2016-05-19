@@ -8,6 +8,11 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
+.parallax-wrap {
+	z-index: 1;
+	background-color: $body-bg;
+}
+
 .wrap {
 	margin-bottom: 2rem;
 	margin-top: 2rem;
@@ -141,10 +146,39 @@ hr {
 }
 
 .wow {
-   visibility: hidden;
+	visibility: hidden;
 }
 
 .entry-content {
 	overflow: hidden;
+}
+
+.tooltip {
+	&.in {
+		opacity: 1;
+	}
+	.tooltip-inner {
+		background-color: darken($footer-bg, 10%);
+	}
+	&.top {
+		.tooltip-arrow {
+			border-top-color: darken($footer-bg, 10%);
+		}
+	}
+	&.right {
+		.tooltip-arrow {
+			border-right-color: darken($footer-bg, 10%);
+		}
+	}
+	&.bottom {
+		.tooltip-arrow {
+			border-bottom-color: darken($footer-bg, 10%);
+		}
+	}
+	&.left {
+		.tooltip-arrow {
+			border-left-color: darken($footer-bg, 10%);
+		}
+	}
 }
 

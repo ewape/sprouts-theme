@@ -87,6 +87,7 @@
         wow: function() {
             new WOW().init();
         },
+
         scrollTop: function() {
             $('.scroll-top').click(function() {
                 $('body,html').animate({
@@ -95,6 +96,7 @@
                 return false;
             });
         },
+
         magnificPopup: function() {
             $('.gallery-icon a, .thumb').magnificPopup({
                 type: 'image',
@@ -124,6 +126,18 @@
         toBottom: 0,
 
         footerHeight: $('.footer-bottom').outerHeight(),
+
+        tooltipInit: function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        },
+
+        bodyMarginBottom: function() {
+            if (!isNaN(this.footerHeight)) {
+                if (parseInt($('.parallax-wrap').css('margin-bottom'), 10) !== this.footerHeight) {
+                    $('.parallax-wrap').css('margin-bottom', this.footerHeight + 'px');
+                }
+            }
+        },
 
         scrollPos: function(){
             this.scroll = $(window).scrollTop();
@@ -274,6 +288,7 @@
         windowResize: function() {
             this.arrowsBottomPos();
             this.colHeight();
+            this.bodyMarginBottom();
         },
 
         windowLoad: function() {
@@ -300,6 +315,8 @@
             this.addEmail();
             this.adsLoad();
             this.btnBack();
+            this.bodyMarginBottom();
+            this.tooltipInit();
         }
     };
 

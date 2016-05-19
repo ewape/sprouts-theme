@@ -45,8 +45,8 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
     		<?php the_content(); ?>
 
             <?php if (bookstore_url($post->ID)): ?>
-    		  <a class="more-link btn btn-default hvr-icon-pulse arrow" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
-                więcej &nbsp;
+    		  <a class="more-link btn btn-default hvr-icon-pulse external-link" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
+                więcej
             </a>
             <?php endif; ?>
     	</div>
@@ -121,7 +121,7 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
             <?php endif; ?>
 
             <?php if (bookstore_url($post->ID)): ?>
-              <a class="more-link btn btn-default hvr-icon-pulse arrow" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
+              <a class="more-link btn btn-default hvr-icon-pulse external-link" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
                 więcej &nbsp;
             </a>
             <?php endif; ?>
