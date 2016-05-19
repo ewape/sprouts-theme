@@ -110,7 +110,7 @@
                     preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
                 },
                 image: {
-                    tError: 'Nie udało się pobrać zdjęcia #%curr%.<a href="%url%">The image</a>',
+                    tError: 'Nie udało się pobrać zdjęcia #%curr%.<a href="%url%">link</a>',
                     titleSrc: function(item) {
                         return item.el[0].childNodes[0].alt;
                     }
@@ -123,10 +123,7 @@
         scrollUp: 0,
         toBottom: 0,
 
-        arrowsHeight: $('.arrows').height(),
-        arrowsBottom: parseInt($('.arrows').css('bottom'), 10),
-        footerHeight: $('.footer-bottom').height(),
-        windowHeight: window.innerHeight,
+        footerHeight: $('.footer-bottom').outerHeight(),
 
         scrollPos: function(){
             this.scroll = $(window).scrollTop();
@@ -142,9 +139,18 @@
             this.previousScroll = this.scroll;
         },
 
+        btnBack: function() {
+            $('.btn-back').on('click', function(e) {
+                e.preventDefault();
+                if (document.referrer.length > 1) {
+                   window.history.back(-1);
+                }
+            });
+        },
+
         arrows: function() {
 
-            if (this.scroll >= this.windowHeight) {
+            if (this.scroll >= 300) {
                 $('.arrows').fadeIn(300);
             }
 
@@ -153,11 +159,14 @@
             }
         },
 
-        getBottom: function() {
-            var docHeight = $(document).height(),
-                arrowOffset = $('.arrows').offset().top;
-                atBottom = docHeight - arrowOffset - this.arrowsHeight;
-                this.toBottom = docHeight - arrowOffset - this.arrowsHeight - this.arrowsBottom;
+        arrowsBottomPos: function() {
+            var btnBackPos = $('.btn-back').offset().top + $('.btn-back').outerHeight();
+            btnBackPos = $(document).height() - btnBackPos;
+
+            if (!isNaN(btnBackPos) && btnBackPos > 0) {
+                $('.arrows').css('bottom', btnBackPos + 'px');
+            }
+
         },
 
         smoothScroll: function() {
@@ -175,6 +184,20 @@
                     return false;
                 }
             });
+        },
+
+        colHeight: function() {
+            var sidebarH = $('.sidebar').outerHeight(),
+                mainH =  $('.main').outerHeight();
+
+            if (!isNaN(sidebarH) && !isNaN(mainH)) {
+                if (sidebarH > mainH) {
+                   $('body').addClass('sidebar-higher');
+                }
+                else {
+                    $('body').removeClass('sidebar-higher');
+                }
+            }
         },
 
         searchToggle: function(animateIn, animateOut) {
@@ -205,16 +228,18 @@
         fbLoad: function() {
             setTimeout(function() {
                 (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                    return;
-                }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.6&appId=955624011163030";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-            }, 500);
+
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) {
+                        return;
+                    }
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.6&appId=955624011163030";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+
+            }, 5000);
         },
 
         addEmail: function() {
@@ -225,7 +250,12 @@
 
         flexslider: function() {
             $('.flexslider').flexslider({
-                animation: "slide"
+                animation: "slide",
+                directionNav: false,
+                prevText: "Poprzeni",
+                nextText: "Następny",
+                mousewheel: true,
+                pauseOnHover: true
             });
         },
 
@@ -241,11 +271,18 @@
             });
         },
 
+        windowResize: function() {
+            this.arrowsBottomPos();
+            this.colHeight();
+        },
+
         windowLoad: function() {
             UTIL.fbLoad();
             UTIL.imgCompareLoader();
             UTIL.flexslider();
             UTIL.twentytwenty();
+            UTIL.arrowsBottomPos();
+            UTIL.colHeight();
         },
 
         windowScroll: function() {
@@ -262,6 +299,7 @@
             this.scrollTop();
             this.addEmail();
             this.adsLoad();
+            this.btnBack();
         }
     };
 
@@ -330,8 +368,12 @@
      // Load Events
     $(document).ready(UTIL.loadEvents);
 
-    $(window).scroll(function() {
+    $(window).on('scroll', function() {
         UTIL.windowScroll();
+    });
+
+    $(window).on('resize', function() {
+        UTIL.windowResize();
     });
 
     $(window).bind("load", UTIL.windowLoad);

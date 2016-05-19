@@ -1,4 +1,4 @@
-<div class="custom-widget widget-books">
+<div class="widget custom-widget widget-books">
 
 	<h2 class="widget-title">Nowości w księgarni</h2>
 

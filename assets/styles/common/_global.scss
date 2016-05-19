@@ -11,10 +11,6 @@ body {
 .wrap {
 	margin-bottom: 2rem;
 	margin-top: 2rem;
-
-	.container {
-		background-color: $sidebar-bg;
-	}
 }
 
 .main {
@@ -26,6 +22,7 @@ body {
 	h2 {
 		margin-top: 3rem;
 	}
+
 	a:not(.btn) {
 		font-weight: 400;
 		text-decoration: underline;
@@ -34,10 +31,47 @@ body {
 			color: $accent-dark;
 		}
 	}
+
+	.link-list {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+
+		a {
+			display: block;
+			text-decoration: none;
+			span {
+				margin-left: 1rem;
+			}
+		}
+	}
+}
+
+.content {
+	overflow: hidden;
+	background-color: $sidebar-bg;
+}
+
+.sidebar-higher {
+
+	.content {
+		background-color: $content-bg;
+
+	}
+
+	.main {
+		border-right: 0 none;
+	}
+
+	.sidebar {
+		background-color: $sidebar-bg;
+		border-left: 1px solid $body-bg;
+	}
+
 }
 
 .page-header {
 	margin: 0 0 1rem 0;
+
 	h1 {
 		margin-top: 0;
 		margin-bottom: 0;
@@ -113,3 +147,4 @@ hr {
 .entry-content {
 	overflow: hidden;
 }
+

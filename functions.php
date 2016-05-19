@@ -82,9 +82,7 @@ function books_cat($post_id, $cat_to_check) {
 function getCustomWidget($widgets) {
   if (count($widgets > 0)) {
     foreach ($widgets as $widget) {
-      echo '<div class="sidebar-widget">';
       get_template_part('templates/widget-'. $widget);
-      echo '</div>';
     }
   }
 }

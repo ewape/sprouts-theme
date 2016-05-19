@@ -1,9 +1,9 @@
 footer {
 	background-color: $footer-bg;
+	color: $content-bg;
 	position: relative;
+
 	.container {
-		color: #fff;
-		color: rgba(#fff, 0.8);
 		padding-top: 1rem;
 		padding-bottom: 1rem;
 	}
@@ -34,7 +34,7 @@ footer {
 		@extend .footer-box;
 
 		a {
-			color: $heading-bg;
+			color: $content-bg;
 			text-decoration: none;
 			position: relative;
 			@extend .transition;
@@ -48,7 +48,7 @@ footer {
 			}
 
 			&:hover {
-				color: $heading-bg;
+				color: $content-bg;
 				&:before {
 					margin-right: 10px;
 					color: $accent-dark;
@@ -105,7 +105,6 @@ footer {
 	background-color: darken($footer-bg, 5%);
 	border-top: 3px solid darken($footer-bg, 8%);
 	border-bottom: 3px solid darken($footer-bg, 8%);
-	color: $heading-bg;
 	font-size: 1.4rem;
 	a {
 		color: $body-bg;
@@ -157,3 +156,21 @@ footer {
     bottom: 1.9rem;
 }
 
+.footnotes {
+	font-size: 1.3rem;
+	a {
+		&:not(:last-child) {
+			position: relative;
+			padding-right: 1rem;
+			&:after {
+				content: '';
+				position: absolute;
+				top: 2px;
+				right: 0;
+				bottom: 2px;
+				width: 0;
+				border-right: 1px solid $content-bg;
+			}
+		}
+	}
+}

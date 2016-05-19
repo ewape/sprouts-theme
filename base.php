@@ -20,20 +20,22 @@ use Roots\Sage\Wrapper;
     ?>
     <div class="wrap" role="document">
       <div class="container">
-         <div class="content row">
-        <main class="main col-sm-8 col-md-9">
-          <?php include Wrapper\template_path(); ?>
-          <?php if (Setup\display_like_btns()) : ?>
-          <div class="like-buttons">
-            <div class="fb-like" data-href="https://www.facebook.com/kielkiinfo-310655538217/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-          </div>
-           <?php endif; ?>
-        </main><!-- /.main -->
-        <?php if (Setup\display_sidebar()) : ?>
-          <aside class="sidebar hidden-xs col-sm-4 col-md-3">
-            <?php include Wrapper\sidebar_path(); ?>
-          </aside><!-- /.sidebar -->
-        <?php endif; ?>
+         <div class="content">
+
+          <main class="main col-sm-8 col-md-9">
+            <?php include Wrapper\template_path(); ?>
+            <?php if (Setup\display_like_btns()) : ?>
+            <div class="like-buttons">
+              <div class="fb-like" data-href="https://www.facebook.com/kielkiinfo-310655538217/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+            </div>
+             <?php endif; ?>
+          </main><!-- /.main -->
+
+          <?php if (Setup\display_sidebar()) : ?>
+            <aside class="sidebar hidden-xs col-sm-4 col-md-3">
+              <?php include Wrapper\sidebar_path(); ?>
+            </aside><!-- /.sidebar -->
+          <?php endif; ?>
 
       </div><!-- /.content -->
 

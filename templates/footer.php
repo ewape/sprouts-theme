@@ -15,7 +15,7 @@
   <div class="container">
   	<div class="row">
      <?php dynamic_sidebar('sidebar-footer'); ?>
-      <a class="btn btn-default btn-round btn-back" href="javascript:window.history.back(-1);" title="Cofnij">
+      <a class="btn btn-default btn-round btn-back" href="#" title="Cofnij">
         <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
       </a>
    </div>
@@ -35,7 +35,7 @@
       <a class="scroll-top btn btn-default btn-round" href="#" title="Przewiń do góry"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
     </div>
 
-    <div class="col-xs-12">
+    <div class="col-xs-12 footnotes">
       <a href="<?php echo home_url('/'); ?>nota-prawna" title="">Nota prawna</a> &nbsp;
       <a href="<?php echo home_url('/'); ?>polityka-prywatnosci" title="">Polityka prywatności</a>
     </div>

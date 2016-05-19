@@ -8,6 +8,18 @@
         <div class="images">
           <?php echo wp_get_attachment_image( get_post_meta( $post->ID, 'seed_id', 1 ), 'img-compare' ); ?>
           <?php echo wp_get_attachment_image( get_post_meta( $post->ID, 'sprout_id', 1 ), 'img-compare' ); ?>
+
+          <?php if (get_post_meta( $post->ID, 'info-seeds', 1 )): ?>
+            <p class="img-compare-caption caption-left">
+              <?php echo get_post_meta( $post->ID, 'info-seeds', 1 ); ?>
+            </p>
+          <?php endif; ?>
+
+          <?php if (get_post_meta( $post->ID, 'info-sprouts', 1 )): ?>
+            <p class="img-compare-caption caption-right">
+              <?php echo get_post_meta( $post->ID, 'info-sprouts', 1 ); ?>
+            </p>
+          <?php endif; ?>
         </div>
         <div class="spinner">
           <div class="dot1"></div>

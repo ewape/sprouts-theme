@@ -1,9 +1,12 @@
 @media (min-width: 600px) {
 	.search-results {
+
 		.hentry {
 			display: flex;
 			align-items: center;
+			position: relative;
 		}
+
 		.entry-title {
 			flex: 1;
 			margin-top: 0;
@@ -13,6 +16,20 @@
 
 		.entry-summary {
 			flex: 2.5;
+			margin-bottom: 2rem;
+			.more-link {
+				position: absolute;
+			    bottom: 10px;
+			    right: 0;
+			}
+		}
+	}
+
+	.tablepress {
+		font-size: 1.6rem;
+
+		td {
+			width: 33.3%;
 		}
 	}
 }
@@ -57,7 +74,8 @@
 	}
 
 	.header-search {
-		min-width: 250px;
+		min-width: 241px;
+		right: 15px;
 	}
 }
 
@@ -77,7 +95,7 @@
 	}
 
 	.header-search {
-		min-width: 242px;
+		max-width: 236px;
 	}
 }
 
@@ -85,6 +103,10 @@
 
 	.img-compare {
 		height: 251px;
+	}
+
+	.header-search {
+		max-width: 286px;
 	}
 }
 
@@ -114,7 +136,8 @@
 
 		.widget_text {
 			text-align: center;
-			margin-bottom: 2rem;
+			margin-bottom: 4rem;
+			width: 100%;
 		}
 	}
 
@@ -136,5 +159,3 @@
 		width: 100%;
 	}
 }
-
-

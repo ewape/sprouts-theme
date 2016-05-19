@@ -17,13 +17,14 @@
 	&:hover, &:active, &:focus {
 		color: #fff;
 		.fa {
-			transform: scale(1.2);
+			transform: perspective(1px) scale(1.2);
 
 		}
 	}
 
 	.fa {
 		@extend .transition;
+		transform: perspective(1px) scale(1);
 		transform-origin: center center;
 	}
 

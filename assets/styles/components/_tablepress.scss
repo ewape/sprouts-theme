@@ -1,17 +1,30 @@
 .tablepress {
 	border: 1px solid $body-bg;
+	font-size: 1.5rem;
+	line-height: 1.2;
 	tfoot, thead {
 	 	th {
 	 		background-color: $body-bg;
 	 		color: #fff;
 	 		font-weight: 300;
 	 		@extend .transition;
+
+	 		&:not(:last-child) {
+	 			border-right: 1px solid #fff;
+	 		}
 	 	}
 	}
 
 	tbody {
+
 		td {
 			border-color: $body-bg;
+			vertical-align: middle;
+
+			&:not(:last-child) {
+				border-right: 1px solid $body-bg;
+			}
+
 		}
 	}
 
@@ -45,6 +58,17 @@
 		}
 	}
 	caption {
-
+		display: none;
 	}
+}
+
+.tables-sources {
+	border-bottom: 1px dashed $body-bg;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+
+	a {
+		display: block;
+	}
+
 }

@@ -1,4 +1,5 @@
 <?php get_template_part('templates/page', 'header'); ?>
+<div class="book-list">
 <?php
 
 $bookargs = ( array(
@@ -19,7 +20,7 @@ $bookloop = new WP_Query( $bookargs );
 while ( $bookloop->have_posts() ) : $bookloop->the_post();
 
 ?>
-  <article <?php post_class(); ?>>
+  <article <?php post_class('item-book'); ?>>
     <div class="row entry-content lightbox">
         <div class="col-xs-4 col-sm-3">
             <a class="book-thumb thumb" href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="">
@@ -57,6 +58,9 @@ endwhile;
 wp_reset_query();
 ?>
 
+</div>
+<div class="ebook-list">
+
 <div class="page-header">
   <h1>Ebooki</h1>
 </div>
@@ -79,7 +83,7 @@ $ebookargs = ( array(
 $ebookloop = new WP_Query( $ebookargs ); ?>
 <?php while ( $ebookloop->have_posts() ) : $ebookloop->the_post(); ?>
 
-<article <?php post_class(); ?>>
+<article <?php post_class('item-ebook'); ?>>
     <div class="row entry-content lightbox">
         <div class="col-xs-4 col-sm-3">
             <a href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="book-thumb thumb">
@@ -126,4 +130,6 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
   </article>
 
 <?php endwhile; ?>
+
+</div>
 <?php echo do_shortcode('[ads id=0831177546]'); ?>

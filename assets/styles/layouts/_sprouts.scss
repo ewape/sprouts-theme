@@ -7,11 +7,29 @@
 	    margin-top: 1rem;
 	    margin-bottom: 1rem;
 	    clear: both;
-	  }
+	}
 }
 
 .img-compare {
 	margin-bottom: 2rem;
+}
+
+.img-compare-caption {
+	position: absolute;
+	bottom: 0;
+	z-index: 25;
+	margin-bottom: 0;
+	padding: 0 0.5rem;
+	font-size: 1.2rem;
+	color: #fff;
+
+	&.caption-right {
+		right: 0;
+	}
+
+	&.caption-left {
+		left: 0;
+	}
 }
 
 .kielki-wskazowki {
@@ -34,5 +52,7 @@
 	img {
 		width: 100%;
 		height: auto;
+		top: 50%;
+		transform: translate(0, -50%);
 	}
 }

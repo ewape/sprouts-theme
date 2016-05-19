@@ -152,7 +152,9 @@
 		a {
 			border-radius: 0;
 			background-color: darken($menu-bg, 10%);
-			box-shadow: 0 none;
+			box-shadow: none;
+			width: 12px;
+			height: 12px;
 
 			&.flex-active, &:hover {
 				background-color: $menu-bg;
@@ -160,6 +162,7 @@
 		}
 	}
 }
+
 
 .flex-direction-nav {
 	a {
@@ -178,5 +181,4 @@
 .slides {
 	display: flex;
   	align-items: center;
-  	//justify-content: center;
 }

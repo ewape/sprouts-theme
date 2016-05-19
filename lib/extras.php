@@ -184,25 +184,39 @@ function cmb2_img_compare_metaboxes() {
         'priority'      => 'high',
         'show_names'    => true,
         'fields'        => array(
-          array(
-            'name' => __( 'Nasiona', 'cmb2' ),
-            'id'   => 'seed',
-            'type' => 'file',
-            'options' => array(
-              'url' => false, // Hide the text input for the url
-              'add_upload_file_text' => 'Dodaj plik' // Change upload button text. Default: "Add or Upload File"
-          ),
+          // nasiona
+            array(
+              'name' => 'Nasiona',
+              'id'   => 'seed',
+              'type' => 'file',
+              'options' => array(
+                'url' => false, // Hide the text input for the url
+                'add_upload_file_text' => 'Dodaj plik' // Change upload button text. Default: "Add or Upload File"
+                ),
+            ),
+
+            array(
+              'name' => 'Przypis',
+              'id'   => 'info-seeds',
+              'type' => 'text',
+            ),
+
+            // kiełki
+            array(
+              'name' => __( 'Kiełki', 'cmb2' ),
+              'id'   => 'sprout',
+              'type' => 'file',
+              'options' => array(
+                'url' => false, // Hide the text input for the url
+                'add_upload_file_text' => 'Dodaj plik' // Change upload button text. Default: "Add or Upload File"
+              ),
+            ),
+            array(
+              'name' => 'Przypis',
+              'id'   => 'info-sprouts',
+              'type' => 'text',
+            )
         ),
-        array(
-          'name' => __( 'Kiełki', 'cmb2' ),
-          'id'   => 'sprout',
-          'type' => 'file',
-          'options' => array(
-            'url' => false, // Hide the text input for the url
-            'add_upload_file_text' => 'Dodaj plik' // Change upload button text. Default: "Add or Upload File"
-          ),
-        )
-      ),
     ) );
 }
 

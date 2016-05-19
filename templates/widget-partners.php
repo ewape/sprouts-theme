@@ -1,4 +1,4 @@
-<div class="custom-widget widget-partners">
+<div class="widget custom-widget widget-partners">
 	<h2 class="widget-title">Programy partnerskie</h2>
 	<div class="widget-body">
 		<a class="widget-img-link" target="_blank" href="http://www.pp.selkar.pl/aff/kielki" title="">
