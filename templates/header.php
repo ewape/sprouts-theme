@@ -27,7 +27,6 @@
       endif;
       ?>
     </nav>
-
     <div class="navbar-search-btn">
        <i class="fa fa-search hvr-icon-grow"></i>
     </div>
