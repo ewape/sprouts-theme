@@ -26,7 +26,6 @@
       );
       endif;
       ?>
-
     </nav>
 
     <div class="navbar-search-btn">
