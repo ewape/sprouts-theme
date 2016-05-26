@@ -1,10 +1,12 @@
-.post-type-archive-ksiazki {
+.post-type-archive-ksiazki, .single-ksiazki {
 	.page-header {
 		margin-bottom: 0;
+
 		+ article {
 			padding-top: 0;
 		}
 	}
+
 	.entry-content {
 		margin-bottom: 1rem;
 		padding-bottom: 1rem;
@@ -13,6 +15,7 @@
 
 	article {
 		padding-top: 2rem;
+
 		&:not(:last-of-type) {
 			border-bottom: 1px dashed $body-bg;
 		}
@@ -20,9 +23,13 @@
 
 	.entry-title {
 		margin-top: 0;
+
 		a {
 			color: $body-color;
 			text-decoration: none;
+			margin-bottom: 1rem;
+			float: left;
+			clear: left;
 		}
 	}
 
@@ -30,10 +37,17 @@
 		width: 100%;
 		max-width: 100%;
 		margin: 0;
+		overflow: hidden;
 
 		img {
 			max-width: 100%;
 			height: auto;
+			transition: all 0.4s;
+		}
+
+		&:hover {
+			img {
+			}
 		}
 	}
 
@@ -57,6 +71,7 @@
 .ksiazki {
 	.badge {
 		float: right;
+		margin-bottom: .5rem;
 	}
 }
 

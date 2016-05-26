@@ -71,4 +71,3 @@
   </div>
 </article>
 <?php endwhile; ?>
-<?php echo do_shortcode('[ads id=0831177546]'); ?>

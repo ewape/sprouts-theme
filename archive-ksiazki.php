@@ -132,4 +132,3 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
 <?php endwhile; ?>
 
 </div>
-<?php echo do_shortcode('[ads id=0831177546]'); ?>

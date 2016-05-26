@@ -2,6 +2,13 @@
 	text-align: right;
 	clear: both;
 	margin: 2rem 0;
+	.fb-like {
+		margin-right: 0.5rem;
+	}
+}
+
+[id*='plusone'] {
+	float: right !important;
 }
 
 .btn {

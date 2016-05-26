@@ -65,10 +65,11 @@
 	.navbar-nav {
 		> li, li.open {
 			> a {
-				border-left: 1px solid rgba($menu-color, 0.3);
+				border-left: 1px solid rgba($menu-color, .3);
 			}
 		}
 	}
+
 	.navbar-search-btn {
 		right: 0;
 	}
@@ -84,8 +85,10 @@
 	.img-compare {
 		height: 140px;
 	}
+	.widget_text {
+		margin-bottom: 4rem;
+	}
 }
-
 
 @media (min-width: 992px) {
 
@@ -95,6 +98,7 @@
 	}
 
 	.header-search {
+		min-width: 236px;
 		max-width: 236px;
 	}
 }
@@ -116,7 +120,7 @@
 		text-align: center;
 		.open {
 			.dropdown-menu {
-				background-color: rgba(#fff, 0.1);
+				background-color: rgba(#fff, .1);
 				>li {
 					>a {
 						text-align: center;
@@ -139,6 +143,7 @@
 			margin-bottom: 4rem;
 			width: 100%;
 		}
+
 		.submenu-sprouts {
 			display: none;
 		}
@@ -154,6 +159,16 @@
 @media (min-width: 992px) and (max-width: 1199px) {
 	.img-compare {
 		height: 206px;
+	}
+}
+
+@media (max-width: 479px) {
+	.post-type-archive-ksiazki {
+		.description {
+			.btn {
+				float: right;
+			}
+		}
 	}
 }
 

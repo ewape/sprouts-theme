@@ -98,13 +98,27 @@ function display_like_btns() {
   isset($display) || $display = !in_array(true, [
     is_404(),
     is_search(),
-    is_archive(),
+    //is_archive('faq'),
     is_page('polityka-prywatnosci'),
     is_page('nota-prawna')
-    //is_page_template('template-custom.php'),
   ]);
 
   return apply_filters('sage/display_like_btns', $display);
+}
+
+// fb like buttons
+function display_bottom_ads() {
+  static $display;
+
+  isset($display) || $display = !in_array(true, [
+    is_404(),
+    is_search(),
+    //is_archive('faq'),
+    is_page('polityka-prywatnosci'),
+    is_page('nota-prawna')
+  ]);
+
+  return apply_filters('sage/display_bottom_ads', $display);
 }
 
 /**
@@ -125,6 +139,7 @@ function assets() {
   wp_enqueue_style('Alegreya', '//fonts.googleapis.com/css?family=Alegreya:400,700,400italic,700italic&subset=latin-ext');
   wp_enqueue_style('Alegreya Sans', '//fonts.googleapis.com/css?family=Alegreya+Sans:400,400italic,500,500italic,700,700italic,900&subset=latin-ext');
   wp_enqueue_style('Dosis', '//fonts.googleapis.com/css?family=Dosis:400,600,300&subset=latin-ext');
+  wp_enqueue_style('Inconsolata', '//fonts.googleapis.com/css?family=Inconsolata&subset=latin,latin-ext');
 
   // Pusty arkusz css
   //wp_enqueue_style('style-override', get_template_directory_uri () . '/style.css');

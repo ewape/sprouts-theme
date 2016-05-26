@@ -29,13 +29,17 @@ use Roots\Sage\Wrapper;
           <main class="main col-sm-8 col-md-9">
             <?php include Wrapper\template_path(); ?>
             <?php if (Setup\display_like_btns()) : ?>
-            <div class="like-buttons">
+            <div class="like-buttons clearfix">
               <script src="https://apis.google.com/js/platform.js" async defer>
-                {lang: 'pl'}
+                 {lang: "pl"}
               </script>
               <div class="g-plusone btn" data-annotation="none"></div>
               <div class="fb-like" data-href="https://www.facebook.com/kielkiinfo-310655538217/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
             </div>
+
+             <?php endif; ?>
+             <?php if (Setup\display_bottom_ads()) : ?>
+              <?php echo do_shortcode('[ads id=0831177546]'); ?>
              <?php endif; ?>
           </main><!-- /.main -->
 

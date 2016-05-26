@@ -125,16 +125,22 @@
         scrollUp: 0,
         toBottom: 0,
 
-        footerHeight: $('.footer-bottom').outerHeight(),
+        footerHeight: function() {
+            return $('.footer-bottom').outerHeight();
+        },
 
         tooltipInit: function() {
             $('[data-toggle="tooltip"]').tooltip();
         },
 
         bodyMarginBottom: function() {
-            if (!isNaN(this.footerHeight)) {
-                if (parseInt($('.parallax-wrap').css('margin-bottom'), 10) !== this.footerHeight) {
-                    $('.parallax-wrap').css('margin-bottom', this.footerHeight + 'px');
+            if (!isNaN(this.footerHeight())) {
+                if (parseInt($('.parallax-wrap').css('margin-bottom'), 10) !== this.footerHeight()) {
+                    $('.parallax-wrap').css('margin-bottom', this.footerHeight() + 'px');
+                    $('.footer-bottom').css({
+                        'position':'fixed',
+                        'z-index': -1
+                    });
                 }
             }
         },
@@ -253,7 +259,7 @@
                     fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));
 
-            }, 5000);
+            }, 2000);
         },
 
         addEmail: function() {
@@ -278,17 +284,17 @@
         },
 
         adsLoad: function() {
-            (adsbygoogle = window.adsbygoogle || []);
+            window.adsbygoogle = window.adsbygoogle || [];
             var ads = $('.adsbygoogle');
             $.each(ads, function() {
-                adsbygoogle.push({});
+                window.adsbygoogle.push({});
             });
         },
 
         windowResize: function() {
+            this.bodyMarginBottom();
             this.arrowsBottomPos();
             this.colHeight();
-            this.bodyMarginBottom();
         },
 
         windowLoad: function() {
@@ -296,7 +302,9 @@
             UTIL.imgCompareLoader();
             UTIL.flexslider();
             UTIL.twentytwenty();
+            UTIL.bodyMarginBottom();
             UTIL.arrowsBottomPos();
+            UTIL.adsLoad();
             UTIL.colHeight();
         },
 
@@ -313,16 +321,12 @@
             this.magnificPopup();
             this.scrollTop();
             this.addEmail();
-            this.adsLoad();
             this.btnBack();
-            this.bodyMarginBottom();
             this.tooltipInit();
         }
     };
 
-
-
-    var cookies = (function() {
+    var cookies = cookies || (function() {
 
         function createCookie(name, value, days) {
             var date = new Date();

@@ -109,17 +109,15 @@ footer {
 	background-color: darken($footer-bg, 5%);
 	border-bottom: 3px solid darken($footer-bg, 8%);
 	font-size: 1.4rem;
-	position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
-    z-index: -1;
 
 	a {
 		color: $body-bg;
 		&:hover {
 			text-decoration: none;
-			color: $accent-dark;
+			color: $accent-light;
 		}
 	}
 }
