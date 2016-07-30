@@ -1,6 +1,17 @@
 .menu {
 	padding-left: 0;
-	list-style-type: none;
+	a {
+		display: block;
+	}
+
+	li {
+		list-style: none;
+	}
+
+	.sub-menu {
+		padding-left: 2rem;
+	}
+
 }
 
 .navbar-brand {

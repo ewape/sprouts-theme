@@ -133,18 +133,6 @@ hr {
 	margin-bottom: 1rem;
 }
 
-.menu {
-	a {
-		display: block;
-	}
-	li {
-		list-style: none;
-	}
-	.sub-menu {
-		padding-left: 2rem;
-	}
-}
-
 .wow {
 	visibility: hidden;
 }
@@ -152,33 +140,3 @@ hr {
 .entry-content {
 	overflow: hidden;
 }
-
-.tooltip {
-	&.in {
-		opacity: 1;
-	}
-	.tooltip-inner {
-		background-color: darken($footer-bg, 10%);
-	}
-	&.top {
-		.tooltip-arrow {
-			border-top-color: darken($footer-bg, 10%);
-		}
-	}
-	&.right {
-		.tooltip-arrow {
-			border-right-color: darken($footer-bg, 10%);
-		}
-	}
-	&.bottom {
-		.tooltip-arrow {
-			border-bottom-color: darken($footer-bg, 10%);
-		}
-	}
-	&.left {
-		.tooltip-arrow {
-			border-left-color: darken($footer-bg, 10%);
-		}
-	}
-}
-

@@ -326,65 +326,6 @@
         }
     };
 
-    var cookies = cookies || (function() {
-
-        function createCookie(name, value, days) {
-            var date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            var expires = "; expires=" + date.toGMTString();
-            document.cookie = name + "=" + value + expires + "; path=/";
-        }
-
-        function readCookie(name) {
-            var nameEQ = name + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) === ' ') {
-                    c = c.substring(1, c.length);
-                }
-                if (c.indexOf(nameEQ) === 0) {
-                    return c.substring(nameEQ.length, c.length);
-                }
-            }
-            return null;
-        }
-
-        function checkCookies() {
-            if (readCookie('cookies_accepted') !== 'T') {
-                var message_container = document.createElement('div');
-                message_container.id = 'cookies-message-container';
-                var html_code = '<div id="cookies-message" class="container-fluid"><p class="cookies-message-text">Strona korzysta z plików cookies zgodnie z <a class="cookies-link" href="' + location.protocol + '//' + location.host + '/polityka-cookies/">Polityką cookies</a>. Korzystanie z witryny bez zmiany ustawień dotyczących cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany ustawień dotyczących cookies. </p><a href="#" id="accept-cookies-checkbox" class="btn btn-default" name="accept-cookies"><i class="fa fa-check"></i><span>Rozumiem</span></a></div>';
-
-                message_container.innerHTML = html_code;
-                document.body.appendChild(message_container);
-            }
-        }
-
-        function closeCookiesWindow() {
-            createCookie('cookies_accepted', 'T', 365);
-            $('#cookies-message-container').fadeOut();
-            document.getElementById('cookies-message-container').removeChild(document.getElementById('cookies-message'));
-        }
-
-        function init() {
-            checkCookies();
-            $('body').on('click', '#accept-cookies-checkbox', function() {
-                createCookie('cookies_accepted', 'T', 365);
-                $('#cookies-message-container').fadeOut();
-            });
-
-            $('body').on('click', '.cookies-message-text', function() {
-                createCookie('cookies_accepted', 'T', 365);
-                $('#cookies-message-container').fadeOut();
-            });
-        }
-
-        return {
-            init: init
-        };
-
-    })();
 
      // Load Events
     $(document).ready(UTIL.loadEvents);
@@ -399,9 +340,7 @@
 
     $(window).bind("load", UTIL.windowLoad);
 
-    $(document).ready(function() {
-        cookies.init();
-    });
+
 
 
 })(jQuery); // Fully reference jQuery after this point.
