@@ -1,0 +1,28 @@
+.tooltip {
+	&.in {
+		opacity: 1;
+	}
+	.tooltip-inner {
+		background-color: darken($footer-bg, 10%);
+	}
+	&.top {
+		.tooltip-arrow {
+			border-top-color: darken($footer-bg, 10%);
+		}
+	}
+	&.right {
+		.tooltip-arrow {
+			border-right-color: darken($footer-bg, 10%);
+		}
+	}
+	&.bottom {
+		.tooltip-arrow {
+			border-bottom-color: darken($footer-bg, 10%);
+		}
+	}
+	&.left {
+		.tooltip-arrow {
+			border-left-color: darken($footer-bg, 10%);
+		}
+	}
+}

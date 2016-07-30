@@ -1,0 +1,11 @@
+.list-bullets {
+	li {
+		list-style: none;
+		position: relative;
+		&:before {
+			content: '\29BF';
+		    margin-right: 5px;
+		    color: $menu-bg;
+		}
+	}
+}
