@@ -155,6 +155,7 @@
 			box-shadow: none;
 			width: 12px;
 			height: 12px;
+			border-radius: 3px;
 
 			&.flex-active, &:hover {
 				background-color: $menu-bg;

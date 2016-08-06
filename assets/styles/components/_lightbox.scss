@@ -1,0 +1,41 @@
+.pswp__top-bar .pswp__button, .pswp__button--arrow--left:before, .pswp__button--arrow--right:before {
+	background-image: url(../images/photoswipe/default-skin.png);
+}
+
+.pswp__zoom-wrap {
+    position: absolute;
+    width: 100%;
+    transform: translate3d(122px, 44px, 0px) scale(1);
+    transition: transform 333ms cubic-bezier(0.4, 0, 0.22, 1) 0ms;
+}
+
+.pswp__container, .pswp__zoom-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.pswp__caption__center {
+	text-align: center;
+	font-size: 16px;
+}
+
+a.pswp__share--pinterest:hover {
+    background: #ce272d;
+    color: #fff;
+}
+
+a.pswp__share--download:hover {
+    background: $menu-bg;
+    color: #fff;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.1), (-webkit-min-device-pixel-ratio: 1.09375), (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
+  .pswp__top-bar .pswp--svg .pswp__button,
+  .pswp--svg .pswp__button--arrow--left:before,
+  .pswp--svg .pswp__button--arrow--right:before {
+    background-image: url(../images/photoswipe/default-skin.svg);
+    }
+}

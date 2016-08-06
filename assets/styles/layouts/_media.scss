@@ -44,6 +44,10 @@
 		}
 	}
 
+	.content {
+		display: flex;
+	}
+
 	.sidebar {
 		.menu {
 			a {
@@ -154,6 +158,10 @@
 			margin-bottom: 2rem;
 		}
 	}
+
+	.img-compare {
+		min-height: 24vw;
+	}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -173,6 +181,14 @@
 }
 
 @media (max-width: 420px) {
+	.main {
+		.thumb {
+			float: none;
+			img {
+				margin-bottom: 1rem;
+			}
+		}
+	}
 	.footer-widget {
 		width: 100%;
 	}

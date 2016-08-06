@@ -6,7 +6,8 @@
       ],
       "vendor": [
         "bower_components/twentytwenty/js/jquery.event.move.js",
-        "bower_components/twentytwenty/js/jquery.twentytwenty.js"
+        "bower_components/twentytwenty/js/jquery.twentytwenty.js",
+        "bower_components/photoswipe/dist/photoswipe-iu-default.min.js"
       ],
       "main": true
     },
@@ -15,7 +16,8 @@
         "styles/main.scss"
       ],
       "vendor": [
-        "bower_components/twentytwenty/css/twentytwenty.css"
+        "bower_components/twentytwenty/css/twentytwenty.css",
+        "bower_components/photoswipe/dist/photoswipe.css"
       ],
       "main": true
     },

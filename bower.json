@@ -9,12 +9,12 @@
   "dependencies": {
     "bootstrap-sass": "3.3.6",
     "twentytwenty": "*",
-    "magnific-popup": "^1.1.0",
     "font-awesome": "fontawesome#^4.5.0",
     "hover": "Hover#^2.0.2",
     "wow": "^1.1.2",
     "animate.css": "^3.5.1",
-    "flexslider": "2"
+    "flexslider": "2",
+    "photoswipe": "^4.1.1"
   },
   "overrides": {
     "bootstrap-sass": {

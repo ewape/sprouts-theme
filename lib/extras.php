@@ -4,6 +4,7 @@ namespace Roots\Sage\Extras;
 
 use Roots\Sage\Setup;
 
+remove_action('wp_head', 'wp_generator');
 /**
  * Add <body> classes
  */
@@ -325,7 +326,6 @@ function create_post_type_tables() {
 
 }
 add_action('init', __NAMESPACE__ . '\\create_post_type_tables');
-
 
 add_filter('script_loader_tag', __NAMESPACE__ . '\\add_async_attribute', 10, 2);
 

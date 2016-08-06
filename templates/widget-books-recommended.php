@@ -47,7 +47,7 @@
             </ul>
         </div>
         <div class="widget-footer">
-            <a class="btn btn-default" href="/ebooki" title="">
+            <a class="btn btn-default" href="<?php esc_url(home_url()); ?>/ebooki" title="">
                 <i class="fa fa-book"></i><span>Inne książki i ebooki</span>
             </a>
         </div>

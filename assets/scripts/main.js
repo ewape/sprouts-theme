@@ -11,7 +11,7 @@
  * ======================================================================== */
 
 (function($) {
-
+    'use strict';
     // Use this variable to set up the common and page specific functions. If you
     // rename this variable, you will also need to rename the namespace below.
     var Sage = {
@@ -97,26 +97,50 @@
             });
         },
 
-        magnificPopup: function() {
-            $('.gallery-icon a, .thumb').magnificPopup({
-                type: 'image',
-                tLoading: 'Pobieranie zdjęcia #%curr%...',
-                mainClass: 'mfp-img-mobile',
+        photoswipe: function() {
+         var template = $('.pswp')[0];
+            var items = [];
+            $('.thumb img, .gallery-icon a img').toArray().map(function(el) {
+                items.push({
+                    src: el.parentNode.href,
+                    w: 0,
+                    h: 0,
+                    title: el.alt || ''
+                });
+            });
 
-                gallery: {
-                    enabled: true,
-                    navigateByImgClick: true,
-                    tPrev: 'Poprzednie zdjęcie (przycisk w lewo na klawiaturze)',
-                    tNext: 'Następne zdjęcie (przycisk w prawo na klawiaturze)',
-                    tCounter: '%curr% z %total%',
-                    preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
-                },
-                image: {
-                    tError: 'Nie udało się pobrać zdjęcia #%curr%.<a href="%url%">link</a>',
-                    titleSrc: function(item) {
-                        return item.el[0].childNodes[0].alt;
-                    }
-                },
+            $('.thumb, .gallery-icon').each(function(i) {
+                $(this).on('click', function(e) {
+                    e.preventDefault();
+                    var options = {
+                        index: i,
+                        bgOpacity: 0.85,
+                        showHideOpacity:true, getThumbBoundsFn:false,
+                        errorMsg: "Nie można załadować zdjęcia",
+                        shareButtons: [
+                            {id:'facebook', label:'Facebook', url:'https://www.facebook.com/sharer/sharer.php?u={{url}}'},
+                            {id:'twitter', label:'Twitter', url:'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'},
+                            {id:'pinterest', label:'Pinterest', url:'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}'},
+                            {id:'download', label:'Pobierz', url:'{{raw_image_url}}', download:true}
+                        ],
+                    };
+
+                    var gallery = new PhotoSwipe(template, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('gettingData', function(index, item) {
+                        if (item.w < 1 || item.h < 1) { // unknown size
+                        var img = new Image();
+                        img.onload = function() { // will get size after load
+                            item.w = this.width; // set image width
+                            item.h = this.height; // set image height
+                            gallery.invalidateCurrItems(); // reinit Items
+                            gallery.updateSize(true); // reinit Items
+                        };
+                        img.src = item.src; // let's download image
+                        }
+                    });
+                    gallery.init();
+                });
             });
         },
 
@@ -130,7 +154,9 @@
         },
 
         tooltipInit: function() {
-            $('[data-toggle="tooltip"]').tooltip();
+            if(!('ontouchstart' in window)) {
+                $('[data-toggle="tooltip"]').tooltip();
+            }
         },
 
         bodyMarginBottom: function() {
@@ -301,6 +327,7 @@
             UTIL.fbLoad();
             UTIL.imgCompareLoader();
             UTIL.flexslider();
+            UTIL.photoswipe();
             UTIL.twentytwenty();
             UTIL.bodyMarginBottom();
             UTIL.arrowsBottomPos();
@@ -318,7 +345,6 @@
             this.wow();
             this.smoothScroll();
             this.searchToggle('flipInX', 'flipOutX');
-            this.magnificPopup();
             this.scrollTop();
             this.addEmail();
             this.btnBack();
@@ -339,8 +365,5 @@
     });
 
     $(window).bind("load", UTIL.windowLoad);
-
-
-
 
 })(jQuery); // Fully reference jQuery after this point.

@@ -41,7 +41,7 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
 <?php endwhile; ?>
 
 	<div class="widget-footer">
-		<a class="btn btn-default" href="/ebooki" title="">Inne książki i ebooki <i class="fa fa-angle-right"></i></a>
+		<a class="btn btn-default" href="<?php esc_url(home_url()); ?>/ebooki" title="">Inne książki i ebooki <i class="fa fa-angle-right"></i></a>
 	</div>
 </div>
 </div>
