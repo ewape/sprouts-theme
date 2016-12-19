@@ -46,7 +46,7 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
 
             <?php if (bookstore_url($post->ID)): ?>
     		  <a class="more-link btn btn-default hvr-icon-pulse external-link" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
-                więcej
+                zobacz w sklepie
             </a>
             <?php endif; ?>
     	</div>
