@@ -179,7 +179,7 @@ function cmb2_img_compare_metaboxes() {
 
     $cmb = new_cmb2_box( array(
         'id'            => $prefix . '_metabox',
-        'title'         => __( 'Zdjęcia', 'cmb2' ),
+        'title'         => __( 'Photos', 'cmb2' ),
         'object_types'  => array( 'kielki'),
         'context'       => 'normal',
         'priority'      => 'high',
@@ -204,7 +204,7 @@ function cmb2_img_compare_metaboxes() {
 
             // kiełki
             array(
-              'name' => __( 'Kiełki', 'cmb2' ),
+              'name' => __( 'Sprouts', 'cmb2' ),
               'id'   => 'sprout',
               'type' => 'file',
               'options' => array(

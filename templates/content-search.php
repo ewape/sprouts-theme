@@ -10,7 +10,7 @@
 	  	<?php if(get_the_excerpt()): ?>
 	    <?php the_excerpt();
 	    else:  ?>
-	    <a class="btn btn-default more-link" href="<?php the_permalink(); ?>" title="">więcej</a>
+	    <a class="btn btn-default more-link" href="<?php the_permalink(); ?>" title=""><?php _e('Continued', 'sage'); ?></a>
 	    <?php endif; ?>
 	  </div>
 </article>

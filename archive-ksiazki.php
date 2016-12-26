@@ -30,7 +30,7 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
 
     	<div class="col-xs-8 col-sm-9 description">
     		<h2 class="entry-title">
-                <a target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
+                <a class="external-link hvr-icon-pulse" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
                     <?php the_title(); ?>
                 </a>
                 <?php if (books_cat($post->ID, 'Nowość')): ?>
@@ -46,7 +46,7 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
 
             <?php if (bookstore_url($post->ID)): ?>
     		  <a class="more-link btn btn-default hvr-icon-pulse external-link" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
-                zobacz w sklepie
+                <?php _e('see in store', 'sage'); ?>
             </a>
             <?php endif; ?>
     	</div>
@@ -92,7 +92,7 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
         </div>
         <div class="col-xs-8 col-sm-9 description">
             <h2 class="entry-title">
-                <a target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
+                <a class="external-link hvr-icon-pulse" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
                     <?php the_title(); ?>
                 </a>
                 <?php if (books_cat($post->ID, 'Nowość')): ?>
@@ -122,7 +122,7 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
 
             <?php if (bookstore_url($post->ID)): ?>
               <a class="more-link btn btn-default hvr-icon-pulse external-link" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
-                więcej &nbsp;
+                <?php _e('see in store', 'sage'); ?>
             </a>
             <?php endif; ?>
         </div>
