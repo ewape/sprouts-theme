@@ -1,3 +1,4 @@
+//@import "../../bower_components/hover/scss/hover.scss";
 @import "common/variables";
 
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
@@ -32,5 +33,5 @@
 @import "layouts/sprouts";
 @import "layouts/books";
 @import "layouts/cookies-policy";
-@import "layouts/tinymce";
 @import "layouts/media";
+@import "layouts/tinymce";

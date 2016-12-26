@@ -30,6 +30,12 @@
 			margin-bottom: 1rem;
 			float: left;
 			clear: left;
+			padding-right: 3rem;
+
+			&:before {
+				line-height: 1.8;
+    			font-size: 1.4rem;
+			}
 		}
 	}
 

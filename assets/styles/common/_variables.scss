@@ -107,10 +107,6 @@ $alert-warning-text: $accent-dark;
 
 $page-header-border-color: transparent;
 
-.sidebar .menu a {
-	@extend .hvr-wobble-horizontal;
-}
-
 .box {
 	border: 1px solid $body-bg;
 	color: $heading-color;
