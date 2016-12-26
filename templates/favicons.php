@@ -9,4 +9,3 @@
 <meta name="application-name" content="Kiełki -  na zdrowie!"/>
 <meta name="msapplication-TileColor" content="#FFF1DA" />
 <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/dist/images/favicons/mstile-144x144.png" />
-
