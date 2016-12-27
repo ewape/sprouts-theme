@@ -107,17 +107,14 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
             </h3>
             <?php the_content(); ?>
 
-            <?php if (bookstore_free_url($post->ID)): ?>
-
-                <a class="btn btn-accent-light hvr-icon-pulse download" target="_blank" href="<?php echo bookstore_free_url($post->ID) ?>" title="">
-
+            <?php if (get_post_meta( $post->ID, 'ebook_pdf', 1 )): ?>
+                <a class="btn btn-accent-light hvr-icon-pulse download" target="_blank" href="<?php echo get_post_meta( $post->ID, 'ebook_pdf', 1 ) ?>" title="">
                     <?php if (books_cat($post->ID, 'Gratis')): ?>
-                        Pobierz darmowy ebook
+                        Darmowy ebook
                     <?php else: ?>
-                        Pobierz darmowy fragment
+                        Darmowy fragment
                     <?php endif; ?>
                 </a>
-
             <?php endif; ?>
 
             <?php if (bookstore_url($post->ID)): ?>

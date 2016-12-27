@@ -38,7 +38,6 @@ add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 add_action( 'init', __NAMESPACE__ . '\\kielki_tags', 5 );
 
 register_taxonomy_for_object_type( 'kielki-tags', 'kielki' );
-
 register_taxonomy_for_object_type( 'kielki-tags', 'ksiazki' );
 
 function create_posttype_kielki() {
@@ -111,6 +110,33 @@ function create_posttype_ksiazki() {
 }
 
 add_action( 'init',  __NAMESPACE__ . '\\create_posttype_ksiazki' );
+
+add_action( 'cmb2_admin_init',  __NAMESPACE__ . '\\cmb2_ebook_download' );
+
+function cmb2_ebook_download() {
+
+    $prefix = '_ebook_download_';
+
+    $cmb = new_cmb2_box( array(
+        'id'            => $prefix . '_metabox',
+        'title'         => __( 'Plik do pobrania', 'cmb2' ),
+        'object_types'  => array( 'ksiazki'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true,
+        'fields'        => array(
+            array(
+              //'name' => 'Plik do pobrania',
+              'id'   => 'ebook_pdf',
+              'type' => 'file',
+              'options' => array(
+                'url' => false, // Hide the text input for the url
+                'add_upload_file_text' => 'Dodaj plik' // Change upload button text. Default: "Add or Upload File"
+                ),
+            )
+        )
+    ) );
+}
 
 function create_posttype_faq() {
 
@@ -302,6 +328,7 @@ function create_post_type_tables() {
     'items_list_navigation' => 'Items list navigation',
     'filter_items_list'     => 'Filter items list',
   );
+
   $args = array(
     'label'                 => 'tabela',
     'description'           => 'Tabele wartości',
@@ -322,9 +349,11 @@ function create_post_type_tables() {
     'publicly_queryable'    => true,
     'capability_type'       => 'page',
   );
+
   register_post_type( 'tabele', $args );
 
 }
+
 add_action('init', __NAMESPACE__ . '\\create_post_type_tables');
 
 add_filter('script_loader_tag', __NAMESPACE__ . '\\add_async_attribute', 10, 2);

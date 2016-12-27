@@ -26,9 +26,19 @@
 
     		<?php the_content(); ?>
 
+             <?php if (get_post_meta( $post->ID, 'ebook_pdf', 1 )): ?>
+                <a class="btn btn-accent-light hvr-icon-pulse download" target="_blank" href="<?php echo get_post_meta( $post->ID, 'ebook_pdf', 1 ) ?>" title="">
+                    <?php if (books_cat($post->ID, 'Gratis')): ?>
+                        Darmowy ebook
+                    <?php else: ?>
+                        Darmowy fragment
+                    <?php endif; ?>
+                </a>
+            <?php endif; ?>
+
             <?php if (bookstore_url($post->ID)): ?>
     		  <a class="more-link btn btn-default hvr-icon-pulse external-link" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
-                więcej
+                <?php _e('see in store', 'sage'); ?>
             </a>
             <?php endif; ?>
     	</div>
