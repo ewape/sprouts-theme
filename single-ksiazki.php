@@ -9,9 +9,14 @@
 
     	<div class="col-xs-8 col-sm-9 description">
     		<h2 class="entry-title">
-                <a target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
+                <?php if (bookstore_url($post->ID)): ?>
+                    <a class="external-link hvr-icon-pulse" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
+                        <?php the_title(); ?>
+                    </a>
+                <?php else: ?>
                     <?php the_title(); ?>
-                </a>
+                <?php endif; ?>
+
                 <?php if (books_cat($post->ID, 'Nowość')): ?>
                     <span class="badge badge-accent-light">Nowość</span>
                 <?php endif; ?>
@@ -21,12 +26,18 @@
             </h2>
 
     		<h3 class="author">
-                <?php bookstore_post_author($post->ID) ?>
+                <?php if (get_post_meta( $post->ID, 'author_url', 1 )): ?>
+                    <a href="<?php echo get_post_meta( $post->ID, 'author_url', 1 ) ?>" title="<?php bookstore_post_author($post->ID) ?>" target="_blank">
+                        <?php bookstore_post_author($post->ID) ?>
+                    </a>
+                <?php else: ?>
+                    <?php bookstore_post_author($post->ID) ?>
+                <?php endif; ?>
             </h3>
 
     		<?php the_content(); ?>
 
-             <?php if (get_post_meta( $post->ID, 'ebook_pdf', 1 )): ?>
+            <?php if (get_post_meta( $post->ID, 'ebook_pdf', 1 )): ?>
                 <a class="btn btn-accent-light hvr-icon-pulse download" target="_blank" href="<?php echo get_post_meta( $post->ID, 'ebook_pdf', 1 ) ?>" title="">
                     <?php if (books_cat($post->ID, 'Gratis')): ?>
                         Darmowy ebook
