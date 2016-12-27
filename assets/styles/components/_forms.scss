@@ -71,11 +71,11 @@
   background: linear-gradient(rgba($menu-bg, 0.95), rgba(darken($menu-bg, 5%), 0.95));
   position: absolute;
   right: 0;
-  top: 39px;
+  top: 38px;
   min-width: 100%;
   max-width: 100%;
   border-color: darken($menu-bg, 10%);
-  border-width: 0 1px 1px;
+  border-width: 1px;
   border-style: solid;
   padding-top: 1rem;
   padding-bottom: 1rem;
