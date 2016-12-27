@@ -37,7 +37,7 @@ use Roots\Sage\Wrapper;
                  {lang: "pl"}
               </script>
               <div class="g-plusone btn" data-annotation="none"></div>
-              <div class="fb-like" data-href="https://www.facebook.com/kielkiinfo-310655538217/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+              <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
             </div>
 
              <?php endif; ?>
