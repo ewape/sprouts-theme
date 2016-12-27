@@ -137,7 +137,7 @@ function assets() {
 
   // Czcionki
   wp_enqueue_style('Alegreya', '//fonts.googleapis.com/css?family=Alegreya:400,700,400italic,700italic&subset=latin-ext');
-  wp_enqueue_style('Alegreya Sans', '//fonts.googleapis.com/css?family=Alegreya+Sans:400,400italic,500,500italic,700,700italic,900&subset=latin-ext');
+  wp_enqueue_style('Alegreya-Sans', '//fonts.googleapis.com/css?family=Alegreya+Sans:400,400italic,500,500italic,700,700italic,900&subset=latin-ext');
   wp_enqueue_style('Dosis', '//fonts.googleapis.com/css?family=Dosis:400,600,300&subset=latin-ext');
   wp_enqueue_style('Inconsolata', '//fonts.googleapis.com/css?family=Inconsolata&subset=latin,latin-ext');
 

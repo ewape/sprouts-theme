@@ -1,4 +1,4 @@
-<header class="banner " role="banner">
+<header class="banner">
  <div class="navbar navbar-default container">
   <div>
     <div class="navbar-header">
@@ -12,7 +12,7 @@
         <?php get_template_part('templates/logo'); ?>
       </a>
     </div>
-    <nav class="collapse navbar-nav navbar-collapse" role="navigation">
+    <nav class="collapse navbar-nav navbar-collapse">
       <?php
       if (has_nav_menu('primary_navigation')) :
         wp_nav_menu( array(
@@ -34,6 +34,5 @@
       <?php get_search_form(); ?>
    </div>
  </div>
-</div>
 </div>
 </header>

@@ -23,7 +23,7 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
   <article <?php post_class('item-book'); ?>>
     <div class="row entry-content lightbox">
         <div class="col-xs-4 col-sm-3">
-            <a class="book-thumb thumb" href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="">
+            <a class="book-thumb thumb" href="<?php post_img_url($post->ID, 'large'); ?>" title="">
                 <?php the_post_thumbnail( 'ebook' ); ?>
             </a>
         </div>

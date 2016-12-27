@@ -5,6 +5,9 @@ namespace Roots\Sage\Extras;
 use Roots\Sage\Setup;
 
 remove_action('wp_head', 'wp_generator');
+remove_action ('wp_head', 'rsd_link');
+remove_action( 'wp_head', 'wlwmanifest_link');
+remove_action( 'wp_head', 'wp_shortlink_wp_head');
 /**
  * Add <body> classes
  */
@@ -34,6 +37,11 @@ function excerpt_more() {
 
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
+function my_remove_rel_attr($content) {
+    return preg_replace('/\s+rel="attachment wp-att-[0-9]+"/i', '', $content);
+}
+
+add_filter('the_content', __NAMESPACE__ . '\\my_remove_rel_attr');
 
 add_action( 'init', __NAMESPACE__ . '\\kielki_tags', 5 );
 
