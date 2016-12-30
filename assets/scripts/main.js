@@ -324,21 +324,23 @@
 
         adsLoad: function() {
             window.adsbygoogle = window.adsbygoogle || [];
-            var ads = $('.adsbygoogle');
+            var $ads = $('.adsbygoogle');
 
-            $.each(ads, function() {
+            $.each($ads, function() {
                 window.adsbygoogle.push({});
             });
 
             function getEmptyAds($ads) {
                 $ads.each(function(i, el) {
-                    if (el.children.length < 1) {
+                    if (!el.children.length) {
                         $(el).next().removeClass('hidden');
                     }
                 });
             }
 
-            getEmptyAds(ads);
+            if ($ads.length) {
+                getEmptyAds($ads);
+            }
         },
 
         windowResize: function() {
