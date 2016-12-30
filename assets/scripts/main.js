@@ -42,13 +42,13 @@
         'post_type_archive_faq': {
             init: function() {
                 var panels = $('.type-faq');
-            panels.each(function(i, panel) {
-                $(panel).find('.accordion-content').hide();
-                $(panel).find('.accordion-header').click(function() {
-                    $(this).parents('.type-faq').toggleClass('accordion-open');
-                    $(this).next('.accordion-content').slideToggle(300);
+                panels.each(function(i, panel) {
+                    $(panel).find('.accordion-content').hide();
+                    $(panel).find('.accordion-header').on('click', function() {
+                        $(this).parents('.type-faq').toggleClass('accordion-open');
+                        $(this).next('.accordion-content').slideToggle(300);
+                    });
                 });
-            });
             }
         }
     };
@@ -89,7 +89,7 @@
         },
 
         scrollTop: function() {
-            $('.scroll-top').click(function() {
+            $('.scroll-top').on('click', function() {
                 $('body,html').animate({
                     scrollTop: 0
                 }, 600);
@@ -98,9 +98,9 @@
         },
 
         photoswipe: function() {
-         var template = $('.pswp')[0];
+            var template = $('.pswp')[0];
             var items = [];
-            $('.thumb img, .gallery-icon a img').toArray().map(function(el) {
+            $('.thumb img, .gallery-icon a img').each(function(i, el) {
                 items.push({
                     src: el.parentNode.href,
                     w: 0,
@@ -115,28 +115,41 @@
                     var options = {
                         index: i,
                         bgOpacity: 0.85,
-                        showHideOpacity:true, getThumbBoundsFn:false,
+                        showHideOpacity: true,
+                        getThumbBoundsFn: false,
                         errorMsg: "Nie można załadować zdjęcia",
-                        shareButtons: [
-                            {id:'facebook', label:'Facebook', url:'https://www.facebook.com/sharer/sharer.php?u={{url}}'},
-                            {id:'twitter', label:'Twitter', url:'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'},
-                            {id:'pinterest', label:'Pinterest', url:'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}'},
-                            {id:'download', label:'Pobierz', url:'{{raw_image_url}}', download:true}
-                        ],
+                        shareButtons: [{
+                            id: 'facebook',
+                            label: 'Facebook',
+                            url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}'
+                        }, {
+                            id: 'twitter',
+                            label: 'Twitter',
+                            url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'
+                        }, {
+                            id: 'pinterest',
+                            label: 'Pinterest',
+                            url: 'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}'
+                        }, {
+                            id: 'download',
+                            label: 'Pobierz',
+                            url: '{{raw_image_url}}',
+                            download: true
+                        }],
                     };
 
                     var gallery = new PhotoSwipe(template, PhotoSwipeUI_Default, items, options);
 
                     gallery.listen('gettingData', function(index, item) {
                         if (item.w < 1 || item.h < 1) { // unknown size
-                        var img = new Image();
-                        img.onload = function() { // will get size after load
-                            item.w = this.width; // set image width
-                            item.h = this.height; // set image height
-                            gallery.invalidateCurrItems(); // reinit Items
-                            gallery.updateSize(true); // reinit Items
-                        };
-                        img.src = item.src; // let's download image
+                            var img = new Image();
+                            img.onload = function() { // will get size after load
+                                item.w = this.width; // set image width
+                                item.h = this.height; // set image height
+                                gallery.invalidateCurrItems(); // reinit Items
+                                gallery.updateSize(true); // reinit Items
+                            };
+                            img.src = item.src; // let's download image
                         }
                     });
                     gallery.init();
@@ -154,7 +167,7 @@
         },
 
         tooltipInit: function() {
-            if(!('ontouchstart' in window)) {
+            if (!('ontouchstart' in window)) {
                 $('[data-toggle="tooltip"]').tooltip();
             }
         },
@@ -164,19 +177,19 @@
                 if (parseInt($('.parallax-wrap').css('margin-bottom'), 10) !== this.footerHeight()) {
                     $('.parallax-wrap').css('margin-bottom', this.footerHeight() + 'px');
                     $('.footer-bottom').css({
-                        'position':'fixed',
+                        'position': 'fixed',
                         'z-index': -1
                     });
                 }
             }
         },
 
-        scrollPos: function(){
+        scrollPos: function() {
             this.scroll = $(window).scrollTop();
         },
 
         scrollDirection: function() {
-            if (this.scroll > this.previousScroll){
+            if (this.scroll > this.previousScroll) {
                 this.scrollUp = 1;
             }
             else {
@@ -189,7 +202,7 @@
             $('.btn-back').on('click', function(e) {
                 e.preventDefault();
                 if (document.referrer.length > 1) {
-                   window.history.back(-1);
+                    window.history.back(-1);
                 }
             });
         },
@@ -220,12 +233,12 @@
                 var target = $(this.hash);
                 var offset = $('body').css('padding-top');
                 if (offset) {
-                    offset = offset.replace('px','');
+                    offset = offset.replace('px', '');
                 }
 
                 if (target) {
                     $('html,body').animate({
-                        scrollTop: ( target.offset().top - offset )
+                        scrollTop: (target.offset().top - offset)
                     }, 1000);
                     return false;
                 }
@@ -234,11 +247,11 @@
 
         colHeight: function() {
             var sidebarH = $('.sidebar').outerHeight(),
-                mainH =  $('.main').outerHeight();
+                mainH = $('.main').outerHeight();
 
             if (!isNaN(sidebarH) && !isNaN(mainH)) {
                 if (sidebarH > mainH) {
-                   $('body').addClass('sidebar-higher');
+                    $('body').addClass('sidebar-higher');
                 }
                 else {
                     $('body').removeClass('sidebar-higher');
@@ -250,10 +263,11 @@
             $('.header-search').addClass(animateOut);
             $('.navbar-search-btn').on('click', function() {
 
-                if ( $('.header-search').hasClass(animateOut)) {
-                  $('.header-search').addClass(animateIn).removeClass(animateOut);
-                } else {
-                     $('.header-search').addClass(animateOut).removeClass(animateIn);
+                if ($('.header-search').hasClass(animateOut)) {
+                    $('.header-search').addClass(animateIn).removeClass(animateOut);
+                }
+                else {
+                    $('.header-search').addClass(animateOut).removeClass(animateIn);
                 }
 
                 if ($('.header-search').hasClass('hidden')) {
@@ -291,7 +305,7 @@
         addEmail: function() {
             var emailName = 'kontakt',
                 domain = 'kielki.info';
-                $('.email-me').attr('href', 'mailto:' + emailName + '@' + domain);
+            $('.email-me').attr('href', 'mailto:' + emailName + '@' + domain);
         },
 
         flexslider: function() {
@@ -300,7 +314,6 @@
                 directionNav: false,
                 prevText: "Poprzeni",
                 nextText: "Następny",
-                mousewheel: true,
                 pauseOnHover: true
             });
         },
@@ -312,9 +325,20 @@
         adsLoad: function() {
             window.adsbygoogle = window.adsbygoogle || [];
             var ads = $('.adsbygoogle');
+
             $.each(ads, function() {
                 window.adsbygoogle.push({});
             });
+
+            function getEmptyAds($ads) {
+                $ads.each(function(i, el) {
+                    if (el.children.length < 1) {
+                        $(el).next().removeClass('hidden');
+                    }
+                });
+            }
+
+            getEmptyAds(ads);
         },
 
         windowResize: function() {
@@ -353,7 +377,7 @@
     };
 
 
-     // Load Events
+    // Load Events
     $(document).ready(UTIL.loadEvents);
 
     $(window).on('scroll', function() {

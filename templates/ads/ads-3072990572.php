@@ -4,3 +4,4 @@
      data-ad-slot="3072990572"
      data-ad-format="auto">
  </ins>
+ <a href="https://www.lh.pl/?ref=epettke" target="blank" class="google-tower hidden"></a>
