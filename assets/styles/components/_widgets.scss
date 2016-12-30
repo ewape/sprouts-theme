@@ -65,8 +65,17 @@
 	background-color: transparent;
 	border-radius: 0;
 	border: 0 none;
+	min-height: 310px;
 	.widget-img-link {
 		margin-bottom: 0;
-		//transform: translate(-50%, -50%);
+	}
+}
+
+.widget-ceneo {
+	text-align: center;
+	a {
+		margin: 4px;
+    	@extend .btn;
+		@include button($accent-dark);
 	}
 }

@@ -1,7 +1,12 @@
 <?php dynamic_sidebar('sidebar-primary'); ?>
-
+<!--
 <div class="widget">
 	<?php get_template_part('templates/visitors'); ?>
+</div>
+ -->
+
+<div class="widget widget-ceneo">
+	<?php get_template_part('templates/widget-ceneo'); ?>
 </div>
 
 <?php
