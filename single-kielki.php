@@ -1,9 +1,8 @@
 <?php while (have_posts()) : the_post(); ?>
-  <article <?php post_class(); ?>>
-    <div class="entry-content">
-    	<div class="page-header">
+  <section <?php post_class('entry-content'); ?>>
+    	<header class="page-header">
     		<h1><?php echo the_title(); ?></h1>
-    	</div>
+    	</header>
     	<div class="img-compare twentytwenty-container">
         <div class="images">
           <?php echo wp_get_attachment_image( get_post_meta( $post->ID, 'seed_id', 1 ), 'img-compare' ); ?>
@@ -26,7 +25,10 @@
           <div class="dot2"></div>
         </div>
       </div>
-      <?php the_content(); ?>
+
+      <article>
+        <?php the_content(); ?>
+      </article>
 
       <h2>Wskazówki dotyczące hodowli</h2>
       <div class="kielki-wskazowki">
@@ -67,7 +69,5 @@
       </a>
 
       <?php endif ?>
-
-  </div>
-</article>
+  </section>
 <?php endwhile; ?>
