@@ -33,7 +33,6 @@ use Roots\Sage\Wrapper;
             <?php include Wrapper\template_path(); ?>
             <?php if (Setup\display_like_btns()) : ?>
             <div class="like-buttons clearfix">
-              <script src="https://apis.google.com/js/platform.js" async defer></script>
               <div class="g-plusone btn" data-annotation="none"></div>
               <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
             </div>

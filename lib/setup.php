@@ -133,6 +133,7 @@ function assets() {
 
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
   wp_enqueue_script('google-ads', 'http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', null, null, true);
+  wp_enqueue_script('google-plus', 'https://apis.google.com/js/platform.js', null, null, true);
 
   // Czcionki
   wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Dosis:300,400,600|Inconsolata&amp;subset=latin-ext');
