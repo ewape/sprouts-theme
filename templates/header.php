@@ -1,4 +1,4 @@
-<header class="banner">
+<header class="main-header">
  <div class="navbar navbar-default container">
   <div>
     <div class="navbar-header">
@@ -12,7 +12,7 @@
         <?php get_template_part('templates/logo'); ?>
       </a>
     </div>
-    <nav class="collapse navbar-nav navbar-collapse">
+    <nav class="collapse navbar-nav navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement">
       <?php
       if (has_nav_menu('primary_navigation')) :
         wp_nav_menu( array(

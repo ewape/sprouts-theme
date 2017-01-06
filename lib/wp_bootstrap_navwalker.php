@@ -73,8 +73,6 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
 			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-			$output .= $indent . '<li' . $id . $value . $class_names .'>';
-
 			$atts = array();
 			$atts['title']  = ! empty( $item->title )	? $item->title	: '';
 			$atts['target'] = ! empty( $item->target )	? $item->target	: '';
@@ -86,9 +84,14 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 				$atts['data-toggle']	= 'dropdown';
 				$atts['class']			= 'dropdown-toggle';
 				$atts['aria-haspopup']	= 'true';
+				$schemaName = '';
 			} else {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
+				$atts['itemprop'] = 'url';
+				$schemaName = ' itemprop="name"';
 			}
+
+			$output .= $indent . '<li' . $id . $value . $class_names . $schemaName .'>';
 
 			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 
