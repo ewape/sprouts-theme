@@ -57,6 +57,15 @@ footer {
 		}
 	}
 
+	.current-menu-item {
+		a {
+			color: $accent-light;
+			&:before {
+					color: $accent-dark;
+				}
+		}
+	}
+
 	.profile {
 		margin-bottom: 2rem;
 		overflow: hidden;
