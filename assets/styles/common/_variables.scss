@@ -8,6 +8,9 @@ $sidebar-sm-columns:    4;
 // Colors
 //$brand-primary:         #27ae60;
 
+$accent-light: #ffae1a;
+$accent-dark: #FF5722;
+
 $body-bg: #cc9e54;
 $body-color: #52442E;
 
@@ -17,19 +20,14 @@ $menu-bg: #a9b45c;
 $menu-color: #f7ffea;
 $menu-active-color: #f9fbc3;
 
+$menu-mobile-active: #8bc34a;
+
 $menu-side-bg: #ffffcc;
 $menu-side-color: #454923;
 
 $heading-color: #8f6a2c;
-
-$footer-bg: #52442E;
-
-$accent-light: #ffae1a;
-
-$accent-dark: #FF5722;
-
 $logo-fill: #CBEC98;
-
+$footer-bg: #52442E;
 $sidebar-bg: #F9DEB1;
 //test
 
@@ -60,8 +58,8 @@ $dropdown-fallback-border:       darken($menu-bg, 10%) !default;
 $dropdown-divider-bg:            darken($menu-bg, 10%) !default;
 
 //** Dropdown link text color.
-$dropdown-link-color:            #fff !default;
-$dropdown-link-hover-color:      #fff;
+$dropdown-link-color:            $menu-color !default;
+$dropdown-link-hover-color:      $accent-light;
 $dropdown-link-hover-bg:         transparent; //darken($menu-bg, 8%) !default;
 
 
@@ -73,9 +71,9 @@ $navbar-default-border:            transparent; //$menu-bg;
 
 // Navbar links
 $navbar-default-link-color:                $menu-color !default;
-$navbar-default-link-hover-color:          $menu-color;
+$navbar-default-link-hover-color:          $accent-light;
 $navbar-default-link-hover-bg:             transparent; //darken($menu-bg, 8%) !default;
-$navbar-default-link-active-color:         $menu-color;
+$navbar-default-link-active-color:         $accent-light;
 $navbar-default-link-active-bg:            transparent; //darken($menu-bg, 8%) !default;
 $navbar-default-link-disabled-color:       transparent !default;
 $navbar-default-link-disabled-bg:          transparent !default;

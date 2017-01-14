@@ -285,6 +285,11 @@
 
         menuDropdown: function() {
             $('.dropdown-toggle').dropdown();
+
+            $('.navbar-toggle').on('click', function(e) {
+                console.log(e);
+                UTIL.searchToggle('flipInX', 'flipOutX');
+            });
         },
 
         fbLoad: function() {

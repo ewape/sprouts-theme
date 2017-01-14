@@ -123,10 +123,13 @@
 	.navbar-nav {
 		text-align: center;
 		.open {
+			> a {
+				color: $accent-light;
+			}
+			background-color: darken($menu-bg, 10%);
 			.dropdown-menu {
-				background-color: rgba(#fff, .1);
-				>li {
-					>a {
+				> li {
+					> a {
 						text-align: center;
 						line-height: 30px;
 						padding-left: 15px;
@@ -177,7 +180,7 @@
 @media (max-width: 420px) {
 	.main {
 		.thumb {
-			float: none;
+			//float: none;
 			img {
 				margin-bottom: 1rem;
 			}
