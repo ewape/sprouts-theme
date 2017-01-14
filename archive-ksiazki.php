@@ -22,7 +22,7 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
 ?>
   <article <?php post_class('item-book'); ?>>
     <div class="row entry-content lightbox">
-        <div class="col-xs-4 col-sm-3">
+        <div class="col-xs-4 col-sm-3 book-image">
             <a class="book-thumb thumb" href="<?php post_img_url($post->ID, 'large'); ?>" title="">
                 <?php the_post_thumbnail( 'ebook' ); ?>
             </a>
@@ -94,14 +94,15 @@ $ebookargs = ( array(
 $ebookloop = new WP_Query( $ebookargs ); ?>
 <?php while ( $ebookloop->have_posts() ) : $ebookloop->the_post(); ?>
 
-<article <?php post_class('item-ebook'); ?>>
+<article <?php post_class('item-book'); ?>>
     <div class="row entry-content lightbox">
-        <div class="col-xs-4 col-sm-3">
-            <a href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="book-thumb thumb">
+        <div class="col-xs-4 col-sm-3 book-image">
+            <a class="book-thumb thumb" href="<?php post_img_url($post->ID, 'large'); ?>" title="">
                 <?php the_post_thumbnail( 'ebook' ); ?>
             </a>
         </div>
         <div class="col-xs-8 col-sm-9 description">
+
             <h2 class="entry-title">
                 <?php if (bookstore_url($post->ID)): ?>
                 <a class="external-link hvr-icon-pulse" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
@@ -117,9 +118,11 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
                     <span class="badge badge-accent-dark">Gratis!</span>
                 <?php endif; ?>
             </h2>
+
             <h3 class="author">
                 <?php bookstore_post_author($post->ID) ?>
             </h3>
+
             <?php the_content(); ?>
 
             <?php if (get_post_meta( $post->ID, 'ebook_pdf', 1 )): ?>

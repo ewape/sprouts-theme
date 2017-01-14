@@ -27,9 +27,6 @@
 		a {
 			color: $body-color;
 			text-decoration: none;
-			margin-bottom: 1rem;
-			float: left;
-			clear: left;
 			padding-right: 3rem;
 
 			&:before {
@@ -58,9 +55,7 @@
 	}
 
 	.description {
-		text-align: justify;
 		font-size: 1.5rem;
-		padding-left: 0;
 
 		@media (min-width: 768px) {
 			overflow: hidden;
@@ -85,4 +80,48 @@
 	font-style: italic;
 	margin-top: 0;
 	font-size: 1.4rem;
+}
+
+@media (max-width: 620px) {
+	.item-book {
+		.entry-content {
+			.book-image, .description {
+				width: 100%;
+			}
+
+			.book-thumb {
+				text-align: center;
+			}
+
+			.entry-title {
+				text-align: center;
+			}
+
+			.description {
+				margin-top: 2rem;
+
+				.author {
+					margin-bottom: 2rem;
+					text-align: center;
+				}
+
+			}
+		}
+	}
+}
+
+@media (min-width: 621px) {
+	.item-book {
+		.description {
+			padding-left: 0;
+		}
+
+		.entry-title {
+			a {
+				margin-bottom: 1rem;
+				float: left;
+				clear: left;
+			}
+		}
+	}
 }

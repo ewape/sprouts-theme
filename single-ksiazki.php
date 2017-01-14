@@ -1,7 +1,7 @@
 <?php while (have_posts()) : the_post(); ?>
 <article <?php post_class('item-ebook'); ?>>
     <div class="row entry-content lightbox">
-        <div class="col-xs-4 col-sm-3">
+        <div class="col-xs-4 col-sm-3 book-image">
             <a class="book-thumb thumb" href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="">
                 <?php the_post_thumbnail( 'ebook' ); ?>
             </a>
