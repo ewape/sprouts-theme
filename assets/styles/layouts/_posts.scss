@@ -16,8 +16,12 @@
 }
 
 .images {
+  height: 100%;
+  @extend .transition;
+}
+
+.images, .twentytwenty-handle {
 	opacity: 0;
-	@extend .transition;
 	.visible & {
 		opacity: 1;
 	}
@@ -32,12 +36,14 @@
   margin: 0 auto;
   width: 40px;
   height: 40px;
-  position: relative;
+  position: absolute;
   top: 50%;
+  left: 50%;
+  margin-left: -20px;
   margin-top: -20px;
   text-align: center;
 
-  -webkit-animation: sk-rotate 2s infinite linear;
+  //-webkit-animation: sk-rotate 2s infinite linear;
   animation: sk-rotate 2s infinite linear;
   .visible & {
   	z-index: -5;
@@ -64,20 +70,17 @@
   animation-delay: -1s;
 }
 
-@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
-@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate {
+  100% {
+    transform: rotate(360deg);
+    }
+  }
 
-@-webkit-keyframes sk-bounce {
-  0%, 100% { -webkit-transform: scale(0) }
-  50% { -webkit-transform: scale(1) }
-}
 
 @keyframes sk-bounce {
   0%, 100% {
     transform: scale(0);
-    -webkit-transform: scale(0);
   } 50% {
     transform: scale(1);
-    -webkit-transform: scale(1);
   }
 }

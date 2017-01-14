@@ -277,8 +277,10 @@
         },
 
         imgCompareLoader: function() {
-            $('.img-compare').addClass('visible');
-            $('.img-compare').find('.spinner').fadeOut().remove();
+            $('.img-compare').find('.spinner').fadeOut(function() {
+                $('.img-compare').addClass('visible');
+            });
+
         },
 
         menuDropdown: function() {
