@@ -330,22 +330,7 @@
 
         booksWidgetSlider: function() {
             var imagesLoaded = false,
-                slideShow = $('.flexslider'),
-                slideShowOptions = {
-                    touch: true,
-                    animation: "slide",
-                    directionNav: false,
-                    prevText: "Poprzeni",
-                    nextText: "Następny",
-                    pauseOnHover: true,
-                    animationLoop: false,
-                    start: function(slider) { // Fires when the slider loads the first slide
-                        sliderStart(slider);
-                    },
-                    before: function(slider) { // Fires asynchronously with each slider animation
-                        sliderBefore(slider);
-                    }
-                };
+                slideShow = $('.flexslider');
 
             function lazyLoadDone(images) {
                 var notLoaded = images.filter('[data-src]');
@@ -383,6 +368,22 @@
             }
 
             function init() {
+                var slideShowOptions = {
+                    touch: true,
+                    animation: "slide",
+                    directionNav: false,
+                    prevText: "Poprzeni",
+                    nextText: "Następny",
+                    pauseOnHover: true,
+                    animationLoop: false,
+                    start: function(slider) { // Fires when the slider loads the first slide
+                        sliderStart(slider);
+                    },
+                    before: function(slider) { // Fires asynchronously with each slider animation
+                        sliderBefore(slider);
+                    }
+                };
+
                 slideShow.flexslider(slideShowOptions);
             }
 

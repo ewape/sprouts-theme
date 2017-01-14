@@ -18,7 +18,6 @@
 	}
 
 	tbody {
-
 		td {
 			border-color: $body-bg;
 			vertical-align: middle;
@@ -26,7 +25,6 @@
 			&:not(:last-child) {
 				border-right: 1px solid $body-bg;
 			}
-
 		}
 	}
 
@@ -65,7 +63,7 @@
 }
 
 .tables-sources {
-	border-bottom: 1px dashed $body-bg;
+	margin-top: 2rem;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
 

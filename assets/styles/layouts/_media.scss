@@ -58,14 +58,6 @@
 		}
 	}
 
-	.dropdown {
-		&:hover {
-			.dropdown-menu {
-				display: block;
-			}
-		}
-	}
-
 	.navbar-nav {
 		> li, li.open {
 			> a {

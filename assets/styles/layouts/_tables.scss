@@ -1,0 +1,27 @@
+.single-tabele {
+	.link-list {
+		a {
+			margin-bottom: 1rem;
+		}
+	}
+
+	.tables-sources  {
+		font-family: 'Inconsolata';
+	}
+}
+
+@media (max-width: 991px) {
+	.tables-sources {
+		a {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.single-tabele {
+		.link-list {
+			column-count: 2;
+		}
+	}
+}

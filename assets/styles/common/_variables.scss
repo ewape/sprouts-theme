@@ -61,6 +61,7 @@ $dropdown-divider-bg:            darken($menu-bg, 10%) !default;
 $dropdown-link-color:            $menu-color !default;
 $dropdown-link-hover-color:      $accent-light;
 $dropdown-link-hover-bg:         transparent; //darken($menu-bg, 8%) !default;
+$dropdown-link-active-color: $accent-light;
 
 
 // Navbar
@@ -72,9 +73,9 @@ $navbar-default-border:            transparent; //$menu-bg;
 // Navbar links
 $navbar-default-link-color:                $menu-color !default;
 $navbar-default-link-hover-color:          $accent-light;
-$navbar-default-link-hover-bg:             transparent; //darken($menu-bg, 8%) !default;
+$navbar-default-link-hover-bg:             $dropdown-border; //darken($menu-bg, 8%) !default;
 $navbar-default-link-active-color:         $accent-light;
-$navbar-default-link-active-bg:            transparent; //darken($menu-bg, 8%) !default;
+$navbar-default-link-active-bg:            darken($menu-bg, 10%) !default;
 $navbar-default-link-disabled-color:       transparent !default;
 $navbar-default-link-disabled-bg:          transparent !default;
 
