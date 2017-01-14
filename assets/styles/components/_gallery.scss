@@ -29,12 +29,24 @@
 
 	}
 
-	&:hover {
+	@media (min-width: 1025px) {
+		&:hover {
+			img {
+				border-radius: 0;
+			}
+			+ .gallery-caption {
+				opacity: 1;
+			}
+		}
+	}
+
+	@media (max-width: 1024px) {
 		img {
 			border-radius: 0;
 		}
 		+ .gallery-caption {
 			opacity: 1;
+			padding: 4px 9px;
 		}
 	}
 }
@@ -59,13 +71,6 @@
 	overflow: hidden;
 	margin-bottom: 1rem;
 	margin-top: 1rem;
-	//@extend .transition;
-	//opacity: 0;
-	//transform: translate3d(0, 25%, 0);
-	//animation-name: fadeInUpThumb;
-	// animation-duration: 0.15s;
-	// animation-fill-mode: forwards;
-	// animation-delay: .5s;
 
 	@for $i from 1 to 15 {
 	  &:nth-of-type(#{$i}) {
