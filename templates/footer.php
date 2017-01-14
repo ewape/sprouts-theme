@@ -1,6 +1,6 @@
 <footer class="footer-extras">
  <div class="container">
-  <div class="row">
+  <div class="row footer-extras-row">
     <div class="col-sm-6 col-md-4 footer-extras-col">
       <?php get_search_form(); ?>
     </div>
