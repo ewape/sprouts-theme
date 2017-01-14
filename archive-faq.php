@@ -6,7 +6,7 @@
     	<h3 class="entry-title accordion-header">
             <?php the_title(); ?> <i class="fa fa-caret-right"></i>
         </h3>
-        <div class="accordion-content" style="display: none">
+        <div class="accordion-content">
             <?php the_content(); ?>
         </div>
     </div>
