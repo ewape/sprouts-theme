@@ -207,7 +207,7 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\\custom_size_thumbs' );
 
 function custom_size_thumbs() {
     add_image_size( 'ebook', 220); // 220 pixels wide (and unlimited height)
-    add_image_size( 'img-compare', 740, 220, true); // 220 pixels wide (and unlimited height)
+    add_image_size( 'img-compare', 822, 244, true); // 244 pixels wide (and unlimited height)
 }
 
 add_action( 'cmb2_admin_init',  __NAMESPACE__ . '\\cmb2_img_compare_metaboxes' );
@@ -369,16 +369,16 @@ function create_post_type_tables() {
 
 add_action('init', __NAMESPACE__ . '\\create_post_type_tables');
 
-add_filter('script_loader_tag', __NAMESPACE__ . '\\add_async_attribute', 10, 2);
-
-function add_async_attribute($tag, $handle) {
-   // add script handles to the array below
-   $scripts_to_async = array('google-plus', 'google-ads');
-
-   foreach($scripts_to_async as $async_script) {
-      if ($async_script === $handle) {
-         return str_replace(' src', ' async="async" src', $tag);
+function modify_post_thumbnail_html($html, $post_id, $post_thumbnail_id, $size, $attr) {
+    $id = get_post_thumbnail_id(); // gets the id of the current post_thumbnail (in the loop)
+    $src = wp_get_attachment_image_src($id, $size); // gets the image url specific to the passed in size (aka. custom image size)
+    $alt = get_the_title($id); // gets the post thumbnail title
+    if ($attr) {
+      $class = $attr['class']; // gets classes passed to the post thumbnail, defined here for easier function access
+      if ($class == 'lazy') {
+        return '<img data-src="' . $src[0] . '" alt="' . $alt . '" class="' . $class . '" />';
       }
-   }
-   return $tag;
+    }
+    return $html;
 }
+add_filter('post_thumbnail_html', __NAMESPACE__ . '\\modify_post_thumbnail_html', 99, 5);

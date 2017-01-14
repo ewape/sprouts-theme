@@ -308,14 +308,66 @@
             $('.email-me').attr('href', 'mailto:' + emailName + '@' + domain);
         },
 
-        flexslider: function() {
-            $('.flexslider').flexslider({
-                animation: "slide",
-                directionNav: false,
-                prevText: "Poprzeni",
-                nextText: "Następny",
-                pauseOnHover: true
-            });
+        booksWidgetSlider: function() {
+            var imagesLoaded = false,
+                slideShow = $('.flexslider'),
+                slideShowOptions = {
+                    touch: true,
+                    animation: "slide",
+                    directionNav: false,
+                    prevText: "Poprzeni",
+                    nextText: "Następny",
+                    pauseOnHover: true,
+                    animationLoop: false,
+                    start: function(slider) { // Fires when the slider loads the first slide
+                        sliderStart(slider);
+                    },
+                    before: function(slider) { // Fires asynchronously with each slider animation
+                        sliderBefore(slider);
+                    }
+                };
+
+            function lazyLoadDone(images) {
+                var notLoaded = images.filter('[data-src]');
+                return !notLoaded.length;
+            }
+
+            function sliderBefore(slider) {
+                if (!imagesLoaded) {
+                    var slides = slider.slides,
+                        index = slider.animatingTo,
+                        $slide = $(slides[index]),
+                        $img = $slide.find('img[data-src]'),
+                        current = index + slider.cloneOffset,
+                        nextIndex = current + 1,
+                        prevIndex = current - 1;
+
+                    var images = $slide.parent().find('.lazy'),
+                        currentNeighbours = images.eq(current).add(images.eq(prevIndex)).add(images.eq(nextIndex));
+
+                    currentNeighbours.each(function() {
+                        var src = $(this).attr('data-src');
+                        if (src) {
+                            $(this).attr('src', src).removeAttr('data-src');
+                        }
+                    });
+
+                    imagesLoaded = lazyLoadDone(images);
+                }
+            }
+
+            function sliderStart(slider) {
+                var currentImage = $(slider).find('.lazy').eq(0),
+                    src = currentImage.attr('data-src');
+                currentImage.attr('src', src).removeAttr('data-src');
+            }
+
+            function init() {
+                slideShow.flexslider(slideShowOptions);
+            }
+
+            init();
+
         },
 
         twentytwenty: function() {
@@ -352,7 +404,7 @@
         windowLoad: function() {
             UTIL.fbLoad();
             UTIL.imgCompareLoader();
-            UTIL.flexslider();
+            UTIL.booksWidgetSlider();
             UTIL.photoswipe();
             UTIL.twentytwenty();
             UTIL.bodyMarginBottom();
