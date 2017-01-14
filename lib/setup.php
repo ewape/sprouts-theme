@@ -121,6 +121,22 @@ function display_bottom_ads() {
   return apply_filters('sage/display_bottom_ads', $display);
 }
 
+
+// Async script loader
+
+add_filter('script_loader_tag', __NAMESPACE__ . '\\add_async_attribute', 10, 3);
+
+function add_async_attribute($tag, $handle) {
+   $scripts_to_async = array('google-plus', 'google-ads');
+
+   foreach($scripts_to_async as $async_script) {
+      if ($async_script === $handle) {
+         return str_replace(' src', ' async="async" src', $tag);
+      }
+   }
+   return $tag;
+}
+
 /**
  * Theme assets
  */
@@ -131,9 +147,20 @@ function assets() {
     wp_enqueue_script('comment-reply');
   }
 
+  // Load plugin css only if needed
+  if ( !is_singular('tabele')) {
+    wp_deregister_style( 'tablepress-default' );
+  }
+
+  // Load jQuery in footer
+  wp_deregister_script( 'jquery' );
+  wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
+  wp_enqueue_script( 'jquery' );
+
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
-  wp_enqueue_script('google-ads', 'http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', null, null, true);
-  wp_enqueue_script('google-plus', 'https://apis.google.com/js/platform.js', null, null, true);
+  wp_enqueue_script('google-ads', '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', null, null, true);
+  wp_enqueue_script('google-plus', '//apis.google.com/js/platform.js', null, null, true);
+  //wp_enqueue_script('webfont-loader', '//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js', null, null, true);
 
   // Czcionki
   wp_enqueue_style('google-fonts', '//fonts.googleapis.com/css?family=Dosis:300,400,600|Inconsolata&amp;subset=latin-ext');
@@ -141,4 +168,19 @@ function assets() {
   // Pusty arkusz css
   //wp_enqueue_style('style-override', get_template_directory_uri () . '/style.css');
 }
+
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
+
+function load_google_fonts_footer() {
+?>
+  <script type="text/javascript">
+    WebFont.load({
+      google: {
+        families: ['Dosis:300,400,600:latin,latin-ext', 'Inconsolata:400:latin,latin-ext']
+      }
+    });
+  </script>
+<?php
+}
+
+//add_action('wp_footer', __NAMESPACE__ . '\\load_google_fonts_footer', 101);
