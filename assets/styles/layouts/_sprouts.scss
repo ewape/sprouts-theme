@@ -4,7 +4,7 @@
 	}
 	.tables-link {
 	    float: right;
-	    margin-top: 1rem;
+	    margin-top: 3rem;
 	    margin-bottom: 1rem;
 	    clear: both;
 	}
@@ -33,7 +33,15 @@
 }
 
 .kielki-wskazowki {
-	margin-top: 2rem;
+	@media (max-width: 480px) {
+		.col-xs-6 {
+			width: 100%;
+		}
+		strong {
+			text-decoration: underline;
+			margin-top: 2rem;
+		}
+	}
 }
 
 .kielki-wartosci {

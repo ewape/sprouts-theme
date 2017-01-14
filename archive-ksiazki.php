@@ -22,13 +22,13 @@ while ( $bookloop->have_posts() ) : $bookloop->the_post();
 ?>
   <article <?php post_class('item-book'); ?>>
     <div class="row entry-content lightbox">
-        <div class="col-xs-4 col-sm-3 book-image">
+        <div class="col-xs-4 col-sm-4 col-md-3 book-image">
             <a class="book-thumb thumb" href="<?php post_img_url($post->ID, 'large'); ?>" title="">
                 <?php the_post_thumbnail( 'ebook' ); ?>
             </a>
         </div>
 
-    	<div class="col-xs-8 col-sm-9 description">
+    	<div class="col-xs-8 col-sm-8 col-md-9 description">
     		<h2 class="entry-title">
                 <?php if (bookstore_url($post->ID)): ?>
                 <a class="external-link hvr-icon-pulse" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
@@ -96,12 +96,12 @@ $ebookloop = new WP_Query( $ebookargs ); ?>
 
 <article <?php post_class('item-book'); ?>>
     <div class="row entry-content lightbox">
-        <div class="col-xs-4 col-sm-3 book-image">
+        <div class="col-xs-4 col-sm-4 col-md-3 book-image">
             <a class="book-thumb thumb" href="<?php post_img_url($post->ID, 'large'); ?>" title="">
                 <?php the_post_thumbnail( 'ebook' ); ?>
             </a>
         </div>
-        <div class="col-xs-8 col-sm-9 description">
+        <div class="col-xs-8 col-sm-8 col-md-9 description">
 
             <h2 class="entry-title">
                 <?php if (bookstore_url($post->ID)): ?>

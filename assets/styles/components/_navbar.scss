@@ -100,16 +100,26 @@
     padding: 0;
     float: right;
     text-shadow: 0 1px 1px darken($menu-bg, 10%);
+
     .fa {
     	display: block;
     	line-height: 38px;
-
     }
-	&:hover {
 
+	&:hover {
+		.fa {
+			color: $accent-light;
+		}
 	}
 }
 
 .navbar-collapse {
 	max-height: 100vh;
+
+	// &.in {
+	// 	+ .navbar-search-btn {
+	// 		opacity: 0.4;
+	// 		pointer-events: none;
+	// 	}
+	// }
 }

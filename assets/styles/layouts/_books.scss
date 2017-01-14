@@ -14,10 +14,12 @@
 	}
 
 	article {
-		padding-top: 2rem;
-
 		&:not(:last-of-type) {
 			border-bottom: 1px dashed $body-bg;
+		}
+
+		+ article {
+			padding-top: 1.5rem;
 		}
 	}
 
@@ -106,6 +108,12 @@
 				}
 
 			}
+		}
+
+		.badge {
+			display: inline-block;
+    		margin-top: 1rem;
+    		float: none;
 		}
 	}
 }
