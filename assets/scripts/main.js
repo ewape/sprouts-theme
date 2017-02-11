@@ -84,9 +84,6 @@
             // Fire common finalize JS
             UTIL.fire('common', 'finalize');
         },
-        wow: function() {
-            new WOW().init();
-        },
 
         scrollTop: function() {
             $('.scroll-top').on('click', function() {
@@ -98,9 +95,13 @@
         },
 
         photoswipe: function() {
-            var template = $('.pswp')[0];
-            var items = [];
-            $('.thumb img, .gallery-icon a img').each(function(i, el) {
+            var template = $('.pswp')[0],
+                $thumbs = $('.thumb, .gallery-icon'),
+                $images = $('.thumb img, .gallery-icon a img'),
+                items = [],
+                gallery;
+
+            $images.each(function(i, el) {
                 items.push({
                     src: el.parentNode.href,
                     w: 0,
@@ -109,52 +110,60 @@
                 });
             });
 
-            $('.thumb, .gallery-icon').each(function(i) {
-                $(this).on('click', function(e) {
-                    e.preventDefault();
-                    var options = {
-                        index: i,
-                        bgOpacity: 0.85,
-                        showHideOpacity: true,
-                        getThumbBoundsFn: false,
-                        errorMsg: "Nie można załadować zdjęcia",
-                        shareButtons: [{
-                            id: 'facebook',
-                            label: 'Facebook',
-                            url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}'
-                        }, {
-                            id: 'twitter',
-                            label: 'Twitter',
-                            url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'
-                        }, {
-                            id: 'pinterest',
-                            label: 'Pinterest',
-                            url: 'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}'
-                        }, {
-                            id: 'download',
-                            label: 'Pobierz',
-                            url: '{{raw_image_url}}',
-                            download: true
-                        }],
-                    };
+            if ($thumbs.length && items.length && $thumbs.length === items.length) {
 
-                    var gallery = new PhotoSwipe(template, PhotoSwipeUI_Default, items, options);
+                $thumbs.each(function(i) {
+                    $(this).on('click', function(e) {
+                        e.preventDefault();
+                        var options = {
+                            index: parseInt(i, 10),
+                            bgOpacity: 0.85,
+                            showHideOpacity: true,
+                            getThumbBoundsFn: false,
+                            closeOnVerticalDrag: false,
+                            errorMsg: "Nie można pobrać zdjęcia.",
+                            shareButtons: [{
+                                id: 'facebook',
+                                label: 'Facebook',
+                                url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}'
+                            }, {
+                                id: 'twitter',
+                                label: 'Twitter',
+                                url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}'
+                            }, {
+                                id: 'pinterest',
+                                label: 'Pinterest',
+                                url: 'http://www.pinterest.com/pin/create/button/?url={{url}}&media={{image_url}}&description={{text}}'
+                            }, {
+                                id: 'download',
+                                label: 'Pobierz',
+                                url: '{{raw_image_url}}',
+                                download: true
+                            }],
+                        };
 
-                    gallery.listen('gettingData', function(index, item) {
-                        if (item.w < 1 || item.h < 1) { // unknown size
-                            var img = new Image();
-                            img.onload = function() { // will get size after load
-                                item.w = this.width; // set image width
-                                item.h = this.height; // set image height
-                                gallery.invalidateCurrItems(); // reinit Items
-                                gallery.updateSize(true); // reinit Items
-                            };
-                            img.src = item.src; // let's download image
-                        }
+                        gallery = new PhotoSwipe(template, PhotoSwipeUI_Default, items, options);
+
+                        gallery.listen('gettingData', function(index, item) {
+                            if (item.w < 1 || item.h < 1) { // unknown size
+                                var img = new Image();
+                                img.onload = function() { // will get size after load
+
+                                    item.w = this.width; // set image width
+                                    item.h = this.height; // set image height
+                                    gallery.invalidateCurrItems(); // reinit Items
+                                    gallery.updateSize(true); // reinit Items
+
+                                };
+                                img.src = item.src; // let's download image
+                            }
+                        });
+
+                        gallery.init();
+
                     });
-                    gallery.init();
                 });
-            });
+            }
         },
 
         scroll: 0,
@@ -324,8 +333,12 @@
 
         addEmail: function() {
             var emailName = 'kontakt',
-                domain = 'kielki.info';
+                domain = 'kielki.info',
+                developerName = 'ewapettke',
+                developerDomain = 'gmail.com';
+
             $('.email-me').attr('href', 'mailto:' + emailName + '@' + domain);
+            $('.developer-contact').attr('href', 'mailto:' + developerName + '@' + developerDomain);
         },
 
         booksWidgetSlider: function() {
@@ -441,7 +454,6 @@
 
         docReady: function() {
             this.menuDropdown();
-            this.wow();
             this.smoothScroll();
             this.searchToggle('flipInX', 'flipOutX');
             this.scrollTop();

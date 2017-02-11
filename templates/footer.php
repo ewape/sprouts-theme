@@ -29,7 +29,7 @@
         Copyright &copy; 2008-<?php echo date("Y"); ?> <a href="http://www.kielki.info/" title="">kielki.info</a>
       </div>
       <div class="col-xs-6 text-right">
-        Projekt i wykonanie: <a href="http://horizonweb.pl" target="_blank">horizonweb.pl</a>
+        Projekt i wykonanie: <a class="developer-contact" href="http://horizonwebdesign.pl">horizonwebdesign.pl</a>
       </div>
 
       <div class="col-xs-12 footnotes">
