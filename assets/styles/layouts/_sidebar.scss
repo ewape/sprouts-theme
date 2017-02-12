@@ -1,6 +1,11 @@
 .sidebar {
 	padding-top: 2rem;
 	padding-bottom: 2rem;
+	@media (max-width: 767px) {
+		.adsbygoogle {
+			display: none !important;
+		}
+	}
 	h3 {
 		margin-top: 0;
 		font-size: 2rem;

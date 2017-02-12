@@ -412,6 +412,10 @@
             window.adsbygoogle = window.adsbygoogle || [];
             var $ads = $('.adsbygoogle');
 
+            if (window.innerWidth < 768) {
+                $ads = $ads.filter('.mobile-ads');
+            }
+
             $.each($ads, function() {
                 window.adsbygoogle.push({});
             });
@@ -460,6 +464,7 @@
             this.addEmail();
             this.btnBack();
             this.tooltipInit();
+            //UTIL.adsLoad();
         }
     };
 

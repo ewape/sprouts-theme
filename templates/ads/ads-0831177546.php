@@ -1,4 +1,4 @@
-<ins class="adsbygoogle"
+<ins class="adsbygoogle mobile-ads"
 	style="display:block;"
 	data-ad-format="auto"
 	data-ad-client="ca-pub-5797055437132004"
