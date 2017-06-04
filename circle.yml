@@ -1,10 +1,9 @@
 dependencies:
   pre:
-    - 'npm i'
+    - 'npm install'
     - 'bower install'
   cache_directories:
     - "node_modules"
     - "bower_components"
 test:
-  - bower install
-  - gulp build
+  - 'gulp build'
