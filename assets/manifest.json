@@ -1,36 +1,37 @@
 {
-  "dependencies": {
-    "main.js": {
-      "files": [
-        "scripts/main.js"
-      ],
-      "vendor": [
-        "bower_components/twentytwenty/js/jquery.event.move.js",
-        "bower_components/twentytwenty/js/jquery.twentytwenty.js",
-        "bower_components/photoswipe/dist/photoswipe-iu-default.min.js"
-      ],
-      "main": true
+    "dependencies": {
+        "main.js": {
+            "files": [
+                "scripts/main.js"
+            ],
+            "vendor": [
+                "bower_components/twentytwenty/js/jquery.event.move.js",
+                "bower_components/twentytwenty/js/jquery.twentytwenty.js",
+                "bower_components/photoswipe/dist/photoswipe-iu-default.min.js",
+                "bower_components/lazysizes/lazysizes.min.js"
+            ],
+            "main": true
+        },
+        "main.css": {
+            "files": [
+                "styles/main.scss"
+            ],
+            "vendor": [
+                "bower_components/twentytwenty/css/twentytwenty.css",
+                "bower_components/photoswipe/dist/photoswipe.css"
+            ],
+            "main": true
+        },
+        "customizer.js": {
+            "files": [
+                "scripts/customizer.js"
+            ]
+        },
+        "jquery.js": {
+            "bower": ["jquery"]
+        }
     },
-    "main.css": {
-      "files": [
-        "styles/main.scss"
-      ],
-      "vendor": [
-        "bower_components/twentytwenty/css/twentytwenty.css",
-        "bower_components/photoswipe/dist/photoswipe.css"
-      ],
-      "main": true
-    },
-    "customizer.js": {
-      "files": [
-        "scripts/customizer.js"
-      ]
-    },
-    "jquery.js": {
-      "bower": ["jquery"]
+    "config": {
+        "devUrl": "http://localhost:8080"
     }
-  },
-  "config": {
-    "devUrl": "http://localhost:8080"
-  }
 }

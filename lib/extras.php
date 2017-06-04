@@ -384,10 +384,20 @@ function modify_post_thumbnail_html($html, $post_id, $post_thumbnail_id, $size, 
     $alt = get_the_title($id); // gets the post thumbnail title
     if ($attr) {
       $class = $attr['class']; // gets classes passed to the post thumbnail, defined here for easier function access
-      if ($class == 'lazy') {
+      if ($class == 'lazyload') {
         return '<img data-src="' . $src[0] . '" alt="' . $alt . '" class="' . $class . '" />';
       }
     }
     return $html;
 }
+
 add_filter('post_thumbnail_html', __NAMESPACE__ . '\\modify_post_thumbnail_html', 99, 5);
+
+function modify_gallery_image_attributes($attr, $attachment) {
+    $attr['data-src'] = $attr['src'];
+    $attr['class'] .= ' lazyload';
+    unset($attr['src']);
+    return $attr;
+}
+
+add_filter('wp_get_attachment_image_attributes', __NAMESPACE__ . '\\modify_gallery_image_attributes', 10, 2);

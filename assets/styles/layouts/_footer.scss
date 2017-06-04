@@ -1,246 +1,244 @@
 footer {
-	background-color: $footer-bg;
-	color: $content-bg;
-	position: relative;
+    background-color: $footer-bg;
+    color: $content-bg;
+    position: relative;
 
-	.container {
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-	}
+    .container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
 
-	section {
-		margin-bottom: 2rem;
-	}
+    section {
+        margin-bottom: 2rem;
+    }
 
-	a {
-		color: $heading-bg;
-		text-decoration: none;
-		text-shadow: 0 1px 1px darken($footer-bg, 8%);
-		&:hover {
-			text-decoration: none;
-			color: $accent-dark;
-		}
-	}
+    a {
+        color: $heading-bg;
+        text-decoration: none;
+        text-shadow: 0 1px 1px darken($footer-bg, 8%);
+        &:hover {
+            text-decoration: none;
+            color: $accent-dark;
+        }
+    }
 
-	h3 {
-		text-transform: uppercase;
-		font-size: 1.6rem;
-		color: $body-bg;
-	}
+    h3 {
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        color: $body-bg;
+    }
 
-	.menu {
-		padding: 1rem 1.5rem;
-		line-height: 1.8;
-		@extend .footer-box;
+    .menu {
+        padding: 1rem 1.5rem;
+        line-height: 1.8;
+        @extend .footer-box;
 
-		a {
-			color: $content-bg;
-			text-decoration: none;
-			position: relative;
-			@extend .transition;
+        a {
+            color: $content-bg;
+            text-decoration: none;
+            position: relative;
+            @extend .transition;
 
-			&:before {
-				content: '\f105';
-				font-family: 'fontawesome';
-				margin-right: 5px;
-				color: $body-bg;
-				@extend .transition;
-			}
+            &:before {
+                content: '\f105';
+                font-family: 'fontawesome';
+                margin-right: 5px;
+                color: $body-bg;
+                @extend .transition;
+            }
 
-			&:hover {
-				color: $content-bg;
-				&:before {
-					margin-right: 10px;
-					color: $accent-dark;
-				}
-			}
-		}
-	}
+            &:hover {
+                color: $accent-light;
+                &:before {
+                    margin-right: 10px;
+                    color: $accent-dark;
+                }
+            }
+        }
+    }
 
-	.current-menu-item {
-		a {
-			color: $accent-light;
-		}
-	}
+    .current-menu-item {
+        a {
+            color: $accent-light;
+        }
+    }
 
-	.profile {
-		margin-bottom: 2rem;
-		overflow: hidden;
-		@extend .footer-box;
+    .profile {
+        margin-bottom: 2rem;
+        overflow: hidden;
+        @extend .footer-box;
 
-		&.g-plus {
-			> div {
-				display: block !important;
-				max-width: 100%;
-			}
-		}
-	}
+        &.g-plus {
+            >div {
+                display: block !important;
+                max-width: 100%;
+            }
+        }
+    }
 
-	.search-form {
-	  	max-width: 345px;
-	  	//margin: 0.5rem auto;
-	}
+    .search-form {
+        max-width: 345px; //margin: 0.5rem auto;
+    }
 
-	.search-field {
-		background-color: $content-bg;
-		color: darken($footer-bg, 8%);
-	}
-
+    .search-field {
+        background-color: $content-bg;
+        color: darken($footer-bg, 8%);
+    }
 }
 
 .social-buttons {
-		text-align: center;
-		.btn {
-			margin-left: 1rem;
-		}
-	}
+    text-align: center;
+    .btn {
+        margin-left: 1rem;
+    }
+}
 
 .footer-extras {
-	background-color: darken($footer-bg, 5%);
-	border-top: 3px solid darken($footer-bg, 8%);
-	border-bottom: 3px solid darken($footer-bg, 8%);
+    background-color: darken($footer-bg, 5%);
+    border-top: 3px solid darken($footer-bg, 8%);
+    border-bottom: 3px solid darken($footer-bg, 8%);
 }
 
 .footer-extras-row {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 
 .footer-extras-col {
-	flex: 1;
+    flex: 1;
 }
 
 .email-me {
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .footer-box {
-	background-color: rgba(255,255,255,0.08);
-	box-shadow: 4px 4px rgba(darken($footer-bg, 8%), 0.7);
-	border: 1px solid darken($footer-bg, 5%);
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 4px 4px rgba(darken($footer-bg, 8%), 0.7);
+    border: 1px solid darken($footer-bg, 5%);
 }
 
 .footer-mid {
-	border-bottom: 3px solid darken($footer-bg, 8%);
+    border-bottom: 3px solid darken($footer-bg, 8%);
 }
 
 .footer-bottom {
-	background-color: darken($footer-bg, 5%);
-	border-bottom: 3px solid darken($footer-bg, 8%);
-	font-size: 1.4rem;
+    background-color: darken($footer-bg, 5%);
+    border-bottom: 3px solid darken($footer-bg, 8%);
+    font-size: 1.4rem;
     bottom: 0;
     right: 0;
     left: 0;
 
-	a {
-		color: $body-bg;
-		&:hover {
-			text-decoration: none;
-			color: $accent-light;
-		}
-	}
+    a {
+        color: $body-bg;
+        &:hover {
+            text-decoration: none;
+            color: $accent-light;
+        }
+    }
 }
 
 .footer-navlinks {
-	text-align: right;
-	a {
-		color: $sidebar-bg;
-		margin-left: 2rem;
+    text-align: right;
+    a {
+        color: $sidebar-bg;
+        margin-left: 2rem;
 
-		&:hover {
-			color: $accent-dark;
-		}
-	}
+        &:hover {
+            color: $accent-dark;
+        }
+    }
 }
 
 .arrows {
-	position: fixed;
-	bottom: 8.5rem;
-	right: 2rem;
-	z-index: 5;
-	a {
-		color: #fff;
-		&:hover {
-			opacity: 1;
-			color: #fff;
-		}
-	}
+    position: fixed;
+    bottom: 8.5rem;
+    right: 2rem;
+    z-index: 5;
+    a {
+        color: #fff;
+        &:hover {
+            opacity: 1;
+            color: #fff;
+        }
+    }
 }
 
 .scroll-arrow {
-	height: 100%;
-	width: 100%;
-	&:hover {
-		.scroll-arrow-path {
-			fill: $accent-dark;
-		}
-	}
+    height: 100%;
+    width: 100%;
+    &:hover {
+        .scroll-arrow-path {
+            fill: $accent-dark;
+        }
+    }
 }
 
 .btn-back {
-	position: absolute;
+    position: absolute;
     right: 7rem;
     bottom: 1.9rem;
 }
 
 .footnotes {
-	font-size: 1.3rem;
-	a {
-		&:not(:last-child) {
-			position: relative;
-			padding-right: 1rem;
-			&:after {
-				content: '';
-				position: absolute;
-				top: 2px;
-				right: 0;
-				bottom: 2px;
-				width: 0;
-				border-right: 1px solid $content-bg;
-			}
-		}
-	}
+    font-size: 1.3rem;
+    a {
+        &:not(:last-child) {
+            position: relative;
+            padding-right: 1rem;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 2px;
+                right: 0;
+                bottom: 2px;
+                width: 0;
+                border-right: 1px solid $content-bg;
+            }
+        }
+    }
 }
 
 @media (max-width: 620px) {
-	.footer-extras-row {
-		flex-direction: column;
-	}
+    .footer-extras-row {
+        flex-direction: column;
+    }
 
-	.footer-extras-col {
-		width: 100%;
-		&:nth-of-type(1) {
-			margin-bottom: 2rem;
-		}
-	}
+    .footer-extras-col {
+        width: 100%;
+        &:nth-of-type(1) {
+            margin-bottom: 2rem;
+        }
+    }
 
-	footer {
-		.search-form {
-			margin: auto;
-		}
-	}
+    footer {
+        .search-form {
+            margin: auto;
+        }
+    }
 }
 
 @media (min-width: 768px) {
-	.social-buttons {
-		text-align: right;
-		.btn {
-			margin-left: 1rem;
-		}
-	}
+    .social-buttons {
+        text-align: right;
+        .btn {
+            margin-left: 1rem;
+        }
+    }
 }
 
 @media (max-width: 991px) {
-	.footer-widget {
-		h3 {
-			text-align: center;
-		}
-		.menu-kielki-container {
-			.menu {
-				column-count: 2;
-			}
-		}
-	}
+    .footer-widget {
+        h3 {
+            text-align: center;
+        }
+        .menu-kielki-container {
+            .menu {
+                column-count: 2;
+            }
+        }
+    }
 }

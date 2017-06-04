@@ -1,176 +1,182 @@
 body {
-	font-size: 1.6rem;
-	font-family: 'Dosis', sans-serif;
-	padding-top: 38px;
-	color: $body-color;
-	font-weight: 300;
-	background-color: $body-bg;
-	//text-rendering: optimizeLegibility;
+    font-size: 1.6rem;
+    font-family: 'Dosis', sans-serif;
+    padding-top: 38px;
+    color: $body-color;
+    font-weight: 300;
+    background-color: $body-bg; //text-rendering: optimizeLegibility;
 }
 
 .parallax-wrap {
-	z-index: 1;
-	background-color: $body-bg;
+    z-index: 1;
+    background-color: $body-bg;
 }
 
 .wrap {
-	margin-bottom: 2rem;
-	margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 .main {
-	padding-bottom: 2rem;
-	padding-top: 2rem;
-	background-color: $content-bg;
-	border-right: 1px solid $body-bg;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    background-color: $content-bg;
+    border-right: 1px solid $body-bg;
 
-	h2 {
-		margin-top: 3rem;
-	}
+    h2 {
+        margin-top: 3rem;
+    }
 
-	a:not(.btn) {
-		font-weight: 400;
-		text-decoration: underline;
+    a:not(.btn) {
+        font-weight: 400;
+        text-decoration: underline;
 
-		&:hover {
-			color: $accent-dark;
-		}
-	}
+        &:hover {
+            color: $accent-dark;
+        }
+    }
 
-	.link-list {
-		margin-top: 1rem;
-		margin-bottom: 1rem;
+    .link-list {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
 
-		a {
-			display: block;
-			text-decoration: none;
-			span {
-				margin-left: 1rem;
-			}
-		}
-	}
+        a {
+            display: block;
+            text-decoration: none;
+            span {
+                margin-left: 1rem;
+            }
+        }
+    }
 }
 
 .content {
-	overflow: hidden;
-	background-color: $sidebar-bg;
+    overflow: hidden;
+    background-color: $sidebar-bg;
 }
 
 .sidebar-higher {
 
-	.content {
-		background-color: $content-bg;
+    .content {
+        background-color: $content-bg;
+    }
 
-	}
+    .main {
+        border-right: 0 none;
+    }
 
-	.main {
-		border-right: 0 none;
-	}
-
-	.sidebar {
-		background-color: $sidebar-bg;
-		border-left: 1px solid $body-bg;
-	}
-
+    .sidebar {
+        background-color: $sidebar-bg;
+        border-left: 1px solid $body-bg;
+    }
 }
 
 .page-header {
-	margin: 0 0 1rem 0;
+    margin: 0 0 1rem 0;
 
-	h1 {
-		margin-top: 0;
-		margin-bottom: 0;
-		border: 1px solid $body-bg;
-		text-align: center;
-		color: $heading-color;
-		padding: 0.4rem;
-		background-color: $heading-bg;
-	}
+    h1 {
+        margin-top: 0;
+        margin-bottom: 0;
+        border: 1px solid $body-bg;
+        text-align: center;
+        color: $heading-color;
+        padding: 0.4rem;
+        background-color: $heading-bg;
+    }
 }
 
 
 .page-template-default, .single-kielki, .sidebar {
-	h2 {
-		margin-bottom: 1rem;
-		border: 1px solid $body-bg;
-		text-align: center;
-		color: $heading-color;
-		padding: 0.4rem;
-		background-color: $heading-bg;
-	}
+    h2 {
+        margin-bottom: 1rem;
+        border: 1px solid $body-bg;
+        text-align: center;
+        color: $heading-color;
+        padding: 0.4rem;
+        background-color: $heading-bg;
+    }
 }
 
 h1, h2, h3, h4, h5 {
-	clear: both;
+    clear: both;
 }
 
 h1 {
-	font-size: 2rem;
+    font-size: 2rem;
 }
 
 h2 {
-	font-size: 1.9rem;
+    font-size: 1.9rem;
 }
 
 h3 {
-	font-size: 1.8rem;
+    font-size: 1.8rem;
 }
 
 h4 {
-	font-size: 1.7rem;
+    font-size: 1.7rem;
 }
 
 a {
-	@extend .transition;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	&:hover, &:active, &:focus {
-		outline: 0;
-	}
+    @extend .transition;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    &:hover, &:active, &:focus {
+        outline: 0;
+    }
 }
 
 ul, ol {
-	list-style-position: inside;
-	margin: 0;
-	padding: 0;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
 }
 
 hr {
-	clear: both;
-	border-top: 1px dashed $body-bg;
-	margin-bottom: 1rem;
+    clear: both;
+    border-top: 1px dashed $body-bg;
+    margin-bottom: 1rem;
 }
 
 .wow {
-	visibility: hidden;
+    visibility: hidden;
 }
 
 .entry-content {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .visible-desktop {
-	@media (max-width: 991px) {
-		display: none;
-	}
+    @media (max-width: 991px) {
+        display: none;
+    }
 }
 
 .visible-tablet {
-	@media (max-width: 480px) {
-		display: none;
-	}
-	@media (min-width: 992px) {
-		display: none;
-	}
+    @media (max-width: 480px) {
+        display: none;
+    }
+    @media (min-width: 992px) {
+        display: none;
+    }
 }
 
 .visible-mobile {
-	@media (min-width: 481px) {
-		display: none;
-	}
+    @media (min-width: 481px) {
+        display: none;
+    }
+}
+
+.lazyload,
+.lazyloading {
+    opacity: 0;
+}
+
+.lazyloaded {
+    opacity: 1;
+    transition: opacity .25s;
 }
 
 // .wf-loading {
-
 //     /*
 //     first things first, we need to hide everything,
 //     but bear in mind that this will only take effect
@@ -180,7 +186,6 @@ hr {
 //     */
 //     opacity: 0;
 // }
-
 // .wf-active,
 // .wf-inactive {
 //     /*

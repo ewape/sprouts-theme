@@ -153,6 +153,7 @@
                                     item.h = this.height; // set image height
                                     gallery.invalidateCurrItems(); // reinit Items
                                     gallery.updateSize(true); // reinit Items
+                                    gallery.ui.update();
 
                                 };
                                 img.src = item.src; // let's download image
@@ -200,8 +201,7 @@
         scrollDirection: function() {
             if (this.scroll > this.previousScroll) {
                 this.scrollUp = 1;
-            }
-            else {
+            } else {
                 this.scrollUp = 0;
             }
             this.previousScroll = this.scroll;
@@ -210,7 +210,7 @@
         btnBack: function() {
             $('.btn-back').on('click', function(e) {
                 e.preventDefault();
-                if (document.referrer.length > 1) {
+                if (document.referrer && document.referrer.length > 1) {
                     window.history.back(-1);
                 }
             });
@@ -220,9 +220,7 @@
 
             if (this.scroll >= 300) {
                 $('.arrows').fadeIn(300);
-            }
-
-            else {
+            } else {
                 $('.arrows').fadeOut(300);
             }
         },
@@ -261,8 +259,7 @@
             if (!isNaN(sidebarH) && !isNaN(mainH)) {
                 if (sidebarH > mainH) {
                     $('body').addClass('sidebar-higher');
-                }
-                else {
+                } else {
                     $('body').removeClass('sidebar-higher');
                 }
             }

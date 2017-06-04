@@ -3,7 +3,7 @@
     <div class="row entry-content lightbox">
         <div class="col-xs-4 col-sm-3 book-image">
             <a class="book-thumb thumb" href="<?php post_img_url($post->ID, 'large'); ?>" title="" class="">
-                <?php the_post_thumbnail( 'ebook' ); ?>
+                <?php the_post_thumbnail( 'ebook', array('class' => 'lazyload') ); ?>
             </a>
         </div>
 

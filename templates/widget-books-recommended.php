@@ -36,7 +36,7 @@
 
                 <li>
                     <a class="widget-img-link" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
-                        <?php the_post_thumbnail( 'ebook', array('class' => 'lazy') ); ?>
+                        <?php the_post_thumbnail( 'ebook', array('class' => 'lazyload') ); ?>
                         <span class="btn btn-accent-dark hvr-icon-pulse arrow">
                         <?php _e('see in store', 'sage'); ?>
                         </span>

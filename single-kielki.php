@@ -5,8 +5,8 @@
     	</header>
     	<div class="img-compare twentytwenty-container">
         <div class="images">
-          <?php echo wp_get_attachment_image( get_post_meta( $post->ID, 'seed_id', 1 ), 'img-compare' ); ?>
-          <?php echo wp_get_attachment_image( get_post_meta( $post->ID, 'sprout_id', 1 ), 'img-compare' ); ?>
+          <?php echo wp_get_attachment_image( get_post_meta( $post->ID, 'seed_id', 1 ), 'img-compare', '', ["class" => "lazyload"] ); ?>
+          <?php echo wp_get_attachment_image( get_post_meta( $post->ID, 'sprout_id', 1 ), 'img-compare', '', ["class" => "lazyload"] ); ?>
 
           <?php if (get_post_meta( $post->ID, 'info-seeds', 1 )): ?>
             <p class="img-compare-caption caption-left">
