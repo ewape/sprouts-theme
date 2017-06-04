@@ -3,8 +3,10 @@ machine:
     version: 7.0.7
 dependencies:
   pre:
-    - 'npm install'
-    - 'bower install'
+    - "npm install"
+    - "bower install"
   cache_directories:
     - "node_modules"
     - "bower_components"
+test:
+  - "gulp build --production"
