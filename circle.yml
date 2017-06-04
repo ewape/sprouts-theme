@@ -7,3 +7,6 @@ dependencies:
   cache_directories:
     - "node_modules"
     - "bower_components"
+test:
+  post:
+   - curl 'https://api.rollbar.com/api/1/deploy/' -F access_token=db50fd44ca59427eaf882606637a1085 -F environment=production -F revision=CIRCLE_SHA1 -F rollbar_username=ewape -F comment="just a test"
