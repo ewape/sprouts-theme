@@ -1,3 +1,6 @@
+# WordPress theme build with Sage
+[![CircleCI](https://circleci.com/bb/ewa_pettke/kielki/tree/master.svg?style=svg)](https://circleci.com/bb/ewa_pettke/kielki/tree/master)
+
 # [Sage](https://roots.io/sage/)
 [![Build Status](https://travis-ci.org/roots/sage.svg)](https://travis-ci.org/roots/sage)
 [![devDependency Status](https://david-dm.org/roots/sage/dev-status.svg)](https://david-dm.org/roots/sage#info=devDependencies)
