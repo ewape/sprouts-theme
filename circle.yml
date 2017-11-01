@@ -5,7 +5,6 @@ dependencies:
   pre:
     - "bower install"
   cache_directories:
-    - "node_modules"
     - "bower_components"
 test:
   post:
