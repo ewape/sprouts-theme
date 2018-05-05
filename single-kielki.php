@@ -8,13 +8,13 @@
           <?php echo wp_get_attachment_image(get_post_meta($post->ID, 'seed_id', 1), 'img-compare', '', ["class" => "lazyload"]); ?>
           <?php echo wp_get_attachment_image(get_post_meta($post->ID, 'sprout_id', 1), 'img-compare', '', ["class" => "lazyload"]); ?>
 
-          <?php if (get_post_meta($post->ID, 'info-seeds', 1)): ?>
+          <?php if (get_post_meta($post->ID, 'info-seeds', 1)) : ?>
             <p class="img-compare-caption caption-left">
               <?php echo get_post_meta($post->ID, 'info-seeds', 1); ?>
             </p>
           <?php endif; ?>
 
-          <?php if (get_post_meta($post->ID, 'info-sprouts', 1)): ?>
+          <?php if (get_post_meta($post->ID, 'info-sprouts', 1)) : ?>
             <p class="img-compare-caption caption-right">
               <?php echo get_post_meta($post->ID, 'info-sprouts', 1); ?>
             </p>
@@ -62,7 +62,7 @@
 
       <?php $tables = get_post_meta($post->ID, 'tables_id', 1);
 
-      if ($tables): ?>
+      if ($tables) : ?>
       <a class="btn btn-accent-light tables-link" href="<?php echo get_post_permalink($tables); ?>" title="">
         <i class="fa fa-table"></i><span>Tabele wartości odżywczych</span>
       </a>

@@ -13,7 +13,7 @@
 
 // widgety określone w custom fields posta
 if ($post) {
-  $widgets = get_post_meta( $post->ID, 'widgets', false);
+  $widgets = get_post_meta($post->ID, 'widgets', false);
   getCustomWidget($widgets);
 }
 

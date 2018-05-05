@@ -4,7 +4,6 @@ namespace Roots\Sage\Extras;
 
 use Roots\Sage\Setup;
 
-
 /* Clear head */
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
@@ -59,13 +58,11 @@ add_filter('the_content', __NAMESPACE__ . '\\my_remove_rel_attr');
 
 add_action('init', __NAMESPACE__ . '\\kielki_tags', 5);
 
-register_taxonomy_for_object_type( 'kielki-tags', 'kielki');
-register_taxonomy_for_object_type( 'kielki-tags', 'ksiazki');
+register_taxonomy_for_object_type('kielki-tags', 'kielki');
+register_taxonomy_for_object_type('kielki-tags', 'ksiazki');
 
 function create_posttype_kielki() {
-
   register_post_type( 'kielki',
-
     array(
       'labels' => array(
         'name' => 'Kiełki',
@@ -97,12 +94,11 @@ function create_posttype_kielki() {
 add_action('init',  __NAMESPACE__ . '\\create_posttype_kielki');
 
 function create_posttype_ksiazki() {
-
   register_post_type('ksiazki',
     array(
       'labels' => array(
         'name' => 'Książki',
-        'singular_name' => 'Książka' ,
+        'singular_name' => 'Książka',
         'add_new' => 'Dodaj książkę',
         'add_new_item' => 'Dodaj książkę',
         'edit_item' => 'Edytuj książkę',
@@ -126,18 +122,16 @@ function create_posttype_ksiazki() {
       'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'revisions', 'page-attributes' ),
     )
   );
-
 }
 
-add_action('init',  __NAMESPACE__ . '\\create_posttype_ksiazki' );
+add_action('init',  __NAMESPACE__ . '\\create_posttype_ksiazki');
 
-add_action('cmb2_admin_init',  __NAMESPACE__ . '\\cmb2_ebook_download' );
+add_action('cmb2_admin_init',  __NAMESPACE__ . '\\cmb2_ebook_download');
 
 function cmb2_ebook_download() {
-
     $prefix = '_ebook_download_';
 
-    $cmb = new_cmb2_box( array(
+    $cmb = new_cmb2_box(array(
         'id'            => $prefix . '_metabox',
         'title'         => __('Plik do pobrania', 'cmb2'),
         'object_types'  => array('ksiazki'),
@@ -155,7 +149,7 @@ function cmb2_ebook_download() {
                 ),
             )
         )
-    ) );
+    ));
 }
 
 function create_posttype_faq() {
