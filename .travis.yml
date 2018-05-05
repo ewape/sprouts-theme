@@ -35,5 +35,6 @@ install:
 script:
   - npm run build
   - npm run jshint
-  - phpcbf --standard=ruleset.xml --ignore=*/lib/* --runtime-set ignore_errors_on_exit 1 --extensions=php -n -s .
+  - phpcbf --config-set ignore_errors_on_exit 1
+  - phpcbf --standard=ruleset.xml --ignore=*/lib/* --extensions=php -n -s .
   - phpcs --standard=ruleset.xml --ignore=*/lib/* --colors --extensions=php -n -s .
