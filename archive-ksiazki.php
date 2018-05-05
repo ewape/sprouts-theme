@@ -38,7 +38,7 @@ while ($bookloop->have_posts()) : $bookloop->the_post();
                 <?php the_title(); ?>
             <?php endif; ?>
 
-            <?php if (books_cat($post->ID, 'Nowość')): ?>
+            <?php if (books_cat($post->ID, 'Nowość')) : ?>
                 <span class="badge badge-accent-light">Nowość</span>
             <?php endif; ?>
         </h2>

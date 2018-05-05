@@ -11,15 +11,14 @@
     "bugs": {
         "url": "https://github.com/roots/sage/issues"
     },
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "http://opensource.org/licenses/MIT"
-        }
-    ],
+    "licenses": [{
+        "type": "MIT",
+        "url": "http://opensource.org/licenses/MIT"
+    }],
     "scripts": {
         "build": "bower install && gulp",
         "test": "npm run build",
+        "php": "phpcs --standard=ruleset.xml --ignore=*/lib/* --colors --extensions=php -n -s .",
         "jshint": "gulp jshint",
         "jscs": "jscs gulpfile.js assets/scripts/*.js"
     },
