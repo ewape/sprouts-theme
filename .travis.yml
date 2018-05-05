@@ -35,5 +35,6 @@ install:
 script:
   - npm run build
   - npm run jshint
-  - phpcbf --standard=ruleset.xml --config-set colors 1 --extensions=php -n -s .
-  - phpcs --standard=ruleset.xml --config-set colors 1 --extensions=php -n -s .
+  - phpcs --standard=ruleset.xml --config-set colors 1
+  - phpcbf --standard=ruleset.xml --extensions=php -n -s .
+  - phpcs --standard=ruleset.xml --extensions=php -n -s .
