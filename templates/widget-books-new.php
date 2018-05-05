@@ -1,13 +1,13 @@
 <div class="widget custom-widget widget-books">
 
-	<h2 class="widget-title">Nowości w księgarni</h2>
+  <h2 class="widget-title">Nowości w księgarni</h2>
 
     <div class="widget-body">
 
     <?php
 
     $bookargs = ( array(
-        'post_type' =>'ksiazki',
+        'post_type' => 'ksiazki',
         'posts_per_page' => -1,
         'tax_query' => array(
             array(
@@ -25,14 +25,14 @@
         )
     ) );
 
-    $bookloop = new WP_Query( $bookargs );
+    $bookloop = new WP_Query($bookargs);
 
-    while ( $bookloop->have_posts() ) : $bookloop->the_post();
+    while ( $bookloop->have_posts() ): $bookloop->the_post();
 
     ?>
 
     <a class="widget-img-link" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">
-		  <?php the_post_thumbnail( 'ebook', array('class' => 'lazyload')); ?>
+      <?php the_post_thumbnail('ebook', array('class' => 'lazyload')); ?>
       <span class="btn btn-accent-dark hvr-icon-pulse arrow">
         <?php _e('Continued', 'sage'); ?>
       </span>

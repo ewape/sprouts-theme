@@ -15,15 +15,15 @@
     <nav class="collapse navbar-nav navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement">
       <?php
       if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu( array(
-                    'theme_location' => 'primary_navigation',
-                    'menu'       => 'top_menu',
-                    'depth'      => 2,
-                    'container'  => false,
-                    'menu_class' => 'nav navbar-nav',
-                    'fallback_cb' => 'wp_page_menu',
-                    'walker' => new wp_bootstrap_navwalker())
-      );
+        wp_nav_menu(array(
+          'theme_location' => 'primary_navigation',
+          'menu'       => 'top_menu',
+          'depth'      => 2,
+          'container'  => false,
+          'menu_class' => 'nav navbar-nav',
+          'fallback_cb' => 'wp_page_menu',
+          'walker' => new wp_bootstrap_navwalker()
+        ));
       endif;
       ?>
     </nav>

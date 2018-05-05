@@ -30,45 +30,41 @@ foreach ($sage_includes as $file) {
 unset($file, $filepath);
 
 
-function bookstore_post_author( $post_id ) {
-    echo get_post_meta($post_id, 'author', true);
+function bookstore_post_author($post_id) {
+  echo get_post_meta($post_id, 'author', true);
 }
 
-function bookstore_url( $post_id ) {
-    if (get_post_meta($post_id, 'url', true)) {
-     return get_post_meta($post_id, 'url', true);
-    }
-    else {
-      return false;
-    }
-}
-
-function bookstore_free_url( $post_id ) {
-  if (get_post_meta($post_id, 'url_free', true)) {
-     return get_post_meta($post_id, 'url_free', true);
-  }
-  else {
+function bookstore_url($post_id) {
+  if (get_post_meta($post_id, 'url', true)) {
+    return get_post_meta($post_id, 'url', true);
+  } else {
     return false;
   }
+}
 
+function bookstore_free_url($post_id) {
+  if (get_post_meta($post_id, 'url_free', true)) {
+     return get_post_meta($post_id, 'url_free', true);
+  } else {
+    return false;
+  }
 }
 
 function post_img_url($post_id, $size) {
-  $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $size );
+  $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $size);
   echo $thumb['0'];
 }
 
 function get_cmb2_box($post_id, $field, $single) {
   if ($single) {
-    echo get_post_meta ( $post_id, $field, $single );
-  }
-  else {
-    return get_post_meta ( $post_id, $field, $single );
+    echo get_post_meta ($post_id, $field, $single);
+  } else {
+    return get_post_meta ($post_id, $field, $single);
   }
 }
 
 function books_cat($post_id, $cat_to_check) {
-  $cats = get_the_terms($post_id, 'books' );
+  $cats = get_the_terms($post_id, 'books');
   if ($cats) {
     foreach ($cats as $cat) {
       if ($cat->name === $cat_to_check) {
@@ -86,4 +82,3 @@ function getCustomWidget($widgets) {
     }
   }
 }
-

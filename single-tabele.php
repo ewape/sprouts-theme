@@ -11,17 +11,16 @@
   wp_reset_postdata();
 
   $tablesargs = array(
-     'post_type' =>'tabele',
+     'post_type' => 'tabele',
      'posts_per_page' => -1,
      'post__not_in' => array($post->ID),
      "order" => 'ASC',
      'orderby' => 'title'
   );
 
-  $tablesloop = new WP_Query( $tablesargs );
+  $tablesloop = new WP_Query($tablesargs);
 
-  if ($tablesloop): ?>
-
+  if ( $tablesloop ): ?>
   <div class="link-list">
 
   	<?php while ( $tablesloop->have_posts() ) : $tablesloop->the_post(); ?>

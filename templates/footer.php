@@ -5,7 +5,7 @@
       <?php get_search_form(); ?>
     </div>
     <div class="col-sm-6 col-md-8 footer-extras-col">
-     <?php get_template_part('templates/social', 'buttons'); ?>
+      <?php get_template_part('templates/social', 'buttons'); ?>
   </div>
   </div>
 </div>
@@ -13,8 +13,8 @@
 
 <footer class="footer-mid">
   <div class="container">
-  	<div class="row">
-     <?php dynamic_sidebar('sidebar-footer'); ?>
+    <div class="row">
+      <?php dynamic_sidebar('sidebar-footer'); ?>
       <a class="btn btn-default btn-round btn-back" href="#" title="Cofnij" data-toggle="tooltip" data-placement="auto">
         <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
       </a>

@@ -6,13 +6,13 @@ use Roots\Sage\Setup;
 
 
 /* Clear head */
-remove_action( 'wp_head', 'rsd_link' );
-remove_action( 'wp_head', 'wlwmanifest_link' );
-remove_action( 'wp_head', 'wp_generator' );
-remove_action( 'wp_head', 'start_post_rel_link' );
-remove_action( 'wp_head', 'index_rel_link' );
-remove_action( 'wp_head', 'adjacent_posts_rel_link' );
-remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'start_post_rel_link');
+remove_action('wp_head', 'index_rel_link');
+remove_action('wp_head', 'adjacent_posts_rel_link');
+remove_action('wp_head', 'wp_shortlink_wp_head');
 
 // Disable REST API link tag
 remove_action('wp_head', 'rest_output_link_wp_head', 10);
@@ -57,10 +57,10 @@ function my_remove_rel_attr($content) {
 
 add_filter('the_content', __NAMESPACE__ . '\\my_remove_rel_attr');
 
-add_action( 'init', __NAMESPACE__ . '\\kielki_tags', 5 );
+add_action('init', __NAMESPACE__ . '\\kielki_tags', 5);
 
-register_taxonomy_for_object_type( 'kielki-tags', 'kielki' );
-register_taxonomy_for_object_type( 'kielki-tags', 'ksiazki' );
+register_taxonomy_for_object_type( 'kielki-tags', 'kielki');
+register_taxonomy_for_object_type( 'kielki-tags', 'ksiazki');
 
 function create_posttype_kielki() {
 
@@ -92,15 +92,13 @@ function create_posttype_kielki() {
       'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'revisions', 'page-attributes' ),
     )
   );
-
 }
 
-add_action( 'init',  __NAMESPACE__ . '\\create_posttype_kielki' );
+add_action('init',  __NAMESPACE__ . '\\create_posttype_kielki');
 
 function create_posttype_ksiazki() {
 
-  register_post_type( 'ksiazki',
-
+  register_post_type('ksiazki',
     array(
       'labels' => array(
         'name' => 'Książki',
@@ -131,9 +129,9 @@ function create_posttype_ksiazki() {
 
 }
 
-add_action( 'init',  __NAMESPACE__ . '\\create_posttype_ksiazki' );
+add_action('init',  __NAMESPACE__ . '\\create_posttype_ksiazki' );
 
-add_action( 'cmb2_admin_init',  __NAMESPACE__ . '\\cmb2_ebook_download' );
+add_action('cmb2_admin_init',  __NAMESPACE__ . '\\cmb2_ebook_download' );
 
 function cmb2_ebook_download() {
 
@@ -141,8 +139,8 @@ function cmb2_ebook_download() {
 
     $cmb = new_cmb2_box( array(
         'id'            => $prefix . '_metabox',
-        'title'         => __( 'Plik do pobrania', 'cmb2' ),
-        'object_types'  => array( 'ksiazki'),
+        'title'         => __('Plik do pobrania', 'cmb2'),
+        'object_types'  => array('ksiazki'),
         'context'       => 'normal',
         'priority'      => 'high',
         'show_names'    => true,
@@ -163,7 +161,6 @@ function cmb2_ebook_download() {
 function create_posttype_faq() {
 
   register_post_type( 'faq',
-
     array(
       'labels' => array(
         'name' => 'FAQ',
@@ -187,86 +184,82 @@ function create_posttype_faq() {
       'has_archive' => true,
       'capability_type' => 'post',
       'menu_icon'   => 'dashicons-testimonial',
-      'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'revisions', 'page-attributes' )
+      'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'revisions', 'page-attributes')
     )
   );
 
 }
 
-add_action( 'init',  __NAMESPACE__ . '\\create_posttype_faq' );
+add_action('init',  __NAMESPACE__ . '\\create_posttype_faq' );
 
-add_filter( 'get_the_archive_title',  __NAMESPACE__ . '\\filter_archive_title');
+add_filter('get_the_archive_title',  __NAMESPACE__ . '\\filter_archive_title');
 
-function filter_archive_title( $title ) {
+function filter_archive_title($title) {
 
-    if (is_tag()) {
-      return single_tag_title();
-    }
+  if ( is_tag() ) {
+    return single_tag_title();
+  } elseif ( is_archive() ) {
+      $post_type = get_queried_object();
+      $title = $post_type->label;
+  }
 
-    elseif( is_archive() ) {
-         $post_type = get_queried_object();
-         $title = $post_type->label;
-    }
-
-    return $title;
-
+  return $title;
 }
 
-add_action( 'after_setup_theme', __NAMESPACE__ . '\\custom_size_thumbs' );
+add_action('after_setup_theme', __NAMESPACE__ . '\\custom_size_thumbs');
 
 function custom_size_thumbs() {
-    add_image_size( 'ebook', 220); // 220 pixels wide (and unlimited height)
-    add_image_size( 'img-compare', 822, 244, true); // 244 pixels wide (and unlimited height)
+  add_image_size('ebook', 220); // 220 pixels wide (and unlimited height)
+  add_image_size('img-compare', 822, 244, true); // 244 pixels wide (and unlimited height)
 }
 
-add_action( 'cmb2_admin_init',  __NAMESPACE__ . '\\cmb2_img_compare_metaboxes' );
+add_action('cmb2_admin_init',  __NAMESPACE__ . '\\cmb2_img_compare_metaboxes');
 
 function cmb2_img_compare_metaboxes() {
+  $prefix = '_img_compare_';
 
-    $prefix = '_img_compare_';
-
-    $cmb = new_cmb2_box( array(
-        'id'            => $prefix . '_metabox',
-        'title'         => __( 'Photos', 'cmb2' ),
-        'object_types'  => array( 'kielki'),
-        'context'       => 'normal',
-        'priority'      => 'high',
-        'show_names'    => true,
-        'fields'        => array(
-          // nasiona
-            array(
-              'name' => 'Nasiona',
-              'id'   => 'seed',
-              'type' => 'file',
-              'options' => array(
-                'url' => false, // Hide the text input for the url
-                'add_upload_file_text' => 'Dodaj plik' // Change upload button text. Default: "Add or Upload File"
-                ),
-            ),
-
-            array(
-              'name' => 'Przypis',
-              'id'   => 'info-seeds',
-              'type' => 'text',
-            ),
-
-            // kiełki
-            array(
-              'name' => __( 'Sprouts', 'cmb2' ),
-              'id'   => 'sprout',
-              'type' => 'file',
-              'options' => array(
-                'url' => false, // Hide the text input for the url
-                'add_upload_file_text' => 'Dodaj plik' // Change upload button text. Default: "Add or Upload File"
+  $cmb = new_cmb2_box( array(
+      'id'            => $prefix . '_metabox',
+      'title'         => __('Photos', 'cmb2'),
+      'object_types'  => array( 'kielki'),
+      'context'       => 'normal',
+      'priority'      => 'high',
+      'show_names'    => true,
+      'fields'        => array(
+        // nasiona
+          array(
+            'name' => 'Nasiona',
+            'id'   => 'seed',
+            'type' => 'file',
+            'options' => array(
+              'url' => false, // Hide the text input for the url
+              'add_upload_file_text' => 'Dodaj plik' // Change upload button text. Default: "Add or Upload File"
               ),
+          ),
+
+          array(
+            'name' => 'Przypis',
+            'id'   => 'info-seeds',
+            'type' => 'text',
+          ),
+
+          // kiełki
+          array(
+            'name' => __('Sprouts', 'cmb2'),
+            'id'   => 'sprout',
+            'type' => 'file',
+            'options' => array(
+              'url' => false, // Hide the text input for the url
+              'add_upload_file_text' => 'Dodaj plik' // Change upload button text. Default: "Add or Upload File"
             ),
-            array(
-              'name' => 'Przypis',
-              'id'   => 'info-sprouts',
-              'type' => 'text',
-            )
-        ),
-    ) );
+          ),
+          array(
+            'name' => 'Przypis',
+            'id'   => 'info-sprouts',
+            'type' => 'text',
+          )
+      ),
+  ) );
 }
 
 function ebooks_register_taxonomy() {
@@ -282,17 +275,19 @@ function ebooks_register_taxonomy() {
     'menu_name'         => 'Kategorie książek'
   );
 
-    $args = array(
-        'hierarchical'      => true,
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'query_var'         => true,
-        //'rewrite'           => array( 'slug' => 'genre' ),
-      );
-  register_taxonomy( 'books', array( 'ksiazki' ), $args );
+  $args = array(
+      'hierarchical'      => true,
+      'labels'            => $labels,
+      'show_ui'           => true,
+      'show_admin_column' => true,
+      'query_var'         => true,
+      //'rewrite'           => array( 'slug' => 'genre' ),
+  );
+
+  register_taxonomy('books', array('ksiazki'), $args);
 }
-add_action( 'init', __NAMESPACE__ . '\\ebooks_register_taxonomy' );
+
+add_action('init', __NAMESPACE__ . '\\ebooks_register_taxonomy');
 
 
 // Register Custom Taxonomy
@@ -310,14 +305,15 @@ function kielki_tags() {
     'menu_name'         => 'Tagi kiełków'
   );
 
-    $args = array(
-        'hierarchical'      => false,
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'query_var'         => true,
-      );
-  register_taxonomy( 'kielki-tags', array( 'kielki', 'ksiazki' ), $args );
+  $args = array(
+    'hierarchical'      => false,
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+  );
+
+  register_taxonomy('kielki-tags', array('kielki', 'ksiazki'), $args);
 }
 
 // Register Custom Post Type
@@ -373,31 +369,30 @@ function create_post_type_tables() {
   );
 
   register_post_type( 'tabele', $args );
-
 }
 
 add_action('init', __NAMESPACE__ . '\\create_post_type_tables');
 
 function modify_post_thumbnail_html($html, $post_id, $post_thumbnail_id, $size, $attr) {
-    $id = get_post_thumbnail_id(); // gets the id of the current post_thumbnail (in the loop)
-    $src = wp_get_attachment_image_src($id, $size); // gets the image url specific to the passed in size (aka. custom image size)
-    $alt = get_the_title($id); // gets the post thumbnail title
-    if ($attr) {
-      $class = $attr['class']; // gets classes passed to the post thumbnail, defined here for easier function access
-      if ($class == 'lazyload') {
-        return '<img data-src="' . $src[0] . '" alt="' . $alt . '" class="' . $class . '" />';
-      }
+  $id = get_post_thumbnail_id(); // gets the id of the current post_thumbnail (in the loop)
+  $src = wp_get_attachment_image_src($id, $size); // gets the image url specific to the passed in size (aka. custom image size)
+  $alt = get_the_title($id); // gets the post thumbnail title
+  if ( $attr ) {
+    $class = $attr['class']; // gets classes passed to the post thumbnail, defined here for easier function access
+    if ($class == 'lazyload') {
+      return '<img data-src="' . $src[0] . '" alt="' . $alt . '" class="' . $class . '" />';
     }
-    return $html;
+  }
+  return $html;
 }
 
 add_filter('post_thumbnail_html', __NAMESPACE__ . '\\modify_post_thumbnail_html', 99, 5);
 
 function modify_gallery_image_attributes($attr, $attachment) {
-    $attr['data-src'] = $attr['src'];
-    $attr['class'] .= ' lazyload';
-    unset($attr['src']);
-    return $attr;
+  $attr['data-src'] = $attr['src'];
+  $attr['class'] .= ' lazyload';
+  unset($attr['src']);
+  return $attr;
 }
 
 add_filter('wp_get_attachment_image_attributes', __NAMESPACE__ . '\\modify_gallery_image_attributes', 10, 2);

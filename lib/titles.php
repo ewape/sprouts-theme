@@ -12,11 +12,9 @@ function title() {
     } else {
       return __('Latest Posts', 'sage');
     }
-  }
-  elseif (is_tag()) {
+  } elseif (is_tag()) {
     return single_tag_title();
-  }
-  elseif (is_archive()) {
+  } elseif (is_archive()) {
     return get_the_archive_title();
   } elseif (is_search()) {
     return sprintf(__('Search Results for &bdquo;%s&rdquo;', 'sage'), get_search_query());
