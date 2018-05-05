@@ -21,7 +21,6 @@ cache:
     - bower_components
 
 before_install:
-  - composer self-update
   - source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION && nvm use $TRAVIS_NODE_VERSION
 
 install:
@@ -35,6 +34,5 @@ install:
 script:
   - npm run build
   - npm run jshint
-  - phpcs --standard=ruleset.xml --config-set colors 1
-  - phpcbf --standard=ruleset.xml --extensions=php -n -s .
-  - phpcs --standard=ruleset.xml --extensions=php -n -s .
+  - phpcbf --standard=ruleset.xml --colors --extensions=php -n -s .
+  - phpcs --standard=ruleset.xml --ignore=*/lib/* --colors --extensions=php -n -s .
