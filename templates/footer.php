@@ -25,13 +25,9 @@
 <footer class="footer-bottom" id="bottom">
   <div class="container">
     <div class="row">
-      <div class="col-xs-6 copyright">
+      <div class="col-xs-12 copyright">
         Copyright &copy; 2008-<?php echo date("Y"); ?> <a href="http://www.kielki.info/" title="">kielki.info</a>
       </div>
-      <div class="col-xs-6 text-right">
-        Projekt i wykonanie: <a class="developer-contact" href="http://horizonwebdesign.pl">horizonwebdesign.pl</a>
-      </div>
-
       <div class="col-xs-12 footnotes">
         <a href="<?php echo home_url('/'); ?>nota-prawna" title="">Nota prawna</a> &nbsp;
         <a href="<?php echo home_url('/'); ?>polityka-prywatnosci" title="">Polityka prywatności</a>
