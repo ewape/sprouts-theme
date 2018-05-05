@@ -35,5 +35,4 @@ install:
 script:
   - npm run build
   - npm run jshint
-  - phpcbf --standard=ruleset.xml --ignore=*/lib/* --extensions=php -p -s .
   - phpcs --standard=ruleset.xml --ignore=*/lib/* --colors --extensions=php -n -s .
