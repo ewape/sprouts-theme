@@ -18,8 +18,8 @@
     "scripts": {
         "build": "bower install && gulp",
         "test": "npm run build",
-        "phpcbf": "vendor\\bin\\phpcbf --standard=ruleset.xml --ignore=*/lib/*,*/vendor/* --extensions=php --report-width=auto -p -s .",
-        "phpcs": "vendor\\bin\\phpcs --standard=ruleset.xml --ignore=*/lib/*,*/vendor/* --colors --report-width=auto --extensions=php -n -s .",
+        "phpcbf": "php phpcbf.phar --standard=ruleset.xml --ignore=*/lib/*,*/vendor/* --extensions=php --report-width=auto -p -s .",
+        "phpcs": "php phpcs.phar --standard=ruleset.xml --ignore=*/lib/*,*/vendor/* --colors --report-width=auto --extensions=php -n -s .",
         "jshint": "gulp jshint",
         "jscs": "jscs gulpfile.js assets/scripts/*.js"
     },
