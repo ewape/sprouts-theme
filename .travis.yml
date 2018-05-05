@@ -19,6 +19,7 @@ cache:
     - $HOME/.composer/cache
     - bower_components
     - node_modules
+    - vendor
 
 before_install:
   - source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION && nvm use $TRAVIS_NODE_VERSION
@@ -28,6 +29,7 @@ install:
   - npm install -g bower gulp jscs
   - npm install
   - composer self-update && composer --version
+  - composer install
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 script:
