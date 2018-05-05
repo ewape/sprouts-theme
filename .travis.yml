@@ -36,3 +36,4 @@ script:
   - npm run build
   - npm run jshint
   - phpcs --standard=ruleset.xml --extensions=php -n -s .
+  - phpcbf --standard=ruleset.xml --extensions=php -n -s .
