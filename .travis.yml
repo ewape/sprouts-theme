@@ -16,7 +16,6 @@ matrix:
 
 cache:
   directories:
-    - $HOME/.composer/cache
     - bower_components
     - node_modules
 
@@ -27,9 +26,6 @@ install:
   - npm install -g npm@latest
   - npm install -g bower gulp jscs
   - npm install
-  - composer self-update && composer --version
-  - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - composer global require squizlabs/php_codesniffer
 
 script:
   - npm run build
