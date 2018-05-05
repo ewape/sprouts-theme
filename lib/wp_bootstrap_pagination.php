@@ -3,83 +3,90 @@
  * WordPress Bootstrap Pagination
  */
 
-function wp_bootstrap_pagination( $args = array() ) {
+function wp_bootstrap_pagination($args = array()) {
 
     $defaults = array(
         'range'           => 4,
-        'custom_query'    => FALSE,
-        'previous_string' => __( 'Previous', 'sage' ),
-        'next_string'     => __( 'Next', 'sage' ),
+        'custom_query'    => false,
+        'previous_string' => __('Previous', 'sage'),
+        'next_string'     => __('Next', 'sage'),
         'before_output'   => '<div class="post-nav"><ul class="pager">',
         'after_output'    => '</ul></div>'
     );
 
     $args = wp_parse_args(
         $args,
-        apply_filters( 'wp_bootstrap_pagination_defaults', $defaults )
+        apply_filters('wp_bootstrap_pagination_defaults', $defaults)
     );
 
     $args['range'] = (int) $args['range'] - 1;
-    if ( !$args['custom_query'] )
-        $args['custom_query'] = @$GLOBALS['wp_query'];
+  if (!$args['custom_query']) {
+      $args['custom_query'] = @$GLOBALS['wp_query'];
+  }
     $count = (int) $args['custom_query']->max_num_pages;
-    $page  = intval( get_query_var( 'paged' ) );
-    $ceil  = ceil( $args['range'] / 2 );
+    $page  = intval(get_query_var('paged'));
+    $ceil  = ceil($args['range'] / 2);
 
-    if ( $count <= 1 )
-        return FALSE;
+  if ($count <= 1) {
+      return false;
+  }
 
-    if ( !$page )
-        $page = 1;
+  if (!$page) {
+      $page = 1;
+  }
 
-    if ( $count > $args['range'] ) {
-        if ( $page <= $args['range'] ) {
-            $min = 1;
-            $max = $args['range'] + 1;
-        } elseif ( $page >= ($count - $ceil) ) {
-            $min = $count - $args['range'];
-            $max = $count;
-        } elseif ( $page >= $args['range'] && $page < ($count - $ceil) ) {
-            $min = $page - $ceil;
-            $max = $page + $ceil;
-        }
-    } else {
+  if ($count > $args['range']) {
+    if ($page <= $args['range']) {
         $min = 1;
+        $max = $args['range'] + 1;
+    } elseif ($page >= ($count - $ceil)) {
+        $min = $count - $args['range'];
         $max = $count;
+    } elseif ($page >= $args['range'] && $page < ($count - $ceil)) {
+        $min = $page - $ceil;
+        $max = $page + $ceil;
     }
+  } else {
+      $min = 1;
+      $max = $count;
+  }
 
     $echo = '';
     $previous = intval($page) - 1;
-    $previous = esc_attr( get_pagenum_link($previous) );
+    $previous = esc_attr(get_pagenum_link($previous));
 
-    $firstpage = esc_attr( get_pagenum_link(1) );
-    if ( $firstpage && (1 != $page) )
-        $echo .= '<li class="previous"><a href="' . $firstpage . '">' . '<i class="fa fa-angle-double-left"></i>' . '</a></li>';
+    $firstpage = esc_attr(get_pagenum_link(1));
+  if ($firstpage && (1 != $page)) {
+      $echo .= '<li class="previous"><a href="' . $firstpage . '">' . '<i class="fa fa-angle-double-left"></i>' . '</a></li>';
+  }
 
-    if ( $previous && (1 != $page) )
-        $echo .= '<li><a href="' . $previous . '" title="' . __( 'previous', 'text-domain') . '">' . '<i class="fa fa-angle-left"></i>' . '</a></li>';
+  if ($previous && (1 != $page)) {
+      $echo .= '<li><a href="' . $previous . '" title="' . __('previous', 'text-domain') . '">' . '<i class="fa fa-angle-left"></i>' . '</a></li>';
+  }
 
-    if ( !empty($min) && !empty($max) ) {
-        for( $i = $min; $i <= $max; $i++ ) {
-            if ($page == $i) {
-                $echo .= '<li class="active"><span class="active">'  . $i . '</span></li>';
-            } else {
-                $echo .= '<li><a href="'.esc_attr( get_pagenum_link($i) ).'">'.$i.'</a></li>';
-            }
-        }
+  if (!empty($min) && !empty($max)) {
+    for ($i = $min; $i <= $max; $i++) {
+      if ($page == $i) {
+          $echo .= '<li class="active"><span class="active">'  . $i . '</span></li>';
+      } else {
+          $echo .= '<li><a href="'.esc_attr(get_pagenum_link($i)).'">'.$i.'</a></li>';
+      }
     }
+  }
 
     $next = intval($page) + 1;
-    $next = esc_attr( get_pagenum_link($next) );
-    if ($next && ($count != $page) )
-        $echo .= '<li><a href="' . $next . '" title="' . __( 'next', 'text-domain') . '">' . '<i class="fa fa-angle-right"></i>' . '</a></li>';
+    $next = esc_attr(get_pagenum_link($next));
+  if ($next && ($count != $page)) {
+      $echo .= '<li><a href="' . $next . '" title="' . __('next', 'text-domain') . '">' . '<i class="fa fa-angle-right"></i>' . '</a></li>';
+  }
 
-    $lastpage = esc_attr( get_pagenum_link($count) );
+    $lastpage = esc_attr(get_pagenum_link($count));
 
-    if ( $lastpage && ($count != $page)) {
-        $echo .= '<li class="next"><a href="' . $lastpage . '">' . '<i class="fa fa-angle-double-right"></i>' . '</a></li>';
-    }
+  if ($lastpage && ($count != $page)) {
+      $echo .= '<li class="next"><a href="' . $lastpage . '">' . '<i class="fa fa-angle-double-right"></i>' . '</a></li>';
+  }
 
-    if ( isset($echo) )
-        echo $args['before_output'] . $echo . $args['after_output'];
+  if (isset($echo)) {
+      echo $args['before_output'] . $echo . $args['after_output'];
+  }
 }

@@ -7,7 +7,6 @@ php:
   - nightly
 
 env:
-  - TRAVIS_NODE_VERSION="6"
   - TRAVIS_NODE_VERSION="7"
 
 matrix:
@@ -38,5 +37,4 @@ before_script:
 script:
   - npm run build
   - npm run jshint
-  - phpcbf --standard=ruleset.xml --ignore=*/lib/* --runtime-set ignore_warnings_on_exit 1 --extensions=php -n -s .
-  - phpcs --standard=ruleset.xml --ignore=*/lib/* --colors --extensions=php -n -s .
+  - npm run phpcs

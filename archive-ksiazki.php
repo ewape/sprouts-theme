@@ -7,7 +7,7 @@ $bookargs = ( array(
     'posts_per_page' => -1,
     'tax_query' => array(
         array(
-            'taxonomy'  =>'books',
+            'taxonomy'  => 'books',
             'field'     => 'slug',
             'terms'     => array( 'ebook', 'niedostepne' ),
             'operator'  => 'NOT IN',
