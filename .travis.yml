@@ -29,10 +29,6 @@ install:
   - npm install
   - composer self-update && composer --version
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - composer global require squizlabs/php_codesniffer
-
-before_script:
-  - phpcs --config-set report_width auto
 
 script:
   - npm run build
