@@ -1,5 +1,5 @@
 <div class="widget custom-widget widget-books">
-	<h2 class="widget-title">Polecane książki</h2>
+  <h2 class="widget-title">Polecane książki</h2>
     <div class="widget-body">
         <div class="flexslider widget-slider">
             <ul class="slides">
@@ -30,7 +30,7 @@
                          ) );
 
                     $bookloop = new WP_Query($bookargs);
-                    while ($bookloop->have_posts()): $bookloop->the_post();
+                    while ($bookloop->have_posts()) : $bookloop->the_post();
 
                 ?>
 

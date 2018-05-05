@@ -37,10 +37,10 @@ use Roots\Sage\Wrapper;
               <div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
             </div>
 
-             <?php endif; ?>
-             <?php if (Setup\display_bottom_ads()) : ?>
+              <?php endif; ?>
+              <?php if (Setup\display_bottom_ads()) : ?>
               <?php echo do_shortcode('[ads id=0831177546]'); ?>
-             <?php endif; ?>
+              <?php endif; ?>
           </main><!-- /.main -->
 
           <?php if (Setup\display_sidebar()) : ?>

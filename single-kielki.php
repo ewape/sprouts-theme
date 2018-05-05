@@ -63,11 +63,9 @@
       <?php $tables = get_post_meta($post->ID, 'tables_id', 1);
 
       if ($tables): ?>
-
       <a class="btn btn-accent-light tables-link" href="<?php echo get_post_permalink($tables); ?>" title="">
         <i class="fa fa-table"></i><span>Tabele wartości odżywczych</span>
       </a>
-
       <?php endif ?>
   </section>
 <?php endwhile; ?>

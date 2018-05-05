@@ -127,14 +127,14 @@ function display_bottom_ads() {
 add_filter('script_loader_tag', __NAMESPACE__ . '\\add_async_attribute', 10, 3);
 
 function add_async_attribute($tag, $handle) {
-   $scripts_to_async = array('google-plus', 'google-ads');
+  $scripts_to_async = array('google-plus', 'google-ads');
 
-   foreach($scripts_to_async as $async_script) {
-      if ($async_script === $handle) {
-         return str_replace(' src', ' async="async" src', $tag);
-      }
-   }
-   return $tag;
+  foreach($scripts_to_async as $async_script) {
+    if ($async_script === $handle) {
+      return str_replace(' src', ' async="async" src', $tag);
+    }
+  }
+  return $tag;
 }
 
 /**
@@ -149,13 +149,13 @@ function assets() {
 
   // Load plugin css only if needed
   if ( !is_singular('tabele')) {
-    wp_deregister_style( 'tablepress-default' );
+    wp_deregister_style('tablepress-default');
   }
 
   // Load jQuery in footer
-  wp_deregister_script( 'jquery' );
-  wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
-  wp_enqueue_script( 'jquery' );
+  wp_deregister_script('jquery');
+  wp_register_script('jquery', includes_url('/js/jquery/jquery.js'), false, NULL, true );
+  wp_enqueue_script('jquery');
 
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
   wp_enqueue_script('google-ads', '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', null, null, true);

@@ -27,8 +27,7 @@
 
     $bookloop = new WP_Query($bookargs);
 
-    while ( $bookloop->have_posts() ): $bookloop->the_post();
-
+    while ($bookloop->have_posts()): $bookloop->the_post();
     ?>
 
     <a class="widget-img-link" target="_blank" href="<?php echo bookstore_url($post->ID) ?>" title="">

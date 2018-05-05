@@ -51,15 +51,15 @@ function bookstore_free_url($post_id) {
 }
 
 function post_img_url($post_id, $size) {
-  $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $size);
+  $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), $size);
   echo $thumb['0'];
 }
 
 function get_cmb2_box($post_id, $field, $single) {
   if ($single) {
-    echo get_post_meta ($post_id, $field, $single);
+    echo get_post_meta($post_id, $field, $single);
   } else {
-    return get_post_meta ($post_id, $field, $single);
+    return get_post_meta($post_id, $field, $single);
   }
 }
 
