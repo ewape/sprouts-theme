@@ -3,7 +3,7 @@
 <?php
 
 $bookargs = ( array(
-    'post_type' => 'ksiazki',
+    'post_type' =>  'ksiazki',
     'posts_per_page' => -1,
     'tax_query' => array(
         array(
