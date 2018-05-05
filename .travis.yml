@@ -32,9 +32,10 @@ install:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - composer global require squizlabs/php_codesniffer
 
+before_script:
+  - phpcbf --standard=ruleset.xml --ignore=*/lib/* --extensions=php -s .
+
 script:
   - npm run build
   - npm run jshint
-  - phpcbf --config-set ignore_errors_on_exit 1
-  - phpcbf --standard=ruleset.xml --ignore=*/lib/* --extensions=php -n -s .
   - phpcs --standard=ruleset.xml --ignore=*/lib/* --colors --extensions=php -n -s .
