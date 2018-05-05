@@ -8,13 +8,11 @@ php:
 
 env:
   - TRAVIS_NODE_VERSION="8"
-  - TRAVIS_NODE_VERSION="10"
 
 matrix:
   fast_finish: true
   allow_failures:
     - php: nightly
-    - env: TRAVIS_NODE_VERSION="10"
 
 cache:
   directories:
