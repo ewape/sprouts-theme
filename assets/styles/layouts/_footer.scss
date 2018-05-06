@@ -66,7 +66,12 @@ footer {
     .profile {
         margin-bottom: 2rem;
         overflow: hidden;
+        text-align: center;
         @extend .footer-box;
+
+        a {
+            color: $content-bg;
+        }
 
         &.g-plus {
             >div {

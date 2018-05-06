@@ -313,17 +313,15 @@
 
         fbLoad: function() {
             setTimeout(function() {
-                (function(d, s, id) {
-
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) {
-                        return;
-                    }
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.6&appId=955624011163030";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));
+              (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                  return;
+                }
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v3.0&appId=955624011163030&autoLogAppEvents=1';
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));
 
             }, 2000);
         },
