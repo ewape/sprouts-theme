@@ -132,9 +132,6 @@
 	}
 
 	footer {
-		.profile {
-			max-width: 100%;
-		}
 
 		.widget_text {
 			text-align: center;
@@ -150,6 +147,17 @@
 	.img-compare {
 		min-height: 24vw;
 	}
+}
+
+@media (max-width: 991px) {
+  footer {
+    .profile {
+			max-width: 500px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+		}
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
