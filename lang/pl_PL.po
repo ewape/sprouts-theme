@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-12-19 20:52+0100\n"
+"POT-Creation-Date: 2018-05-06 22:51+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.5\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Basepath: ..\n"
@@ -25,26 +25,35 @@ msgstr ""
 "X-Poedit-SearchPath-7: single-ksiazki.php\n"
 "X-Poedit-SearchPath-8: single-tabele.php\n"
 "X-Poedit-SearchPath-9: template-custom.php\n"
+"X-Poedit-SearchPath-10: 404.php\n"
+
+#: 404.php:4
+msgid "Sorry, but the page you were trying to view does not exist."
+msgstr "Przepraszamy, strona którą próbujesz otworzyć nie istnieje."
 
 #: archive-kielki.php:4 index.php:5 search.php:5
 msgid "Sorry, no results were found."
 msgstr "Brak wyników wyszukiwania."
 
-#: archive-ksiazki.php:49 archive-ksiazki.php:125
+#: archive-ksiazki.php:60 archive-ksiazki.php:140 single-ksiazki.php:52
 #: templates/widget-books-recommended.php:41
 msgid "see in store"
 msgstr "zobacz w sklepie"
 
-#: lib/extras.php:32 templates/content-search.php:13
-#: templates/widget-books-new.php:37
+#: lib/extras.php:48 templates/content-search.php:13
+#: templates/widget-books-new.php:36
 msgid "Continued"
 msgstr "więcej"
 
-#: lib/extras.php:182
+#: lib/extras.php:138
+msgid "Download file"
+msgstr "Plik do pobrania"
+
+#: lib/extras.php:219
 msgid "Photos"
 msgstr "Zdjęcia"
 
-#: lib/extras.php:207
+#: lib/extras.php:244
 msgid "Sprouts"
 msgstr "Kiełki"
 
@@ -64,12 +73,12 @@ msgstr "Stopka"
 msgid "Latest Posts"
 msgstr "Najnowsze wpisy"
 
-#: lib/titles.php:22
+#: lib/titles.php:20
 #, php-format
 msgid "Search Results for &bdquo;%s&rdquo;"
 msgstr "Wyniki wyszukiwania &bdquo;%s&rdquo;"
 
-#: lib/titles.php:24
+#: lib/titles.php:22
 msgid "Not Found"
 msgstr "Nie odnaleziono"
 
@@ -81,11 +90,11 @@ msgstr "Poprzednie"
 msgid "Next"
 msgstr "Następne"
 
-#: lib/wp_bootstrap_pagination.php:60
+#: lib/wp_bootstrap_pagination.php:64
 msgid "previous"
 msgstr "poprzednie"
 
-#: lib/wp_bootstrap_pagination.php:75
+#: lib/wp_bootstrap_pagination.php:80
 msgid "next"
 msgstr "następne"
 
@@ -112,9 +121,6 @@ msgstr "Autor:"
 #: templates/header.php:6
 msgid "Toggle navigation"
 msgstr "Nawigacja"
-
-#~ msgid "Sorry, but the page you were trying to view does not exist."
-#~ msgstr "Przepraszamy, strona którą próbujesz otworzyć nie istnieje."
 
 #~ msgid "Search Results for %s"
 #~ msgstr "Wyniki wyszukiwania %s"

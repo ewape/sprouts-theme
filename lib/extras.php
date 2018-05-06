@@ -135,7 +135,7 @@ function cmb2_ebook_download() {
 
     $cmb = new_cmb2_box(array(
         'id'            => $prefix . '_metabox',
-        'title'         => __('Plik do pobrania', 'cmb2'),
+        'title'         => __('Download file', 'sage'),
         'object_types'  => array('ksiazki'),
         'context'       => 'normal',
         'priority'      => 'high',
@@ -216,7 +216,7 @@ function cmb2_img_compare_metaboxes() {
 
   $cmb = new_cmb2_box(array(
       'id'            => $prefix . '_metabox',
-      'title'         => __('Photos', 'cmb2'),
+      'title'         => __('Photos', 'sage'),
       'object_types'  => array( 'kielki'),
       'context'       => 'normal',
       'priority'      => 'high',
