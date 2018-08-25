@@ -411,10 +411,6 @@
                 $ads = $ads.filter('.mobile-ads');
             }
 
-            $.each($ads, function() {
-                window.adsbygoogle.push({});
-            });
-
             function getEmptyAds($ads) {
                 $ads.each(function(i, el) {
                     if (!el.children.length) {
