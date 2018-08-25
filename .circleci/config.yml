@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/tmp
+    docker:
+      - image: circleci/php:7
+    steps:
+      - checkout
+      - run: npm i
+      - run: npm install -g bower
+      - run: npm test
+      - run: curl 'https://api.rollbar.com/api/1/deploy/' -F access_token=db50fd44ca59427eaf882606637a1085 -F environment=production -F revision="$CIRCLE_BUILD_NUM" -F rollbar_username=ewapettke -F local_username=$CIRCLE_USERNAME -F comment="Circle CI build success"
