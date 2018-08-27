@@ -1,6 +1,6 @@
 # WordPress theme build with Sage
 [![Build Status](https://travis-ci.org/ewape/sprouts-theme.svg?branch=master)](https://travis-ci.org/ewape/sprouts-theme)
-[![CircleCI](https://circleci.com/bb/ewa_pettke/kielki.svg?style=svg&circle-token=0436b1db24df88277439a461ae1fc7ba39238e91)](https://circleci.com/bb/ewa_pettke/kielki/tree/master)
+[![CircleCI](https://circleci.com/gh/ewape/sprouts-theme.svg?style=svg)](https://circleci.com/gh/ewape/sprouts-theme)
 
 # [Sage](https://roots.io/sage/)
 [![Build Status](https://travis-ci.org/roots/sage.svg)](https://travis-ci.org/roots/sage)
