@@ -158,7 +158,6 @@ function assets() {
   wp_enqueue_script('jquery');
 
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
-  wp_enqueue_script('google-ads', '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', null, null, true);
   wp_enqueue_script('google-plus', '//apis.google.com/js/platform.js', null, null, true);
   //wp_enqueue_script('webfont-loader', '//ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js', null, null, true);
 
