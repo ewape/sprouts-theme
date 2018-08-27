@@ -9,4 +9,4 @@ jobs:
       - run: npm i
       - run: sudo npm install -g bower
       - run: npm test
-      - run: curl 'https://api.rollbar.com/api/1/deploy/' -F access_token=db50fd44ca59427eaf882606637a1085 -F environment=production -F revision="$CIRCLE_BUILD_NUM" -F rollbar_username=ewapettke -F local_username=$CIRCLE_USERNAME -F comment="Circle CI build success"
+      - run: curl 'https://api.rollbar.com/api/1/deploy/' -F access_token=bff8e1e90f3449e89e7581c065afe465 -F environment=production -F revision="$CIRCLE_BUILD_NUM" -F rollbar_username=ewapettke -F local_username=$CIRCLE_USERNAME -F comment="Circle CI build success"
