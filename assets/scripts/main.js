@@ -403,27 +403,6 @@
             $(".twentytwenty-container").twentytwenty();
         },
 
-        adsLoad: function() {
-            window.adsbygoogle = window.adsbygoogle || [];
-            var $ads = $('.adsbygoogle');
-
-            if (window.innerWidth < 768) {
-                $ads = $ads.filter('.mobile-ads');
-            }
-
-            function getEmptyAds($ads) {
-                $ads.each(function(i, el) {
-                    if (!el.children.length) {
-                        $(el).next().removeClass('hidden');
-                    }
-                });
-            }
-
-            if ($ads.length) {
-                getEmptyAds($ads);
-            }
-        },
-
         windowResize: function() {
             this.bodyMarginBottom();
             this.arrowsBottomPos();
@@ -438,7 +417,6 @@
             UTIL.twentytwenty();
             UTIL.bodyMarginBottom();
             UTIL.arrowsBottomPos();
-            UTIL.adsLoad();
             UTIL.colHeight();
         },
 
@@ -455,7 +433,6 @@
             this.addEmail();
             this.btnBack();
             this.tooltipInit();
-            //UTIL.adsLoad();
         }
     };
 
