@@ -1,12 +1,10 @@
 .main-header {
-	background-color: rgba($menu-bg, 0.95);
-	background: linear-gradient(rgba($menu-bg, 0.95), rgba(darken($menu-bg, 5%), 0.95));
+  background-color: $menu-bg;
 	position: fixed;
 	top: 0;
 	right: 0;
 	left: 0;
 	z-index: 10;
-	border-bottom: 1px solid darken($menu-bg, 10%);
 }
 
 .page-header h1:first-letter {

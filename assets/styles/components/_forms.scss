@@ -67,20 +67,17 @@
 
 .header-search {
   @extend .col-md-3;
-  background-color: $menu-bg;
-  background: linear-gradient(rgba($menu-bg, 0.95), rgba(darken($menu-bg, 5%), 0.95));
+  background-color: darken($menu-bg, 5%);
+  background: linear-gradient(to top, $menu-bg, darken($menu-bg, 5%));
   position: absolute;
   right: 0;
   top: 38px;
   min-width: 100%;
   max-width: 100%;
-  border-color: darken($menu-bg, 10%);
-  border-width: 1px;
-  border-style: solid;
   padding-top: 1rem;
   padding-bottom: 1rem;
 
   .search-form .search-field {
-    border-color: darken($menu-bg, 10%);
+    border-color: transparent;
   }
 }

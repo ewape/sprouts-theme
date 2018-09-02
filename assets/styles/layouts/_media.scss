@@ -41,8 +41,8 @@
 			&:before {
 				content: '';
 			}
-		}
-	}
+    }
+  }
 
 	.content {
 		display: flex;
@@ -59,10 +59,38 @@
 	}
 
 	.navbar-nav {
-		> li, li.open {
+    > li {
 			> a {
-				border-left: 1px solid rgba($menu-color, .3);
-			}
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 10px;
+          bottom: 10px;
+          border-right: 1px solid $menu-color;
+          opacity: .5;
+        }
+      }
+
+      &:hover,
+      &:focus,
+      &.active,
+      &.open,
+      &.current-menu-parent {
+        > a {
+          &:before {
+            opacity: 0;
+          }
+        }
+
+        + li {
+          > a {
+            &:before {
+              opacity: 0;
+            }
+          }
+        }
+      }
 		}
 	}
 
@@ -76,6 +104,14 @@
 	}
 }
 
+@media (min-width: 480px) and (max-width: 767px) {
+  .dropdown-menu {
+    .menu-item-object-kielki {
+      width: 49%;
+      display: inline-block;
+    }
+  }
+}
 
 @media (min-width: 768px) and (max-width: 991px) {
 	.img-compare {
@@ -111,28 +147,53 @@
 }
 
 @media (max-width: 767px) {
-
 	.navbar-nav {
-		text-align: center;
+    text-align: center;
+
 		.open {
-			> a {
-				color: $accent-light;
-			}
-			background-color: darken($menu-bg, 10%);
+      background-color: $accent-light;
+
 			.dropdown-menu {
 				> li {
 					> a {
-						text-align: center;
-						line-height: 30px;
-						padding-left: 15px;
+            padding-left: 15px;
 					}
 				}
 			}
-		}
-	}
+    }
+  }
+
+  .submenu-sprouts {
+
+  }
+
+  .dropdown-menu {
+    padding: 15px 0;
+
+    a {
+      text-align: center;
+    }
+
+    .menu-item-object-kielki {
+      width: 50%;
+      display: inline-block;
+
+      a {
+        white-space: normal;
+      }
+    }
+
+    .submenu-sprouts.open & {
+        display: flex;
+        flex-wrap: wrap;
+    }
+  }
+
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: $body-color;
+  }
 
 	footer {
-
 		.widget_text {
 			text-align: center;
 			margin-bottom: 4rem;
@@ -179,11 +240,9 @@
 @media (max-width: 420px) {
 	.main {
 		.thumb {
-			//float: none;
 			img {
-				//margin-bottom: 1rem;
 				margin: 0 auto 1rem;
-    			display: block;
+    		display: block;
 			}
 		}
 	}
