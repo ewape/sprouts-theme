@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/tmp
     docker:
-      - image: circleci/php:7.1-node-browsers
+      - image: circleci/php@sha256:0c1e51bca767cd194ad243aed5e9eaac82810582b0a25dccc15fde421421f80c
     steps:
       - checkout
       - run: npm i
